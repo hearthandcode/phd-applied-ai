@@ -17,10 +17,15 @@ Use this when you have Cursor, OpenRouter, or Ollama but not Claude Code.
 ## Phase B: Generate one module (single-module manual mode)
 
 **What Phase B produces for each module:**
-- `theory.md` — doctoral-level theoretical content (2000–3000 words)
-- `reading-list.md` — updated with archive docs + external sources
-- `project/README.md` — updated with concrete project deliverables
+- `theory.md` — doctoral-level theoretical content (2000–3000 words, GENERIC)
+- `reading-list.md` — updated with archive docs + external sources (GENERIC)
+- `project/README.md` — updated with concrete project deliverables (GENERIC)
+- `project/hc-connection.md` — H&C-specific connection (project-specific, forks replace this)
 - `resources.md` — updated with additional resources identified
+
+> CONTENT SEPARATION RULE: theory.md, reading-list.md, and project/README.md must be
+> generic and useful to any AI/ML researcher. H&C-specific content goes ONLY in
+> project/hc-connection.md. This keeps the curriculum forkable.
 
 ### Step 1: Read the module spec
 
@@ -34,6 +39,12 @@ Open the existing `modules/MXX-slug/theory.md` — it has the front matter with 
 You are generating doctoral-level content for an Applied AI PhD curriculum module.
 This curriculum is designed for self-directed learners at the doctoral research level.
 Content should be rigorous, specific, and assume mathematical maturity.
+
+CONTENT SEPARATION RULE:
+- theory.md, reading-list.md, and project/README.md must be GENERIC: useful to any
+  AI/ML researcher regardless of their specific project or thesis.
+- All project-specific and thesis-specific content goes ONLY in project/hc-connection.md.
+  This keeps the curriculum forkable for other researchers.
 
 MODULE METADATA:
 - Module ID: M[XX]
@@ -55,31 +66,46 @@ Write doctoral-level theoretical content covering:
 3. Key algorithms or methods with pseudocode where applicable
 4. Theoretical limits and open problems
 5. Connection to adjacent modules in the curriculum
-6. How this material connects to the H&C platform (adaptive learning, AI tutoring, neurodiversity)
 
 Target length: 2,500–3,500 words. Use ## subheadings. Be specific and rigorous.
 Include concrete examples. Do not write survey-level content — write at the depth
 where a reader could implement or critique a paper in this area.
+DO NOT embed H&C, Hearth & Code, or thesis-specific references here.
 
 ## reading-list.md additions
 
 List 5–8 seminal or foundational papers/books for this module.
 Format:
 - [Author(s) (Year). "Title." Venue/Publisher.] — one sentence on why this is essential reading.
+Generic annotations only — no project-specific framing.
 
 ## project/README.md deliverable section
 
 Describe a concrete project that demonstrates competency in this module.
 Requirements:
-- Uses [Language from metadata] 
+- Uses [Language from metadata]
 - Can be completed in [par_project_hours] hours
 - Produces a runnable artifact (notebook, script, or CLI tool)
-- Connects to the H&C platform use case where possible
+- GENERIC: any AI/ML researcher should be able to complete this, not just Scott
 - Has a clear "done" state (not open-ended)
 
 Format as: Goal, Deliverables (bulleted list), Evaluation criteria.
 
-Return output clearly labeled with each section (## theory.md, ## reading-list additions, ## project deliverable).
+## project/hc-connection.md (CREATE THIS FILE)
+
+This is the ONLY place for H&C-specific content. Write:
+- How this module's content connects to the Hearth & Code adaptive learning platform
+- Specific H&C applications (adaptive difficulty, competency modeling, learner profiling,
+  gamification, neurodiversity support, AI tutoring, etc.)
+- Which of these research questions this module most directly informs:
+  RQ1: adaptive AI competency trajectory modeling
+  RQ2: pedagogical frameworks for generative AI tutors
+  RQ3: computational virtue/vice models for motivation
+  RQ4: governance for AI assessment at scale
+  RQ5: neurodiverse learner trajectory data
+- 2–4 paragraphs, specific and actionable
+
+Return output clearly labeled: ## theory.md, ## reading-list additions, ## project/README.md deliverable, ## project/hc-connection.md
 ```
 
 ### Step 3: Copy output into the module files
@@ -87,6 +113,7 @@ Return output clearly labeled with each section (## theory.md, ## reading-list a
 - Copy `## theory.md` content → paste into `modules/MXX-slug/theory.md` after the front matter
 - Add reading list entries to `modules/MXX-slug/reading-list.md`
 - Update `modules/MXX-slug/project/README.md` with the deliverable section
+- CREATE `modules/MXX-slug/project/hc-connection.md` with the H&C connection content
 - Update the front matter `status:` from `pending` to `generated`
 
 ### Step 4: Update audit

@@ -67,10 +67,10 @@ See `committee/` for full profiles and system prompts.
 
 | Artifact | Status |
 |---|---|
-| Spec and design decisions | Complete (`docs/spec.md`) |
+| Spec and design decisions | Complete (`docs/spec.md`, locked v2.1) |
 | Committee profiles | Complete (`committee/`) |
-| Curriculum module scaffolding | Pending — Workflow Phase A |
-| Module content (Phase 0–1) | Pending — Workflow Phase B |
+| Curriculum module scaffolding | Complete — 67 modules scaffolded (Phase A, commit 277b1a0) |
+| Module content (Phase 0–1) | Pending — Phase B generation next |
 | Studying begun | Not yet |
 | Blog posts published | 0 |
 
@@ -85,16 +85,40 @@ This repo grows over 5–6 years. Check `AUDIT_LOG.md` for the full session hist
 rubric, and reading list. You don't need to follow it in order, though the modules have
 prerequisites noted.
 
-**Fork and adapt:** The curriculum structure, rubrics, and committee personas are designed
-to be reused. Fork the repo, swap the thesis topic, and run the workflow to generate content
-for your own curriculum.
+**Fork and adapt:** Phases 0–3 (42 modules) are completely generic — math, CS theory,
+ML, and advanced AI applicable to any research focus. The thesis-specific connections
+are isolated in `project/hc-connection.md` files so they don't pollute the theory.
+See **[FORK_GUIDE.md](FORK_GUIDE.md)** for a step-by-step guide to adapting this
+curriculum for your own research.
 
 **Contribute:** If you complete a module and have better project ideas, more accurate theory,
-or improved rubric questions — open a PR.
+or improved rubric questions — open a PR. See the license section below for contribution terms.
 
 **Follow along:** Module completions are announced on
 [Hearth & Code Substack](https://hearthandcode.substack.com). Each post is a reflection on
 what was studied, how it changes what I'm building, and what it's actually like to do this.
+
+---
+
+## License and contributions
+
+This curriculum is licensed under [CC BY-NC-SA 4.0](LICENSE). You can share and adapt it
+freely for non-commercial purposes, as long as you give attribution and license your
+adaptations under the same terms.
+
+**The copyright holder (Scott Rallya) retains commercial rights** — including the right
+to incorporate this curriculum into the Hearth & Code platform. Forks may not be used
+commercially without written permission.
+
+**Contributor License Agreement (plain language):** By submitting a pull request, you
+grant Scott Rallya / Hearth & Code the right to include your contribution in commercial
+products (such as the H&C platform), in addition to the standard CC BY-NC-SA 4.0 terms.
+You keep your copyright; you just also grant commercial use rights to the repository owner.
+This is a standard CLA structure for dual-licensed open-source projects. If you don't want
+to grant commercial use rights, open an issue instead of a PR — contributions via issue
+discussion are also welcome.
+
+Full license terms in [LICENSE](LICENSE).
 
 ---
 

@@ -3,6 +3,12 @@ Launch full content generation for a curriculum phase. This is the manual-mode e
 Phase: $ARGUMENTS
 (Format: "B" for Phase B (M01-M18), "C" for Phase C (M19-M42), etc.)
 
+> CONTENT SEPARATION RULE (fork-friendliness):
+> theory.md must be completely generic — useful to any AI/ML learner, regardless of their
+> project or thesis. Do NOT embed Hearth & Code, H&C, or thesis-specific references in
+> theory.md or reading-list.md. Project-specific content belongs ONLY in project/hc-connection.md.
+> For every module: CREATE project/hc-connection.md as a separate file alongside project/README.md.
+
 Phase map:
 - A: Scaffold only (already complete — run Workflow script phd-phase-a.js instead)
 - B: M01–M18 (Math + CS Fundamentals, ~1.8M tokens)
@@ -16,11 +22,13 @@ Instructions:
 3. For each module in the phase, in sequence:
    a. Read the module's existing theory.md (front matter gives calibration target, tags, archive_coverage)
    b. If archive MCP tools are available: run kg_search("<module title>") to pull archive docs
-   c. Generate doctoral-level theory.md body content (see /generate-module for the full spec)
-   d. Generate reading-list.md additions (5–8 sources)
-   e. Generate project/README.md deliverable section
-   f. Update the module's front matter: status: generated, updated: today
-   g. Report: "M[XX] [title] — done. [X/Y] modules complete."
+   c. Generate generic theory.md body content (see /generate-module for the full spec — no H&C refs)
+   d. Generate reading-list.md additions (5–8 sources, generic annotations)
+   e. Generate project/README.md deliverable section (generic, any researcher can complete it)
+   f. CREATE project/hc-connection.md — H&C-specific application of this module's content,
+      including which RQs it informs and specific platform use cases
+   g. Update the module's front matter: status: generated, updated: today
+   h. Report: "M[XX] [title] — done. [X/Y] modules complete."
 4. After all modules: update curriculum/overview.md status fields for this phase.
 5. Log to AUDIT_LOG.md: Phase [X] generation complete, model used, date.
 

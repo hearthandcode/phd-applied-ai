@@ -69,6 +69,13 @@ academic recognition.
 
 CONTRIBUTING
 
+Plain-language summary: Submitting a PR means you keep your copyright and your contribution
+is covered by CC BY-NC-SA 4.0 (you can share it, adapt it, etc.). You also grant the
+copyright holder (Scott Rallya / Hearth & Code) the right to use your contribution in
+commercial products, such as the Hearth & Code platform. This is a standard Contributor
+License Agreement (CLA) structure for dual-licensed open-source projects. If you don't
+want to grant commercial use rights, open an issue instead of a PR — that works too.
+
 Pull requests and issues are welcome. By submitting a contribution to this
 repository, you agree that your contribution is licensed under the same
 CC BY-NC-SA 4.0 terms and that the copyright holder may incorporate your
