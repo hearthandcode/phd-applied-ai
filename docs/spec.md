@@ -1,10 +1,16 @@
 # Spec: Self-Directed Doctoral Curriculum in Applied AI & Machine Learning
 
-**Status:** Draft v2 — spec updated with Scott's answers; ready to proceed to Phase A
+**Status:** v2.1 — LOCKED (2026-06-13)
 **Thread:** T13
-**Owner:** Scott + Claude
-**Public repo target:** `github.com/hearthandcode/phd-applied-ai` (or similar)
-**Last updated:** 2026-06-12 (v2 — Scott's Q&A resolved)
+**Owner:** Scott Rallya
+**Repo:** `github.com/hearthandcode/phd-applied-ai` (live — Phase A complete)
+**Last updated:** 2026-06-13 (v2.1 — module count corrected 63→67; spec locked)
+**Git tag:** `v2.1-spec-locked`
+
+> **This spec is locked.** The curriculum structure, module list, thesis direction, and core
+> design decisions are final. Phase A has been executed against this spec and 67 module
+> scaffolds are live on GitHub. Any structural change requires a documented decision entry
+> in `workspace/decisions.md` (hearthandcode-hub) before modifying this file.
 
 ---
 
@@ -191,7 +197,7 @@ This is also directly useful prototype data for H&C's adaptive pacing system.
 
 ---
 
-## 5. Module registry (63 modules)
+## 5. Module registry (67 modules)
 
 ### Phase 0 — Mathematical Foundations
 
@@ -322,7 +328,7 @@ autoethnography methods literature, special education + AI intersection.
 
 ## 6. Module anatomy
 
-Every module (M01–M66) produces the following artifacts:
+Every module (M01–M67) produces the following artifacts:
 
 ### 6.1 `theory.md` — Doctoral-level theory digest
 - Written at the level of a top-tier course reader (MIT OCW, Stanford CS229 equivalent)

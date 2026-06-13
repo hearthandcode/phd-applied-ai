@@ -1,56 +1,74 @@
 ---
 type: master-audit-log
-schema_version: "1.0"
+schema_version: "2.0"
 learner_id: L001
 created: 2026-06-12
-updated: 2026-06-12
+updated: 2026-06-13
 total_sessions: 0
 total_hours: 0.0
 modules_started: 0
 modules_complete: 0
-tags: [audit, study-log, longitudinal]
+tags: [audit, study-log, longitudinal, index]
 ---
 
 # Master Audit Log
 
-Chronological record of all study sessions across the full curriculum.
-Individual modules also maintain their own `audit.md` — this is the rolled-up master view.
-
-**Format reference:** `docs/frontmatter-schema.md` → `audit-entry` schema
-
----
-
-## How to read this log
-
-Each entry records one study session:
-- **Date + Duration** — when and how long
-- **Module** — which module was active
-- **Competency** — self-assessed level before and after (0–4 scale)
-- **Energy / Focus** — ADHD and personal data; fully public; research data for RQ5
-- **Par running total** — cumulative estimated hours (par) vs. actual for that module
-
-Patterns across the log are the primary dataset for RQ5 of the thesis.
+Lightweight index of all study sessions. One row per session.
+**Full session details** — narrative, insights, open questions — live in `sessions/YYYY/MM/YYYY-MM-DD.md`.
+**Module-scoped history** lives in each `modules/MXX/audit.md`.
 
 ---
 
-## Sessions
+## How to use this file
 
-*No sessions yet. Curriculum generation (Workflow Phases A–E) is in progress.*
+- **To log a session:** Add a row to the table below and write the full session file in `sessions/`.
+- **To review progress:** Run `/phase-status` or `/weekly-report` — they read this table.
+- **To find a session:** Use the `session_id` as the filename: `sessions/YYYY/MM/<date>.md`
+- **To update totals:** Increment `total_sessions`, `total_hours`, etc. in the frontmatter above.
 
-*First session will be recorded here once studying begins — expected after Phase B completes.*
+**Session file format:** See `sessions/2026/06/EXAMPLE-session-template.md`
+**Weekly review format:** See `sessions/reviews/EXAMPLE-weekly-review.md`
 
 ---
 
-## Summary statistics
+## Session index
+
+| Date | Session ID | Modules | Hours | Energy | Focus | Competency changes | Notes |
+|---|---|---|---|---|---|---|---|
+| — | — | — | — | — | — | — | *No sessions yet. Studying begins after Phase B content is generated.* |
+
+---
+
+## Running totals
 
 | Metric | Value |
 |---|---|
 | Total sessions | 0 |
 | Total study hours | 0.0 |
 | Modules started | 0 |
-| Modules complete (≥ Level 3) | 0 |
+| Modules complete (≥ level 3) | 0 |
 | Blog posts published | 0 |
-| Average session energy | — |
-| Average session focus | — |
+| Avg session energy | — |
+| Avg focus quality | — |
+| Longest streak (days) | 0 |
+| Current streak (days) | 0 |
 
-*Updated after each session.*
+*Update these after each session. The session files are the source of truth.*
+
+---
+
+## Generation events
+
+Non-study events that affected the curriculum.
+
+| Date | Event | Details |
+|---|---|---|
+| 2026-06-13 | Phase A complete | 67 module scaffolds generated; pushed as commit 277b1a0 |
+
+---
+
+## Archive note
+
+> Sessions schema v2.0 introduced 2026-06-13. Prior to this date, no study sessions existed.
+> The `sessions/` directory structure (date-based files) is the authoritative log format going forward.
+> This index is updated in parallel with each new session file.
