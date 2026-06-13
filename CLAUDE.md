@@ -132,27 +132,46 @@ This is research data for RQ5, not incidental disclosure.
 
 ## Skills (slash commands)
 
-Invoke from a Claude Code session in this directory. 13 skills available in `.claude/commands/`:
+> **Hub-first orchestration:** When working from `hearthandcode-hub`, use the hub proxy commands
+> (`/phd-study`, `/phd-log`, `/phd-status`, `/phd-next`, `/phd-committee`) rather than launching
+> a separate phd-applied-ai session. All hub skills use absolute paths and work cross-repo.
+> Only open a phd-applied-ai Claude session directly for deep, focused study blocks where you
+> want the phd repo to be the cwd (e.g. for `/generate-module`, `/blog-draft`, `/oral-exam`).
 
+Invoke from a Claude Code session in this directory. Skills available in `.claude/commands/`:
+
+**Study & learning:**
 | Skill | Usage | What it does |
 |---|---|---|
 | `/study-session` | `/study-session M07` | Structured Socratic study session for a module |
-| `/committee-session` | `/committee-session chen M07` | Full advisor persona interaction |
-| `/oral-exam` | `/oral-exam M07` | All-committee oral examination |
-| `/committee-debrief` | `/committee-debrief M07` | All-committee debrief after completing a module |
 | `/theory-qa` | `/theory-qa M07 question` | Deep Q&A on module theory |
+| `/oral-exam` | `/oral-exam M07` | All-committee oral examination |
+| `/reading-list` | `/reading-list M07` | Curated reading order for a module |
+
+**Committee:**
+| Skill | Usage | What it does |
+|---|---|---|
+| `/committee-session` | `/committee-session chen M07` | Full advisor persona interaction |
+| `/committee-debrief` | `/committee-debrief M07` | All-committee debrief after completing a module |
+
+**Logging & tracking:**
+| Skill | Usage | What it does |
+|---|---|---|
 | `/audit-entry` | `/audit-entry M07 2.5 1` | Log a study session to audit.md |
 | `/module-review` | `/module-review M07` | Self-assessment rubric walkthrough |
+| `/phase-status` | `/phase-status` | Progress report across all phases |
+| `/next-module` | `/next-module energy:low` | Recommend next module to study |
+| `/weekly-report` | `/weekly-report 2026-06-20` | Weekly progress summary |
+| `/rq-checkpoint` | `/rq-checkpoint` | Research question evidence assessment |
+| `/thesis-checkpoint` | `/thesis-checkpoint` | Thesis milestone readiness check |
+
+**Content generation:**
+| Skill | Usage | What it does |
+|---|---|---|
 | `/generate-module` | `/generate-module M07` | Generate doctoral content for one module |
 | `/generate-phase` | `/generate-phase B` | Generate all modules in a phase (manual Workflow) |
 | `/blog-draft` | `/blog-draft M07` | Draft Substack post from a completed module |
 | `/social-post` | `/social-post M07` | All-platform social copy after a module |
-| `/phase-status` | `/phase-status` | Progress report across all phases |
-| `/next-module` | `/next-module energy:low` | Recommend next module to study |
-| `/reading-list` | `/reading-list M07` | Curated reading order for a module |
-| `/weekly-report` | `/weekly-report 2026-06-20` | Weekly progress summary |
-| `/rq-checkpoint` | `/rq-checkpoint` | Research question evidence assessment |
-| `/thesis-checkpoint` | `/thesis-checkpoint` | Thesis milestone readiness check |
 
 **Model-agnostic:** All skills work via Claude Code. Prompts can be copy-pasted into any model.
 Manual mode (no Claude Code): see `docs/manual-workflow.md`.

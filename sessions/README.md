@@ -58,6 +58,50 @@ See `sessions/YYYY/06/EXAMPLE-session-template.md` for a complete example with s
 
 ---
 
+## Scale anchors (use consistently across all logs)
+
+These definitions are fixed. Using the same anchors every session makes the data comparable over time.
+
+### Energy level (1–5)
+
+| Score | Meaning |
+|---|---|
+| 1 | Depleted — can barely function; minimal output possible |
+| 2 | Low — functioning but effortful; frequent friction |
+| 3 | Moderate — baseline operational; normal day |
+| 4 | Good — above baseline, engaged and capable |
+| 5 | Peak — high output, energized, unusually productive |
+
+### Focus quality (1–5)
+
+| Score | Meaning |
+|---|---|
+| 1 | Scattered — cannot hold a thread; mind moves constantly |
+| 2 | Fragmented — frequent drift; returning to task repeatedly |
+| 3 | Adequate — on task with effort; manageable |
+| 4 | Solid — sustained attention without much drift |
+| 5 | Deep flow — full absorption; lost track of time |
+
+### Cognitive load (qualitative)
+
+| Value | Meaning |
+|---|---|
+| `low` | Working within comfortable capacity |
+| `medium` | Noticeable mental effort; sustainable |
+| `high` | Near capacity; fatiguing |
+| `critical` | Over capacity; errors likely, rest needed |
+
+### Recall difficulty (qualitative)
+
+| Value | Meaning |
+|---|---|
+| `low` | Prior material readily accessible |
+| `medium` | Some effort to retrieve; occasional blanks |
+| `high` | Significant difficulty accessing prior learning |
+| `n/a` | No recall task (meta-reflection, non-study sessions) |
+
+---
+
 ## Using this data for research (RQ5)
 
 The full session dataset, over 5+ years, becomes the primary corpus for RQ5.

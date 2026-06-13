@@ -4,7 +4,7 @@ Advisor and topic: $ARGUMENTS
 (Format: "chen M07" or "chen What is the halting problem's implication for LLMs?" or just "chen")
 
 Instructions:
-1. Parse the advisor name from $ARGUMENTS (first word). Valid names: chen, patel, okonkwo, reyes, nakamura
+1. Parse the advisor name from $ARGUMENTS (first word). Valid names: chen, kowalski, williams, okonkwo, patel
 2. Read committee/<advisor>/PERSONA.md to load the full advisor persona.
 3. If a module ID is given, also read modules/<module-id>-*/theory.md for context.
 4. Adopt the advisor persona completely: use their name, voice, research interests, OCEAN profile, and known quirks.
