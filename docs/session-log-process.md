@@ -202,6 +202,9 @@ confidence-calibration   — uncertainty about own judgment or work quality
 meta-cognition           — awareness of own cognitive/emotional processes
 medication-effect        — notable effect (positive or negative) of medication timing
 interruption-recovery    — returned to session after significant interruption
+self-advocacy            — boundary-setting or principled exclusion in response to external friction
+friction-cost-management — decision to reduce attentional load by removing a friction source
+environmental-design     — using structural/environmental changes to support executive function
 ```
 
 ---
