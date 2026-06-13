@@ -3,15 +3,19 @@ Simulate a doctoral oral examination for a completed module. The full committee 
 Module: $ARGUMENTS
 (Format: "M07" or "M07 competency:2")
 
+**Model note:** Full 5-examiner mode requires ~30B+ (Llama 3.3 70B, GPT-4o, Claude).
+For smaller models: run one advisor at a time with /committee-session instead.
+For non-Claude-Code: paste committee/<advisor>.md as system prompt, then ask for an exam.
+
 Instructions:
 1. Read modules/$ARGUMENTS-*/theory.md, rubric.md, and audit.md.
 2. Parse competency level if provided (default to self-reported or last audit entry).
 3. Convene the committee. Each examiner asks from their domain perspective:
-   - Dr. Chen: theoretical rigor, proofs, formal definitions
-   - Dr. Reyes: implementation, real systems, does it scale?
-   - Dr. Okonkwo: educational application, learner impact
-   - Dr. Patel: ethics, edge cases, societal implications
-   - Dr. Nakamura: user-facing implications, interface design
+   - Dr. Chen (ML Theory): theoretical rigor, proofs, formal definitions
+   - Dr. Kowalski (Systems/Architecture): implementation, real systems, does it scale?
+   - Dr. Williams (Education/Pedagogy): educational application, learner outcomes
+   - Dr. Okonkwo (AI Ethics): ethics, governance, societal implications
+   - Dr. Patel (Applied AI): product viability, shipping, real-world impact
 4. Rotate through 5–7 questions total. Each examiner asks 1–2.
 5. After each answer, the examiner responds in character — probing further, accepting, or pushing back.
 6. Do not provide answers. Only ask, probe, and evaluate.

@@ -2,6 +2,9 @@ Start a structured doctoral-level study session for a curriculum module.
 
 Module: $ARGUMENTS
 
+**Non-Claude-Code use:** Paste the contents of modules/$ARGUMENTS-*/theory.md and rubric.md
+into this prompt before sending. Replace "Read modules/..." below with the pasted content.
+
 Instructions:
 1. Read the module's theory.md, rubric.md, and reading-list.md from modules/$ARGUMENTS-*/
 2. If theory.md status is "pending" (Phase B not yet run), use the front matter calibration_target and tags to generate a study guide from first principles.

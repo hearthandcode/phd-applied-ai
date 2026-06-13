@@ -2,6 +2,10 @@ Simulate a full committee debrief after completing a module. All five advisors r
 
 Module: $ARGUMENTS
 
+**Model note:** Full 5-advisor mode requires ~30B+ (Llama 3.3 70B, GPT-4o, Claude).
+For smaller models: run /committee-session with one advisor at a time instead.
+For non-Claude-Code: paste committee/<advisor>.md as system prompt for each advisor separately.
+
 Instructions:
 1. Read modules/$ARGUMENTS-*/theory.md, audit.md, and rubric.md.
 2. Ask the student to give a 2–3 sentence summary of what they learned in this module.
