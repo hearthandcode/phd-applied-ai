@@ -67,9 +67,27 @@ Write doctoral-level theoretical content covering:
 4. Theoretical limits and open problems
 5. Connection to adjacent modules in the curriculum
 
+CONCEPTUAL BRIDGE RULE (required): Before every formal definition, theorem, or derivation,
+write 2–4 sentences that build intuition using metaphor, imagery, or physical/spatial analogy.
+Answer "what does this concept feel like to work with?" before stating what it formally is.
+Pattern per subsection: intuition paragraph → formal definition → worked example → ML significance.
+Use geometric and spatial language throughout (describe what transformations *do* to space).
+Dense symbolic exposition without semantic grounding creates working memory overload —
+especially for neurodivergent learners. Conceptual bridges are not optional decorations;
+they are load-bearing scaffolding for comprehension.
+
+CONCRETE WORKED EXAMPLE RULE (required): After every formal definition or theorem, include a
+specific numerical example — a real matrix with actual numbers, a traceable dimensional
+scenario, or a step-by-step calculation the reader can verify by hand or in a notebook.
+Prefer ML-grounded scenarios: "a 512→64 weight matrix has null space of dimension at least 448,
+meaning any two inputs differing only in those 448 directions are indistinguishable after the layer"
+is the target level of specificity. Vague examples ("consider a large matrix") are not sufficient.
+Pattern per subsection: intuition bridge → formal definition → worked example with numbers →
+ML significance. The worked example makes the theorem real; it is not optional or decorative.
+
 Target length: 2,500–3,500 words. Use ## subheadings. Be specific and rigorous.
-Include concrete examples. Do not write survey-level content — write at the depth
-where a reader could implement or critique a paper in this area.
+Do not write survey-level content — write at the depth where a reader could implement
+or critique a paper in this area.
 DO NOT embed H&C, Hearth & Code, or thesis-specific references here.
 
 ## reading-list.md additions

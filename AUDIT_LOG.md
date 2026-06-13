@@ -4,6 +4,7 @@ schema_version: "2.0"
 learner_id: L001
 created: 2026-06-12
 updated: 2026-06-13
+generation_events: 2
 total_sessions: 0
 total_hours: 0.0
 modules_started: 0
@@ -64,6 +65,7 @@ Non-study events that affected the curriculum.
 | Date | Event | Details |
 |---|---|---|
 | 2026-06-13 | Phase A complete | 67 module scaffolds generated; pushed as commit 277b1a0 |
+| 2026-06-13 | Phase B generated — M01 | theory.md (3,200w), project/README.md, project/hc-connection.md, reading-list.md generated for M01 Linear Algebra for ML; model: claude-sonnet-4-6 |
 
 ---
 

@@ -205,6 +205,9 @@ interruption-recovery    — returned to session after significant interruption
 self-advocacy            — boundary-setting or principled exclusion in response to external friction
 friction-cost-management — decision to reduce attentional load by removing a friction source
 environmental-design     — using structural/environmental changes to support executive function
+format-mismatch          — difficulty with content format (not content itself); e.g. dense formalism vs. intuition-first
+adaptive-curriculum-design — adjusting curriculum structure in response to a learning difficulty observation
+working-memory-load      — session event where working memory demand was the primary limiting factor
 ```
 
 ---

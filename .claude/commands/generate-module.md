@@ -17,9 +17,23 @@ Instructions:
 **theory.md body** (after the existing front matter):
 - Doctoral-level exposition, 2,500–3,500 words
 - ## subheadings for major sections
+- CONCEPTUAL BRIDGE before every formal definition or theorem: 2–4 sentences using
+  metaphor, imagery, or spatial/physical analogy that answers "what does this feel like
+  to work with?" BEFORE the symbolic definition. Pattern: intuition → formal statement →
+  worked example → ML significance. Dense symbol sequences without semantic grounding
+  create cognitive load spikes — especially for neurodivergent learners. Not optional.
 - Formal definitions with notation
 - Mathematical derivations where applicable (use plain LaTeX: $E = mc^2$)
 - Key theorems and proofs (or proof sketches)
+- CONCRETE WORKED EXAMPLE after every formal definition or theorem: a small matrix with
+  actual numbers, a specific dimensional scenario (e.g., "a 512→64 weight matrix destroys
+  exactly 448 dimensions — meaning any two inputs differing only in those 448 directions
+  are indistinguishable after the layer"), or a step-by-step traceable calculation.
+  Examples must be specific enough to verify by hand or in a notebook. Prefer ML-grounded
+  scenarios (weight matrices, embeddings, loss surfaces, attention scores) over pure
+  mathematical abstractions. The example makes the theorem real — it is not decorative.
+- Geometric and visual language throughout: describe what transformations *do* to space,
+  not just what they *are* symbolically
 - Limitations and open problems
 - Connection to adjacent curriculum modules
 - GENERIC: any AI/ML doctoral learner should find this useful — no H&C-specific content here

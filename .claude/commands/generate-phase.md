@@ -22,7 +22,18 @@ Instructions:
 3. For each module in the phase, in sequence:
    a. Read the module's existing theory.md (front matter gives calibration target, tags, archive_coverage)
    b. If archive MCP tools are available: run kg_search("<module title>") to pull archive docs
-   c. Generate generic theory.md body content (see /generate-module for the full spec — no H&C refs)
+   c. Generate generic theory.md body content (see /generate-module for the full spec — no H&C refs).
+      Include CONCEPTUAL BRIDGES: 2–4 sentence intuition/metaphor paragraph before every formal
+      definition or theorem. Answer "what does this feel like?" before "here is the formal statement."
+      Use geometric and spatial language. Dense formalism without semantic grounding loses learners,
+      especially neurodivergent readers. Bridges are required, not optional.
+      Include CONCRETE WORKED EXAMPLES after every formal definition or theorem: a specific
+      numerical case (actual matrix dimensions, real numbers, traceable calculation) that makes the
+      theorem tangible. Prefer ML-grounded scenarios: weight matrices, embedding dimensions,
+      attention scores, singular value spectra, loss-surface curvature. Pattern per subsection:
+      intuition bridge → formal definition → worked example with numbers → ML significance.
+      Examples must be specific enough to verify by hand — "a 512→64 weight matrix destroys exactly
+      448 dimensions" rather than "a weight matrix discards some information." Not decorative; load-bearing.
    d. Generate reading-list.md additions (5–8 sources, generic annotations)
    e. Generate project/README.md deliverable section (generic, any researcher can complete it)
    f. CREATE project/hc-connection.md — H&C-specific application of this module's content,
