@@ -3,7 +3,8 @@ type: master-scorecard
 schema_version: "1.0"
 learner_id: L001
 created: 2026-06-12
-updated: 2026-06-12
+updated: 2026-06-13
+total_par_hours: 3265
 tags: [scorecard, pace, par, tracking]
 ---
 
@@ -22,13 +23,13 @@ entries as studying progresses.
 
 | Module | Title | Par (hrs) | Actual (hrs) | Competency | Status |
 |---|---|---|---|---|---|
-| M01 | Linear Algebra for ML | — | 0 | 0 | not started |
-| M02 | Multivariate Calculus and Optimization | — | 0 | 0 | not started |
-| M03 | Probability Theory and Bayesian Inference | — | 0 | 0 | not started |
-| M04 | Statistics and Statistical Learning | — | 0 | 0 | not started |
-| M05 | Information Theory | — | 0 | 0 | not started |
-| M06 | Graph Theory and Discrete Mathematics | — | 0 | 0 | not started |
-| **Phase total** | | — | 0 | — | |
+| M01 | Linear Algebra for ML | 45 | 0 | 0 | not started |
+| M02 | Multivariate Calculus and Optimization | 45 | 0 | 0 | not started |
+| M03 | Probability Theory and Bayesian Inference | 50 | 0 | 0 | not started |
+| M04 | Statistics and Statistical Learning | 45 | 0 | 0 | not started |
+| M05 | Information Theory | 40 | 0 | 0 | not started |
+| M06 | Graph Theory and Discrete Mathematics | 40 | 0 | 0 | not started |
+| **Phase total** | | 265 | 0 | — | |
 
 ---
 
@@ -36,19 +37,19 @@ entries as studying progresses.
 
 | Module | Title | Par (hrs) | Actual (hrs) | Competency | Status |
 |---|---|---|---|---|---|
-| M07 | Computability Theory and Formal Languages | — | 0 | 0 | not started |
-| M08 | Computational Complexity | — | 0 | 0 | not started |
-| M09 | Algorithm Design and Analysis | — | 0 | 0 | not started |
-| M10 | Advanced Data Structures | — | 0 | 0 | not started |
-| M11 | Programming Language Theory | — | 0 | 0 | not started |
-| M12 | Type Theory and Dependent Types | — | 0 | 0 | not started |
-| M13 | Operating Systems and Systems Programming | — | 0 | 0 | not started |
-| M14 | Computer Networks and Distributed Systems | — | 0 | 0 | not started |
-| M15 | Database Systems and Theory | — | 0 | 0 | not started |
-| M16 | Software Architecture Patterns | — | 0 | 0 | not started |
-| M17 | Software Engineering Methodology | — | 0 | 0 | not started |
-| M18 | Security Fundamentals | — | 0 | 0 | not started |
-| **Phase total** | | — | 0 | — | |
+| M07 | Computability Theory and Formal Languages | 45 | 0 | 0 | not started |
+| M08 | Computational Complexity | 40 | 0 | 0 | not started |
+| M09 | Algorithm Design and Analysis | 45 | 0 | 0 | not started |
+| M10 | Advanced Data Structures | 35 | 0 | 0 | not started |
+| M11 | Programming Language Theory | 45 | 0 | 0 | not started |
+| M12 | Type Theory and Dependent Types | 45 | 0 | 0 | not started |
+| M13 | Operating Systems and Systems Programming | 40 | 0 | 0 | not started |
+| M14 | Computer Networks and Distributed Systems | 40 | 0 | 0 | not started |
+| M15 | Database Systems and Theory | 35 | 0 | 0 | not started |
+| M16 | Software Architecture Patterns | 35 | 0 | 0 | not started |
+| M17 | Software Engineering Methodology | 30 | 0 | 0 | not started |
+| M18 | Security Fundamentals | 35 | 0 | 0 | not started |
+| **Phase total** | | 470 | 0 | — | |
 
 ---
 
@@ -56,17 +57,17 @@ entries as studying progresses.
 
 | Module | Title | Par (hrs) | Actual (hrs) | Competency | Status |
 |---|---|---|---|---|---|
-| M19 | Classical Machine Learning Algorithms | — | 0 | 0 | not started |
-| M20 | Statistical Learning Theory | — | 0 | 0 | not started |
-| M21 | Neural Network Foundations | — | 0 | 0 | not started |
-| M22 | Convolutional and Recurrent Architectures | — | 0 | 0 | not started |
-| M23 | Attention Mechanisms and Transformer Architecture | — | 0 | 0 | not started |
-| M24 | Optimization for Deep Learning | — | 0 | 0 | not started |
-| M25 | Regularization, Generalization, and Overfitting | — | 0 | 0 | not started |
-| M26 | Probabilistic Graphical Models | — | 0 | 0 | not started |
-| M27 | Reinforcement Learning Fundamentals | — | 0 | 0 | not started |
-| M28 | Deep Reinforcement Learning | — | 0 | 0 | not started |
-| **Phase total** | | — | 0 | — | |
+| M19 | Classical Machine Learning Algorithms | 50 | 0 | 0 | not started |
+| M20 | Statistical Learning Theory | 50 | 0 | 0 | not started |
+| M21 | Neural Network Foundations | 50 | 0 | 0 | not started |
+| M22 | Convolutional and Recurrent Architectures | 45 | 0 | 0 | not started |
+| M23 | Attention Mechanisms and Transformer Architecture | 55 | 0 | 0 | not started |
+| M24 | Optimization for Deep Learning | 40 | 0 | 0 | not started |
+| M25 | Regularization, Generalization, and Overfitting | 40 | 0 | 0 | not started |
+| M26 | Probabilistic Graphical Models | 50 | 0 | 0 | not started |
+| M27 | Reinforcement Learning Fundamentals | 50 | 0 | 0 | not started |
+| M28 | Deep Reinforcement Learning | 55 | 0 | 0 | not started |
+| **Phase total** | | 485 | 0 | — | |
 
 ---
 
@@ -74,21 +75,21 @@ entries as studying progresses.
 
 | Module | Title | Par (hrs) | Actual (hrs) | Competency | Status |
 |---|---|---|---|---|---|
-| M29 | LLM Architecture and Pretraining | — | 0 | 0 | not started |
-| M30 | Fine-tuning, RLHF, and Alignment Techniques | — | 0 | 0 | not started |
-| M31 | Generative Models: VAE, GAN, Diffusion | — | 0 | 0 | not started |
-| M32 | Adversarial Machine Learning and Robustness | — | 0 | 0 | not started |
-| M33 | Memory Systems and RAG Architecture | — | 0 | 0 | not started |
-| M34 | Multi-Agent Systems and Agentic AI | — | 0 | 0 | not started |
-| M35 | AI Planning, Reasoning, and Symbolic AI | — | 0 | 0 | not started |
-| M36 | Computer Vision and Multimodal AI | — | 0 | 0 | not started |
-| M37 | Speech, Audio, and Multimodal Perception | — | 0 | 0 | not started |
-| M38 | Knowledge Representation and Reasoning | — | 0 | 0 | not started |
-| M39 | Causal Inference and Causality in ML | — | 0 | 0 | not started |
-| M40 | Interpretability and Explainability (XAI) | — | 0 | 0 | not started |
-| M41 | AI Safety, Alignment, and Red-Teaming | — | 0 | 0 | not started |
-| M42 | Frontier Research Methods and Practices | — | 0 | 0 | not started |
-| **Phase total** | | — | 0 | — | |
+| M29 | LLM Architecture and Pretraining | 60 | 0 | 0 | not started |
+| M30 | Fine-tuning, RLHF, and Alignment Techniques | 60 | 0 | 0 | not started |
+| M31 | Generative Models: VAE, GAN, Diffusion | 55 | 0 | 0 | not started |
+| M32 | Adversarial Machine Learning and Robustness | 50 | 0 | 0 | not started |
+| M33 | Memory Systems and RAG Architecture | 55 | 0 | 0 | not started |
+| M34 | Multi-Agent Systems and Agentic AI | 55 | 0 | 0 | not started |
+| M35 | AI Planning, Reasoning, and Symbolic AI | 50 | 0 | 0 | not started |
+| M36 | Computer Vision and Multimodal AI | 50 | 0 | 0 | not started |
+| M37 | Speech, Audio, and Multimodal Perception | 45 | 0 | 0 | not started |
+| M38 | Knowledge Representation and Reasoning | 50 | 0 | 0 | not started |
+| M39 | Causal Inference and Causality in ML | 55 | 0 | 0 | not started |
+| M40 | Interpretability and Explainability (XAI) | 50 | 0 | 0 | not started |
+| M41 | AI Safety, Alignment, and Red-Teaming | 55 | 0 | 0 | not started |
+| M42 | Frontier Research Methods and Practices | 45 | 0 | 0 | not started |
+| **Phase total** | | 735 | 0 | — | |
 
 ---
 
@@ -96,26 +97,26 @@ entries as studying progresses.
 
 | Module | Title | Par (hrs) | Actual (hrs) | Competency | Status |
 |---|---|---|---|---|---|
-| M43 | AI and Education (AIED) Foundations | — | 0 | 0 | not started |
-| M44 | Intelligent Tutoring Systems | — | 0 | 0 | not started |
-| M45 | Adaptive Learning Systems and BKT | — | 0 | 0 | not started |
-| M46 | Curriculum Design Theory | — | 0 | 0 | not started |
-| M47 | Instructional Design Methods | — | 0 | 0 | not started |
-| M48 | AI Literacy Frameworks | — | 0 | 0 | not started |
-| M49 | AI Pedagogy and Teaching with AI | — | 0 | 0 | not started |
-| M50 | Gamification Theory and Game-Based Learning | — | 0 | 0 | not started |
-| M51 | Educational Measurement and Assessment | — | 0 | 0 | not started |
-| M52 | Affective Computing and Emotion Modeling | — | 0 | 0 | not started |
-| M53 | Computational Personality Modeling | — | 0 | 0 | not started |
-| M54 | Value Alignment, Virtue, and Vice Modeling | — | 0 | 0 | not started |
-| M55 | AI Ethics, Governance, and Policy | — | 0 | 0 | not started |
-| M56 | Fairness, Accountability, and Transparency | — | 0 | 0 | not started |
-| M57 | AI and Society: Policy, Economics, Labor | — | 0 | 0 | not started |
-| M58 | Cognitive Science and Learning Theory | — | 0 | 0 | not started |
-| M59 | HCI and Interface Design for AI-Native Learning | — | 0 | 0 | not started |
-| M60 | MLOps, AI Engineering, and Experiment Design | — | 0 | 0 | not started |
-| M61 | Neurodiversity, Mental Health, and AI-Mediated Learning | — | 0 | 0 | not started |
-| **Phase total** | | — | 0 | — | |
+| M43 | AI and Education (AIED) Foundations | 45 | 0 | 0 | not started |
+| M44 | Intelligent Tutoring Systems | 45 | 0 | 0 | not started |
+| M45 | Adaptive Learning Systems and BKT | 45 | 0 | 0 | not started |
+| M46 | Curriculum Design Theory | 35 | 0 | 0 | not started |
+| M47 | Instructional Design Methods | 35 | 0 | 0 | not started |
+| M48 | AI Literacy Frameworks | 30 | 0 | 0 | not started |
+| M49 | AI Pedagogy and Teaching with AI | 35 | 0 | 0 | not started |
+| M50 | Gamification Theory and Game-Based Learning | 40 | 0 | 0 | not started |
+| M51 | Educational Measurement and Assessment | 40 | 0 | 0 | not started |
+| M52 | Affective Computing and Emotion Modeling | 45 | 0 | 0 | not started |
+| M53 | Computational Personality Modeling | 40 | 0 | 0 | not started |
+| M54 | Value Alignment, Virtue, and Vice Modeling | 45 | 0 | 0 | not started |
+| M55 | AI Ethics, Governance, and Policy | 40 | 0 | 0 | not started |
+| M56 | Fairness, Accountability, and Transparency | 40 | 0 | 0 | not started |
+| M57 | AI and Society: Policy, Economics, Labor | 35 | 0 | 0 | not started |
+| M58 | Cognitive Science and Learning Theory | 45 | 0 | 0 | not started |
+| M59 | HCI and Interface Design for AI-Native Learning | 40 | 0 | 0 | not started |
+| M60 | MLOps, AI Engineering, and Experiment Design | 40 | 0 | 0 | not started |
+| M61 | Neurodiversity, Mental Health, and AI-Mediated Learning | 50 | 0 | 0 | not started |
+| **Phase total** | | 770 | 0 | — | |
 
 ---
 
@@ -123,13 +124,13 @@ entries as studying progresses.
 
 | Module | Title | Par (hrs) | Actual (hrs) | Status |
 |---|---|---|---|---|
-| M62 | Research Methodology | — | 0 | not started |
-| M63 | Systematic Literature Review | — | 0 | not started |
-| M64 | Thesis Proposal | — | 0 | not started |
-| M65 | Original Research: H&C as Laboratory | — | 0 | not started |
-| M66 | Thesis Writing | — | 0 | not started |
-| M67 | PhD Defense: Preparation and Execution | — | 0 | not started |
-| **Phase total** | | — | 0 | |
+| M62 | Research Methodology | 50 | 0 | not started |
+| M63 | Systematic Literature Review | 55 | 0 | not started |
+| M64 | Thesis Proposal | 55 | 0 | not started |
+| M65 | Original Research: H&C as Laboratory | 100 | 0 | not started |
+| M66 | Thesis Writing | 250 | 0 | not started |
+| M67 | PhD Defense: Preparation and Execution | 30 | 0 | not started |
+| **Phase total** | | 540 | 0 | |
 
 ---
 
@@ -137,6 +138,6 @@ entries as studying progresses.
 
 | | Par (hrs) | Actual (hrs) | Variance |
 |---|---|---|---|
-| All 67 modules | — | 0 | — |
+| All 67 modules | 3265 | 0 | — |
 
 *Par scores filled in by Workflow Phase A. Actual hours updated after each study session.*

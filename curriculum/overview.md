@@ -2,10 +2,10 @@
 type: curriculum-overview
 schema_version: "1.0"
 created: 2026-06-12
-updated: 2026-06-12
+updated: 2026-06-13
 total_modules: 67
 phases: 6
-generated_by: null
+generated_by: "Workflow Phase A"
 tags: [curriculum, overview, module-registry]
 ---
 
@@ -23,12 +23,12 @@ Status updated as modules are completed.
 
 | ID | Title | Status | Competency | Blog |
 |---|---|---|---|---|
-| M01 | Linear Algebra for ML | pending | 0 | — |
-| M02 | Multivariate Calculus and Optimization | pending | 0 | — |
-| M03 | Probability Theory and Bayesian Inference | pending | 0 | — |
-| M04 | Statistics and Statistical Learning | pending | 0 | — |
-| M05 | Information Theory | pending | 0 | — |
-| M06 | Graph Theory and Discrete Mathematics | pending | 0 | — |
+| M01 | Linear Algebra for ML | scaffolded | 0 | — |
+| M02 | Multivariate Calculus and Optimization | scaffolded | 0 | — |
+| M03 | Probability Theory and Bayesian Inference | scaffolded | 0 | — |
+| M04 | Statistics and Statistical Learning | scaffolded | 0 | — |
+| M05 | Information Theory | scaffolded | 0 | — |
+| M06 | Graph Theory and Discrete Mathematics | scaffolded | 0 | — |
 
 ---
 
@@ -36,18 +36,18 @@ Status updated as modules are completed.
 
 | ID | Title | Status | Competency | Blog |
 |---|---|---|---|---|
-| M07 | Computability Theory and Formal Languages | pending | 0 | — |
-| M08 | Computational Complexity | pending | 0 | — |
-| M09 | Algorithm Design and Analysis | pending | 0 | — |
-| M10 | Advanced Data Structures | pending | 0 | — |
-| M11 | Programming Language Theory | pending | 0 | — |
-| M12 | Type Theory and Dependent Types | pending | 0 | — |
-| M13 | Operating Systems and Systems Programming | pending | 0 | — |
-| M14 | Computer Networks and Distributed Systems | pending | 0 | — |
-| M15 | Database Systems and Theory | pending | 0 | — |
-| M16 | Software Architecture Patterns | pending | 0 | — |
-| M17 | Software Engineering Methodology | pending | 0 | — |
-| M18 | Security Fundamentals | pending | 0 | — |
+| M07 | Computability Theory and Formal Languages | scaffolded | 0 | — |
+| M08 | Computational Complexity | scaffolded | 0 | — |
+| M09 | Algorithm Design and Analysis | scaffolded | 0 | — |
+| M10 | Advanced Data Structures | scaffolded | 0 | — |
+| M11 | Programming Language Theory | scaffolded | 0 | — |
+| M12 | Type Theory and Dependent Types | scaffolded | 0 | — |
+| M13 | Operating Systems and Systems Programming | scaffolded | 0 | — |
+| M14 | Computer Networks and Distributed Systems | scaffolded | 0 | — |
+| M15 | Database Systems and Theory | scaffolded | 0 | — |
+| M16 | Software Architecture Patterns | scaffolded | 0 | — |
+| M17 | Software Engineering Methodology | scaffolded | 0 | — |
+| M18 | Security Fundamentals | scaffolded | 0 | — |
 
 ---
 
@@ -55,16 +55,16 @@ Status updated as modules are completed.
 
 | ID | Title | Status | Competency | Blog |
 |---|---|---|---|---|
-| M19 | Classical Machine Learning Algorithms | pending | 0 | — |
-| M20 | Statistical Learning Theory | pending | 0 | — |
-| M21 | Neural Network Foundations | pending | 0 | — |
-| M22 | Convolutional and Recurrent Architectures | pending | 0 | — |
-| M23 | Attention Mechanisms and Transformer Architecture | pending | 0 | — |
-| M24 | Optimization for Deep Learning | pending | 0 | — |
-| M25 | Regularization, Generalization, and Overfitting | pending | 0 | — |
-| M26 | Probabilistic Graphical Models | pending | 0 | — |
-| M27 | Reinforcement Learning Fundamentals | pending | 0 | — |
-| M28 | Deep Reinforcement Learning | pending | 0 | — |
+| M19 | Classical Machine Learning Algorithms | scaffolded | 0 | — |
+| M20 | Statistical Learning Theory | scaffolded | 0 | — |
+| M21 | Neural Network Foundations | scaffolded | 0 | — |
+| M22 | Convolutional and Recurrent Architectures | scaffolded | 0 | — |
+| M23 | Attention Mechanisms and Transformer Architecture | scaffolded | 0 | — |
+| M24 | Optimization for Deep Learning | scaffolded | 0 | — |
+| M25 | Regularization, Generalization, and Overfitting | scaffolded | 0 | — |
+| M26 | Probabilistic Graphical Models | scaffolded | 0 | — |
+| M27 | Reinforcement Learning Fundamentals | scaffolded | 0 | — |
+| M28 | Deep Reinforcement Learning | scaffolded | 0 | — |
 
 ---
 
@@ -72,20 +72,20 @@ Status updated as modules are completed.
 
 | ID | Title | Status | Competency | Blog |
 |---|---|---|---|---|
-| M29 | LLM Architecture and Pretraining | pending | 0 | — |
-| M30 | Fine-tuning, RLHF, and Alignment Techniques | pending | 0 | — |
-| M31 | Generative Models: VAE, GAN, Diffusion | pending | 0 | — |
-| M32 | Adversarial Machine Learning and Robustness | pending | 0 | — |
-| M33 | Memory Systems and RAG Architecture | pending | 0 | — |
-| M34 | Multi-Agent Systems and Agentic AI | pending | 0 | — |
-| M35 | AI Planning, Reasoning, and Symbolic AI | pending | 0 | — |
-| M36 | Computer Vision and Multimodal AI | pending | 0 | — |
-| M37 | Speech, Audio, and Multimodal Perception | pending | 0 | — |
-| M38 | Knowledge Representation and Reasoning | pending | 0 | — |
-| M39 | Causal Inference and Causality in ML | pending | 0 | — |
-| M40 | Interpretability and Explainability (XAI) | pending | 0 | — |
-| M41 | AI Safety, Alignment, and Red-Teaming | pending | 0 | — |
-| M42 | Frontier Research Methods and Practices | pending | 0 | — |
+| M29 | LLM Architecture and Pretraining | scaffolded | 0 | — |
+| M30 | Fine-tuning, RLHF, and Alignment Techniques | scaffolded | 0 | — |
+| M31 | Generative Models: VAE, GAN, Diffusion | scaffolded | 0 | — |
+| M32 | Adversarial Machine Learning and Robustness | scaffolded | 0 | — |
+| M33 | Memory Systems and RAG Architecture | scaffolded | 0 | — |
+| M34 | Multi-Agent Systems and Agentic AI | scaffolded | 0 | — |
+| M35 | AI Planning, Reasoning, and Symbolic AI | scaffolded | 0 | — |
+| M36 | Computer Vision and Multimodal AI | scaffolded | 0 | — |
+| M37 | Speech, Audio, and Multimodal Perception | scaffolded | 0 | — |
+| M38 | Knowledge Representation and Reasoning | scaffolded | 0 | — |
+| M39 | Causal Inference and Causality in ML | scaffolded | 0 | — |
+| M40 | Interpretability and Explainability (XAI) | scaffolded | 0 | — |
+| M41 | AI Safety, Alignment, and Red-Teaming | scaffolded | 0 | — |
+| M42 | Frontier Research Methods and Practices | scaffolded | 0 | — |
 
 ---
 
@@ -93,25 +93,25 @@ Status updated as modules are completed.
 
 | ID | Title | Status | Competency | Blog |
 |---|---|---|---|---|
-| M43 | AI and Education (AIED) Foundations | pending | 0 | — |
-| M44 | Intelligent Tutoring Systems | pending | 0 | — |
-| M45 | Adaptive Learning Systems and BKT | pending | 0 | — |
-| M46 | Curriculum Design Theory | pending | 0 | — |
-| M47 | Instructional Design Methods | pending | 0 | — |
-| M48 | AI Literacy Frameworks | pending | 0 | — |
-| M49 | AI Pedagogy and Teaching with AI | pending | 0 | — |
-| M50 | Gamification Theory and Game-Based Learning | pending | 0 | — |
-| M51 | Educational Measurement and Assessment | pending | 0 | — |
-| M52 | Affective Computing and Emotion Modeling | pending | 0 | — |
-| M53 | Computational Personality Modeling | pending | 0 | — |
-| M54 | Value Alignment, Virtue, and Vice Modeling | pending | 0 | — |
-| M55 | AI Ethics, Governance, and Policy | pending | 0 | — |
-| M56 | Fairness, Accountability, and Transparency | pending | 0 | — |
-| M57 | AI and Society: Policy, Economics, Labor | pending | 0 | — |
-| M58 | Cognitive Science and Learning Theory | pending | 0 | — |
-| M59 | HCI and Interface Design for AI-Native Learning | pending | 0 | — |
-| M60 | MLOps, AI Engineering, and Experiment Design | pending | 0 | — |
-| M61 | Neurodiversity, Mental Health, and AI-Mediated Learning | pending | 0 | — |
+| M43 | AI and Education (AIED) Foundations | scaffolded | 0 | — |
+| M44 | Intelligent Tutoring Systems | scaffolded | 0 | — |
+| M45 | Adaptive Learning Systems and BKT | scaffolded | 0 | — |
+| M46 | Curriculum Design Theory | scaffolded | 0 | — |
+| M47 | Instructional Design Methods | scaffolded | 0 | — |
+| M48 | AI Literacy Frameworks | scaffolded | 0 | — |
+| M49 | AI Pedagogy and Teaching with AI | scaffolded | 0 | — |
+| M50 | Gamification Theory and Game-Based Learning | scaffolded | 0 | — |
+| M51 | Educational Measurement and Assessment | scaffolded | 0 | — |
+| M52 | Affective Computing and Emotion Modeling | scaffolded | 0 | — |
+| M53 | Computational Personality Modeling | scaffolded | 0 | — |
+| M54 | Value Alignment, Virtue, and Vice Modeling | scaffolded | 0 | — |
+| M55 | AI Ethics, Governance, and Policy | scaffolded | 0 | — |
+| M56 | Fairness, Accountability, and Transparency | scaffolded | 0 | — |
+| M57 | AI and Society: Policy, Economics, Labor | scaffolded | 0 | — |
+| M58 | Cognitive Science and Learning Theory | scaffolded | 0 | — |
+| M59 | HCI and Interface Design for AI-Native Learning | scaffolded | 0 | — |
+| M60 | MLOps, AI Engineering, and Experiment Design | scaffolded | 0 | — |
+| M61 | Neurodiversity, Mental Health, and AI-Mediated Learning | scaffolded | 0 | — |
 
 ---
 
@@ -119,12 +119,12 @@ Status updated as modules are completed.
 
 | ID | Title | Status | Notes |
 |---|---|---|---|
-| M62 | Research Methodology | pending | |
-| M63 | Systematic Literature Review | pending | |
-| M64 | Thesis Proposal | pending | |
-| M65 | Original Research: H&C as Laboratory | pending | Living document |
-| M66 | Thesis Writing | pending | |
-| M67 | PhD Defense: Preparation and Execution | pending | Capstone |
+| M62 | Research Methodology | scaffolded | |
+| M63 | Systematic Literature Review | scaffolded | |
+| M64 | Thesis Proposal | scaffolded | |
+| M65 | Original Research: H&C as Laboratory | scaffolded | Living document |
+| M66 | Thesis Writing | scaffolded | |
+| M67 | PhD Defense: Preparation and Execution | scaffolded | Capstone |
 
 ---
 
