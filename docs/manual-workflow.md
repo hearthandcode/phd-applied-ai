@@ -17,6 +17,8 @@ Use this when you have Cursor, OpenRouter, or Ollama but not Claude Code.
 ## Phase B: Generate one module (single-module manual mode)
 
 **What Phase B produces for each module:**
+- `foundations.md` — ground-floor primer: symbol reference card, axiom unpacking, subspace
+  operational descriptions, concept dependency map, memorability hooks (NEW REQUIRED FILE, GENERIC)
 - `theory.md` — doctoral-level theoretical content (2000–3000 words, GENERIC)
 - `reading-list.md` — updated with archive docs + external sources (GENERIC)
 - `project/README.md` — updated with concrete project deliverables (GENERIC)
@@ -85,7 +87,33 @@ is the target level of specificity. Vague examples ("consider a large matrix") a
 Pattern per subsection: intuition bridge → formal definition → worked example with numbers →
 ML significance. The worked example makes the theorem real; it is not optional or decorative.
 
-Target length: 2,500–3,500 words. Use ## subheadings. Be specific and rigorous.
+SYMBOL DEFINITION RULE (required): Every symbol appearing for the first time in theory.md
+must be defined in plain English immediately after its first use. Format: "$x \in V$ (meaning:
+x is an element of the set V)". Never assume ∈, ⊆, ℝⁿ, 𝒞, 𝒩, ∀, ∃, etc. are self-evident.
+
+OPERATIONAL DESCRIPTION RULE (required): Every subspace definition must include three parts:
+(a) formal set definition, (b) geometric description (what it looks like as a subspace in
+low dimensions — a line, plane, hyperplane, or all of space), (c) operational reading (what
+the matrix "does" that this subspace captures). In particular: 'b ∈ C(A)' must be explained
+as "the machine can output b"; 'N(A) = {0}' as "no non-zero input is erased — different inputs
+always give different outputs."
+
+MEMORABILITY HOOK RULE (required): After every major theorem or definition, include one
+"Memorability hook:" sentence — a single image or phrase that allows the reader to reconstruct
+the definition from scratch. E.g., "Memorability hook: Rank-nullity says what a map uses and
+what it destroys must sum to the input dimension. Nothing is created."
+
+FOUNDATIONS.MD (required, separate file): Before writing theory.md, generate foundations.md
+— a ground-floor primer that: anchors to what the learner already knows, defines every symbol
+used in theory.md in a reference table, unpacks every algebraic structure axiom-by-axiom with
+a "what breaks without this" column, gives triple descriptions (formal + geometric + operational)
+for every subspace, shows a concept dependency map (which concepts build on which), provides
+memorability hooks for each major idea, walks through 1–2 derivations step-by-step with
+narration at each step, and explicitly connects each structure to where it appears in ML.
+foundations.md is read BEFORE theory.md. It is GENERIC (no H&C refs). It is the accessible
+entry point; theory.md is the rigorous reference.
+
+Target length theory.md: 2,500–3,500 words. foundations.md: 1,500–2,500 words. Use ## subheadings.
 Do not write survey-level content — write at the depth where a reader could implement
 or critique a paper in this area.
 DO NOT embed H&C, Hearth & Code, or thesis-specific references here.

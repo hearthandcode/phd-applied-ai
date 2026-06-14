@@ -14,6 +14,41 @@ Instructions:
 4. If archive MCP tools are available, run: kg_search("<module title>") and kg_fts_search("<key concepts from tags>") to pull relevant archive documents.
 5. Generate the following content:
 
+**foundations.md** (CREATE this file — the ground-floor primer, read BEFORE theory.md):
+
+This file exists for learners who need to build the module's concepts from scratch rather than
+absorb them from a formal definition downward. It is the reference implementation of every
+pedagogical rule listed below. Required sections:
+
+- **What you already know** (2–3 paragraphs): anchor to everyday intuition the learner already
+  has. E.g., for linear algebra: "You already add numbers and scale them. Linear algebra is
+  what happens when you do that to *anything* — arrows, functions, neural network weights."
+- **Symbol reference card**: every symbol used in theory.md defined in plain English and
+  pronunciation. Format: | Symbol | Pronunciation | Plain-English Meaning |
+- **Algebraic structures from the inside out** (for any field, group, ring, or vector space
+  introduced): (a) what kinds of objects live here, (b) what operations you can do, (c)
+  AXIOM-BY-AXIOM TABLE with columns: Axiom Name | Formal statement | Plain English | Everyday
+  analogy | What breaks without it. (d) 2–3 concrete examples of the structure, (e) 1–2
+  non-examples (things that look like the structure but fail one axiom).
+- **Subspace triple description** (for every subspace introduced): (a) formal set definition,
+  (b) geometric picture (what it looks like as a line/plane/subspace in low dimensions),
+  (c) operational reading ("what does the matrix DO that this subspace captures?"). In
+  particular: "b ∈ C(A)" must be explained as "the machine can output b"; "N(A) = {0}" as
+  "different inputs always give different outputs — no blind spots."
+- **Concept dependency map**: a textual graph showing how the module's concepts build on each
+  other, e.g. "Fields → Vector spaces → Subspaces → Linear independence → Dimension →
+  Rank-nullity → Eigendecomposition → SVD". Each arrow means "you need this to define the next."
+- **Memorability hooks**: for each major definition/theorem, one sentence that lets the
+  reader reconstruct the concept from scratch. E.g., "Eigenvector hook: the directions a
+  matrix can't rotate — only stretch."
+- **Derivation walk** (for 1–2 key formulas): step-by-step derivation of a major result with
+  one-line narration at each step explaining *why* this algebraic move is being made.
+- **Connections to ML**: for each algebraic structure, 2–3 sentences on exactly where the
+  learner will encounter this in ML. E.g., "Vector spaces: a neural network layer Wx+b
+  lives in a vector space — W is a linear map, x is a vector, the operations follow all
+  8 axioms you just saw."
+- GENERIC: no H&C-specific content here. Fork-friendly.
+
 **theory.md body** (after the existing front matter):
 - Doctoral-level exposition, 2,500–3,500 words
 - ## subheadings for major sections
@@ -34,6 +69,17 @@ Instructions:
   mathematical abstractions. The example makes the theorem real — it is not decorative.
 - Geometric and visual language throughout: describe what transformations *do* to space,
   not just what they *are* symbolically
+- FIRST SYMBOL USE: every symbol appearing for the first time in theory.md must be
+  defined in plain English immediately after its first use. Format: "$x \in V$ (meaning:
+  x is an element of the set V)". Never assume symbols are self-evident.
+- OPERATIONAL DESCRIPTIONS for all subspaces: every subspace definition must include the
+  operational reading ("what does the matrix machine DO that this captures?") not just the
+  set definition.
+- DEPENDENCY CALLOUTS: every major definition must include a one-sentence explicit backward
+  link ("This builds on: linear independence") and forward link ("We'll need this in: SVD").
+- MEMORABILITY HOOKS: after each major theorem, one sentence — a single memorable image or
+  phrase that reconstructs the theorem. E.g., "Rank-nullity hook: what a matrix uses and
+  what it destroys must sum to its input dimension. Nothing is created."
 - Limitations and open problems
 - Connection to adjacent curriculum modules
 - GENERIC: any AI/ML doctoral learner should find this useful — no H&C-specific content here

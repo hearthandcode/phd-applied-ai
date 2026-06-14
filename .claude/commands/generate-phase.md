@@ -22,7 +22,12 @@ Instructions:
 3. For each module in the phase, in sequence:
    a. Read the module's existing theory.md (front matter gives calibration target, tags, archive_coverage)
    b. If archive MCP tools are available: run kg_search("<module title>") to pull archive docs
-   c. Generate generic theory.md body content (see /generate-module for the full spec — no H&C refs).
+   c. Generate foundations.md (ground-floor primer, new required file — see /generate-module for full
+      spec). Required sections: "What you already know" anchor, symbol reference card, axiom-by-axiom
+      table with "what breaks without this" column for every algebraic structure, subspace triple
+      descriptions (formal + geometric + operational), concept dependency map, memorability hooks,
+      derivation walk for 1–2 key results, ML connections for each structure. GENERIC — no H&C refs.
+   d. Generate generic theory.md body content (see /generate-module for the full spec — no H&C refs).
       Include CONCEPTUAL BRIDGES: 2–4 sentence intuition/metaphor paragraph before every formal
       definition or theorem. Answer "what does this feel like?" before "here is the formal statement."
       Use geometric and spatial language. Dense formalism without semantic grounding loses learners,
