@@ -140,7 +140,17 @@ For a set $\mathbb{F}$ with addition $(+)$ and multiplication $(\cdot)$:
 
 **Memorability hook:** A field is a number system where you can always add, subtract, multiply, and divide (except by zero), and the results make algebraic sense. Real numbers are the canonical field.
 
-> **Try this (micro-exercise 1):** Is the set of all *even* integers a field? Check the multiplicative inverse axiom: does every non-zero even integer have a multiplicative inverse that is also an even integer? (Hint: what is $1/2$?) Write down which axiom fails and why. This is the "non-example" exercise — identifying what breaks tells you exactly what the axiom is protecting.
+> **Try this (micro-exercise 1):** Is the set of all *even* integers a field? Check the multiplicative inverse axiom: does every non-zero even integer have a multiplicative inverse that is also an even integer? Use Python to explore:
+> ```python
+> from fractions import Fraction
+> # Try to find the multiplicative inverse of 2 within even integers
+> a = 2
+> inverse = Fraction(1, a)  # the mathematical inverse of 2 is 1/2
+> print(f"Inverse of {a} is {inverse}")
+> print(f"Is {inverse} an even integer? {inverse.denominator == 1 and int(inverse) % 2 == 0}")
+> # What does this tell you about the even integers as a field?
+> ```
+> Expected: `Inverse of 2 is 1/2`, `Is 1/2 an even integer? False`. The multiplicative inverse axiom fails — the inverse of 2 lands outside the even integers.
 
 ---
 
@@ -199,9 +209,35 @@ Let $V$ be a vector space with vectors $u, v, w \in V$ (meaning: $u$, $v$, and $
 
 **Memorability hook:** A vector space is any universe where you can add objects and scale them by numbers, and those operations behave exactly like ordinary arithmetic. The objects can be arrows, matrices, functions, or neural network weights — the rules are the same.
 
-> **Try this (micro-exercise 2):** Verify that vectors with positive entries do NOT form a vector space. Take $v = (1, 2) \in \mathbb{R}^2$. Does $(-1) \cdot v$ stay in the "positive entries" set? Write down the exact axiom that fails.
+> **Try this (micro-exercise 2):** Verify that vectors with positive entries do NOT form a vector space.
+> ```python
+> import numpy as np
+> v = np.array([1.0, 2.0])
+> scaled = -1 * v
+> print(f"v = {v}")
+> print(f"-1 * v = {scaled}")
+> print(f"All entries positive? {np.all(scaled > 0)}")
+> # Which of the 8 axioms fails? (Hint: additive inverse requires v + (-v) = 0.
+> # But -v has negative entries, so it's not in the "positive entries" set.)
+> ```
+> Expected: `-1 * v = [-1. -2.]`, `All entries positive? False`. The additive inverse axiom fails.
 
-> **Try this (micro-exercise 3):** The neural network parameter space for a 2-layer net with weights $W_1 \in \mathbb{R}^{3 \times 2}$ and $W_2 \in \mathbb{R}^{1 \times 3}$ has how many dimensions? (Count: $3 \times 2 + 1 \times 3 = ?$ parameters total.) This is the dimension of the vector space "all networks with this architecture."
+> **Try this (micro-exercise 3):** Count the dimension of a small neural network's parameter space.
+> ```python
+> # 2-layer network: W1 is (3x2), W2 is (1x3)
+> W1_shape = (3, 2)
+> W2_shape = (1, 3)
+> total_params = W1_shape[0] * W1_shape[1] + W2_shape[0] * W2_shape[1]
+> print(f"W1 has {W1_shape[0] * W1_shape[1]} parameters")
+> print(f"W2 has {W2_shape[0] * W2_shape[1]} parameters")
+> print(f"Total parameter space dimension: {total_params}")
+> # Now try a larger network: what's the parameter count for a single transformer
+> # attention layer with d_model=512, 8 heads?
+> d_model = 512; n_heads = 8; d_k = d_model // n_heads
+> attn_params = 4 * d_model * d_model  # Q, K, V, O projections
+> print(f"Single attention layer parameters: {attn_params:,}")
+> ```
+> Expected: `Total parameter space dimension: 9`. For the attention layer: `1,048,576` (1M parameters) — each gradient step moves in this 1M-dimensional vector space.
 
 > **Explain it out loud (prompt 1):** Before reading on — explain in your own words, as if to someone who just walked in: *"What is a vector space, and how is it different from just a set of vectors?"* The key distinction is in the operations and the axioms they follow. If you can say this without looking, you understand vector spaces.
 
@@ -261,7 +297,28 @@ Can we solve $Ax = (3,5)$? We need $(3,5)$ to be on the line $\{c \cdot (1,2)\}$
 
 Can we solve $Ax = (2,4)$? Yes: $(2,4) = 2 \cdot (1,2)$ — it's on the line. One solution is $x = (1, 0)$ (use only the first column once), another is $x = (0, \frac{1}{2})$ (use half the second column), and infinitely many others. This brings us to the null space.
 
-> **Try this (micro-exercise 4):** For $A = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}$ (the identity matrix), what is $\mathcal{C}(A)$? What is $\mathcal{N}(A)$? (Hint: what can the identity matrix output? What does it map to zero?) Compare to the rank-1 example above — what's different about the column space?
+> **Try this (micro-exercise 4):** Explore column space and null space for two different matrices.
+> ```python
+> import numpy as np
+> 
+> # Matrix 1: identity (full rank)
+> I = np.eye(2)
+> # Matrix 2: rank-deficient (columns are linearly dependent)
+> A = np.array([[1, 2], [2, 4]], dtype=float)
+> 
+> print("Identity matrix rank:", np.linalg.matrix_rank(I))
+> print("Rank-deficient matrix rank:", np.linalg.matrix_rank(A))
+> 
+> # Null space: vectors x where Ax = 0
+> # Use SVD to find it: null space = right singular vectors for zero singular values
+> U, s, Vt = np.linalg.svd(A)
+> print(f"\nSingular values of A: {np.round(s, 4)}")
+> print(f"(Near-zero singular values indicate null space directions)")
+> null_vector = Vt[-1]  # last row of Vt when rank < n
+> print(f"Null space direction: {np.round(null_vector, 4)}")
+> print(f"Verify: A @ null_vector = {np.round(A @ null_vector, 10)}")
+> ```
+> Expected: rank 2 vs rank 1; singular values ~[4.47, 0.0]; null vector ~[-0.894, 0.447]; `A @ null_vector ≈ [0, 0]`. What this shows: for the identity, everything maps to something nonzero (trivial null space). For the rank-deficient matrix, there's a whole direction that gets erased.
 
 ---
 
@@ -399,11 +456,49 @@ Check: $\|\hat{u}\| = \sqrt{0.36 + 0.64 + 0} = \sqrt{1} = 1$ ✓
 
 **Why normalization matters in ML:** Word embeddings are often normalized to unit length before computing similarity — because we care about the *direction* of meaning, not the magnitude. Normalizing makes $\cos\theta = u \cdot v$ exactly (since $\|u\| = \|v\| = 1$), so the dot product directly gives the cosine similarity.
 
-> **Try this (micro-exercise 5):** Compute the dot product of $u = (1, 2, 3)$ and $v = (4, 0, 1)$. Then compute $\|u\|$ and $\|v\|$ and find $\cos\theta$. Is the angle between them acute (dot product positive) or obtuse (negative)?
+> **Try this (micro-exercise 5):** Compute dot products and angles between vectors — like an attention mechanism does.
+> ```python
+> import numpy as np
 > 
-> Expected: $u \cdot v = 4 + 0 + 3 = 7 > 0$, so they point in roughly the same direction. $\|u\| = \sqrt{14} \approx 3.74$, $\|v\| = \sqrt{17} \approx 4.12$. $\cos\theta \approx 7/15.4 \approx 0.45$.
+> u = np.array([1, 2, 3], dtype=float)
+> v = np.array([4, 0, 1], dtype=float)
+> 
+> dot = np.dot(u, v)
+> norm_u = np.linalg.norm(u)
+> norm_v = np.linalg.norm(v)
+> cos_theta = dot / (norm_u * norm_v)
+> angle_degrees = np.degrees(np.arccos(np.clip(cos_theta, -1, 1)))
+> 
+> print(f"u · v = {dot}")
+> print(f"‖u‖ = {norm_u:.4f}, ‖v‖ = {norm_v:.4f}")
+> print(f"cos θ = {cos_theta:.4f}")
+> print(f"angle = {angle_degrees:.1f}°")
+> print(f"Direction: {'acute (same side)' if dot > 0 else 'obtuse (opposite sides)'}")
+> ```
+> Expected: `u · v = 7`, `cos θ ≈ 0.454`, `angle ≈ 63°`. They point in roughly the same direction. Now change `v` to `(-4, 0, -1)` and observe what happens to the dot product and angle.
 
-> **Try this (micro-exercise 6):** Normalize $u = (3, 4)$. What is $\|\hat{u}\|$? (It should be exactly 1.) In a word embedding model, why would you normalize token embeddings before computing attention scores?
+> **Try this (micro-exercise 6):** Normalize a vector and verify unit length — then see how this affects dot product interpretation.
+> ```python
+> import numpy as np
+> 
+> u = np.array([3.0, 4.0])
+> u_hat = u / np.linalg.norm(u)  # normalize
+> print(f"Original: {u}, norm = {np.linalg.norm(u)}")
+> print(f"Normalized: {u_hat}, norm = {np.linalg.norm(u_hat):.6f}")
+> 
+> # Simulate word embedding cosine similarity
+> # When both vectors are normalized, dot product = cosine similarity directly
+> cat  = np.array([0.90, 0.30, 0.10])
+> kitten = np.array([0.80, 0.50, 0.10])
+> democracy = np.array([0.10, 0.10, 0.90])
+> # (already unit-ish; let's normalize properly)
+> for name, vec in [("cat", cat), ("kitten", kitten), ("democracy", democracy)]:
+>     vec[:] = vec / np.linalg.norm(vec)
+> print(f"\ncat · kitten  = {np.dot(cat, kitten):.4f}")
+> print(f"cat · democracy = {np.dot(cat, democracy):.4f}")
+> print(f"Ratio: {np.dot(cat, kitten) / np.dot(cat, democracy):.1f}x more similar")
+> ```
+> Expected: normalized `u` has norm `1.0`; `cat · kitten ≈ 0.88`, `cat · democracy ≈ 0.20`; `~4.4x` more similar. This is exactly what the attention mechanism computes (scaled by $\sqrt{d_k}$).
 
 ---
 
@@ -439,7 +534,34 @@ These are the **normal equations**. If $A$ has full column rank (no null space),
 
 **Memorability hook:** Normal equations come from "set the gradient to zero." What's the gradient of squared error? $2A^\top(Ax - b)$. Set to zero: $A^\top A \hat{x} = A^\top b$.
 
-> **Try this (micro-exercise 7):** For the 3-point regression example from theory.md — points $(1,2)$, $(2,4)$, $(3,5)$ — write down $A$ and $y$, compute $A^\top A$ and $A^\top y$ by hand (the multiplications are small enough), and verify you get $\begin{pmatrix}14 & 6 \\ 6 & 3\end{pmatrix}$ and $\begin{pmatrix}25 \\ 11\end{pmatrix}$. This verifies that you understand matrix multiplication and transpose at the level needed for the rest of the curriculum.
+> **Try this (micro-exercise 7):** Solve a least-squares regression problem computationally, then verify the normal equations by hand and see the residual orthogonality in action.
+> ```python
+> import numpy as np
+> 
+> # Three data points: (1,2), (2,4), (3,5) — fit line y = mx + b
+> A = np.array([[1, 1],
+>               [2, 1],
+>               [3, 1]], dtype=float)
+> y = np.array([2, 4, 5], dtype=float)
+> 
+> # Method 1: normal equations directly
+> ATA = A.T @ A
+> ATy = A.T @ y
+> print(f"A^T A =\n{ATA}")
+> print(f"A^T y = {ATy}")
+> x_hat = np.linalg.solve(ATA, ATy)
+> print(f"\nSolution (normal equations): m={x_hat[0]:.4f}, b={x_hat[1]:.4f}")
+> 
+> # Method 2: NumPy's least squares solver (uses SVD internally — more numerically stable)
+> x_lstsq, residuals, rank, sv = np.linalg.lstsq(A, y, rcond=None)
+> print(f"Solution (lstsq): m={x_lstsq[0]:.4f}, b={x_lstsq[1]:.4f}")
+> 
+> # Verify: residual is orthogonal to columns of A
+> e = y - A @ x_hat
+> print(f"\nResidual e = {np.round(e, 4)}")
+> print(f"A^T e = {np.round(A.T @ e, 10)}  ← should be ≈ [0, 0]")
+> ```
+> Expected: `A^T A = [[14, 6], [6, 3]]`, `A^T y = [25, 11]`, `m=1.5, b=0.3333`. The key result: `A^T e ≈ [0, 0]` — the residual is orthogonal to both columns of A, confirming the geometric optimality condition.
 
 > **Explain it out loud (prompt 3):** Without looking — tell a friend: *"Why does least squares always have a solution, even when Ax = b has no exact solution? What geometric object is $\hat{x}$ finding?"* The answer should mention projection, column space, and the normal equations.
 

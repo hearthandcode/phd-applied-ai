@@ -49,9 +49,18 @@ They are not optional additions — they are part of the minimum quality bar.
 
   MICRO-EXERCISES (5–10 in foundations.md, 2–3 in theory.md): Embedded small tasks
   (5–15 min each) that verify understanding in the moment, not just one big project.
-  Format: > **Try this:** [specific task]. [Expected result or check]. These are
-  kinesthetic anchors — doing calcifies understanding. Do NOT cluster them at the end.
-  Distribute throughout, immediately after the concept they test.
+  ALL EXERCISES MUST BE COMPUTATIONAL: every exercise includes a Python code block
+  (NumPy for numerical verification, SymPy for symbolic derivation). Paper-and-pencil
+  is not assumed or required — the computer is the workspace. Format:
+    > **Try this:** [conceptual question — what are we testing?]
+    > ```python
+    > import numpy as np  # or sympy
+    > # [starter code — set up the problem, leave the key computation for the learner to complete or run]
+    > # Expected output: [what they should see]
+    > ```
+  Distribute throughout, immediately after the concept they test. Do NOT cluster at the end.
+  Computational exercises let the learner change numbers and observe what changes —
+  this builds intuition faster than paper derivation and fits a code-first workflow.
 
   "EXPLAIN IT OUT LOUD" PROMPTS (2–3 per foundations.md): Explicit pauses asking the
   reader to explain the last concept without looking, as if talking to a friend. These

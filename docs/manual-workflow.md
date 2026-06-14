@@ -164,7 +164,9 @@ LEARNER-CENTERED DESIGN RULES (apply to both foundations.md and theory.md):
   sitting right, you can say [X] without looking. If not, re-read [Y]." These are ADHD save
   points — complete ideas at which the reader can stop and return.
 - MICRO-EXERCISES (5–10 in foundations.md, 2–3 in theory.md): Inline 5–15 min tasks immediately
-  after the concept they test. Format: "> **Try this:** [task]. [Expected result/check]."
+  after the concept they test. ALL EXERCISES MUST BE COMPUTATIONAL — include a Python code
+  block (NumPy for numerical, SymPy for symbolic). No paper-and-pencil required. Format:
+  "> **Try this:** [question]\n> ```python\n> [starter code + expected output]\n> ```"
 - "EXPLAIN OUT LOUD" PROMPTS (2–3 per foundations.md): Ask reader to explain the last concept
   without looking, as if to a friend. Activates recall over re-reading.
 - SECTION RECAPS: Every ## section ends with 2–3 bullets "What we just established."
