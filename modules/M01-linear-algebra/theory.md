@@ -5,8 +5,8 @@ module_id: M01
 module_title: "Linear Algebra for ML"
 phase: 0
 created: 2026-06-13
-updated: 2026-06-13
-status: generated
+updated: 2026-06-14
+status: reviewed
 learner_id: L001
 calibration_target: "MIT 18.06 (Gilbert Strang)"
 archive_coverage: partial
@@ -22,6 +22,26 @@ tags:
 # M01: Linear Algebra for ML
 
 *Calibration target: MIT 18.06 (Gilbert Strang) — doctoral depth with ML emphasis*
+
+---
+
+## How to use this document
+
+Seven conceptual areas, each building on the last. Read in order — each section's intuition is the foundation for the next.
+
+| Section | Core idea | Where it reappears in ML |
+|---|---|---|
+| Vector spaces and linear maps | Add, scale, subspaces, rank-nullity | Parameter spaces, LoRA compression |
+| Inner products and geometry | Direction, angle, projection, least squares | Attention scores, cosine similarity, linear readouts |
+| Eigendecomposition | Fixed directions of symmetric maps | PCA, covariance analysis, RNN gradient stability |
+| Singular value decomposition | Every matrix = rotate → scale → rotate | Low-rank approximation, LoRA, pseudoinverse |
+| Matrix decompositions | QR, LU, Cholesky — stable coordinate systems | Numerical solvers, Gaussian processes, Bayesian ML |
+| Spectral analysis | Matrix exponentials, condition numbers | RNN gradient flow, Hessian curvature, adaptive optimizers |
+| ML applications | Attention, spectral norm, weight geometry | Direct architectural interpretation |
+
+**If anything in this table is unfamiliar:** open `foundations.md` first — it covers the same material at a slower pace with no assumed background.
+
+**Active reading:** After each section, pause and explain the main idea in one sentence before continuing. Thirty seconds of retrieval here does more than re-reading.
 
 ---
 
@@ -66,6 +86,33 @@ $$\dim(\ker T) + \dim(\text{im}\, T) = \dim(V).$$
 
 **Worked example.** Take a weight matrix $W \in \mathbb{R}^{64 \times 512}$ — the kind of projection layer that compresses a 512-dimensional token embedding into a 64-dimensional head representation. Since $W$ can produce at most 64 linearly independent output directions, $\text{rank}(W) \leq 64$. Rank-nullity immediately gives $\dim(\ker W) \geq 512 - 64 = 448$. Those 448 null-space directions are not approximated or weakened — they are annihilated to exactly zero. Any two inputs $x_1, x_2$ satisfying $x_1 - x_2 \in \ker(W)$ produce identical outputs: $Wx_1 = Wx_2$. The layer cannot distinguish them, no matter what comes after. This is not a flaw; controlled information destruction is the compression. Now consider LoRA fine-tuning with rank $r = 8$: parameterize the weight update as $\Delta W = BA$ where $B \in \mathbb{R}^{64 \times 8}$ and $A \in \mathbb{R}^{8 \times 512}$. Instead of updating $64 \times 512 = 32{,}768$ parameters, you train $8 \times (64 + 512) = 4{,}608$ — an 7× reduction. The rank-nullity structure makes this principled rather than heuristic: if the pretrained model already covers the important output directions, the fine-tuning signal plausibly lives in a much smaller subspace than the full parameter space.
 
+> **Checkpoint.** A weight matrix $W \in \mathbb{R}^{64 \times 512}$ has rank 64. How many input directions does it permanently erase, and what must be true about any two inputs $x_1, x_2$ that differ only within those erased directions? State your answer in two sentences, then verify against the worked example above.
+
+```python
+# Micro-exercise: verify rank-nullity numerically and observe null-space behavior
+import numpy as np
+
+W = np.random.randn(64, 512)
+rank_W = np.linalg.matrix_rank(W)
+nullity_W = W.shape[1] - rank_W
+print(f"rank={rank_W}, nullity={nullity_W}, sum={rank_W + nullity_W}")  # must equal 512
+
+# Construct a vector in the null space (last right singular vector ≈ smallest singular value)
+_, _, Vt = np.linalg.svd(W, full_matrices=True)
+null_vec = Vt[-1]
+
+x1 = np.random.randn(512)
+x2 = x1 + null_vec
+print(f"‖W(x2 − x1)‖ = {np.linalg.norm(W @ x2 - W @ x1):.2e}")  # ≈ 0: W cannot distinguish x1 from x2
+```
+
+### Section recap — Vector spaces and linear maps
+
+- A vector space is defined by eight algebraic rules — the same rules govern $\mathbb{R}^n$, function spaces, and neural network parameter spaces, so geometric intuition transfers across all of them.
+- The four fundamental subspaces ($\mathcal{C}(A)$, $\mathcal{N}(A)$, $\mathcal{C}(A^\top)$, $\mathcal{N}(A^\top)$) completely organize the geometry of $Ax = b$: a solution exists iff $b \in \mathcal{C}(A)$, and is unique iff $\mathcal{N}(A) = \{0\}$.
+- **Rank-nullity:** $\text{rank}(W) + \text{nullity}(W) = d_{\text{in}}$ — dimensions used plus dimensions destroyed equals total input dimension; nothing is created by a linear map.
+- A weight matrix's null space is the set of inputs it cannot distinguish — the algebraic reason LoRA is principled compression rather than an ad hoc shortcut.
+
 ---
 
 ## Inner products, norms, and geometry
@@ -103,6 +150,15 @@ The normal equations $A^\top A\, \hat{x} = A^\top y$ give:
 $$A^\top A = \begin{pmatrix} 14 & 6 \\ 6 & 3 \end{pmatrix}, \qquad A^\top y = \begin{pmatrix} 25 \\ 11 \end{pmatrix}.$$
 Solving: $\hat{m} = 1.5$, $\hat{b} \approx 0.33$. The fitted line $y = 1.5x + 0.33$ passes through none of the three points exactly, but minimizes total squared error across all three. The residual vector $e = y - A\hat{x} \approx (-0.17,\ 0.33,\ -0.17)^\top$ satisfies $A^\top e \approx 0$ to numerical precision — confirming the geometric optimality condition: the residual is orthogonal to every direction reachable by $A$, which means no linear adjustment to $\hat{x}$ can reduce the error further.
 
+> **Checkpoint.** The normal equations say $A^\top(b - A\hat{x}) = 0$. In geometric terms, why does this condition mean the least-squares solution is optimal — that no adjustment to $\hat{x}$ can reduce $\|Ax - b\|$ further? Answer in one sentence using the words "projection" and "orthogonal" before moving on.
+
+### Section recap — Inner products, norms, and geometry
+
+- The inner product formalizes how much two directions agree — zero inner product means orthogonality, and orthogonal components can be analyzed entirely independently.
+- Projection finds the closest point in $\mathcal{C}(A)$ to a target $b$: $\hat{b} = A(A^\top A)^{-1}A^\top b$, with residual $b - \hat{b}$ always perpendicular to every column of $A$.
+- Least squares is a geometric fact about projection, not just a statistical estimator — the normal equations $A^\top(b - A\hat{x}) = 0$ encode the optimality condition directly.
+- In a transformer's scaled dot-product attention, $q_i \cdot k_j / \sqrt{d_k}$ is an inner product: near-orthogonality means near-inattention, alignment means strong attention.
+
 ---
 
 ## Eigendecomposition
@@ -137,6 +193,15 @@ The spectral theorem gives a complete geometric picture: every symmetric matrix 
 **Worked example.** A centered 2D dataset has empirical covariance matrix
 $$\Sigma = \begin{pmatrix} 4 & 2 \\ 2 & 2 \end{pmatrix}.$$
 The characteristic polynomial $(4-\lambda)(2-\lambda) - 4 = \lambda^2 - 6\lambda + 4 = 0$ gives $\lambda_1 \approx 5.24$ and $\lambda_2 \approx 0.76$. PCA with $k=1$ retains $5.24 / (5.24 + 0.76) \approx 87\%$ of total variance, compressing each 2D point to a single coordinate — the projection onto the first eigenvector. The second eigenvector direction, accounting for only 13% of variance, is discarded. Scaling this up: in a typical 512-dimensional language model hidden-state space, the top 50 eigenvectors of the covariance matrix of activations across a dataset often capture 85–92% of total variance. The model's effective intrinsic dimensionality is far lower than 512 — which is why dimensionality-reduction probes of transformer representations work so well.
+
+> **Checkpoint.** The spectral theorem gives $A = Q\Lambda Q^\top$ for symmetric $A$. Describe in one sentence what each of the three factors does geometrically — what $Q^\top$ does, what $\Lambda$ does, and what $Q$ does — before continuing to SVD.
+
+### Section recap — Eigendecomposition
+
+- Eigenvectors are the unique directions in which a matrix acts by pure scaling — all other directions experience simultaneous rotation and scaling.
+- **Spectral theorem:** every symmetric matrix has an orthonormal eigenbasis and decomposes as $Q\Lambda Q^\top$ — rotate, scale along axes, rotate back — with no coupling between eigendirections.
+- PCA is precisely the spectral decomposition of the empirical covariance $\Sigma = Q\Lambda Q^\top$: eigenvectors are principal directions, eigenvalues are explained variances.
+- The eigenvalues of an RNN's recurrent weight matrix determine gradient flow stability: $|\lambda_i| > 1$ causes exploding gradients, $|\lambda_i| < 1$ causes vanishing — a spectral stability problem, not a training trick problem.
 
 ---
 
@@ -175,6 +240,36 @@ This theorem underpins image compression (treating the image as a matrix and dis
 When $A$ is not square or not full rank, the ordinary inverse does not exist. The **Moore-Penrose pseudoinverse** is
 $$A^+ = V \Sigma^+ U^\top,$$
 where $\Sigma^+$ replaces each nonzero diagonal entry $\sigma_i$ with $1/\sigma_i$. The pseudoinverse delivers the minimum-norm least-squares solution: $\hat{x} = A^+ b$ minimizes $\|Ax - b\|$ and, among all minimizers, has the smallest $\|x\|$.
+
+> **Checkpoint.** Eckart-Young says the best rank-$k$ approximation in Frobenius norm uses the top $k$ singular triplets $\sigma_i u_i v_i^\top$. Why must it be those $k$ specifically, rather than some other combination of $k$ singular triplets? Reason from the structure of $\|A - A_k\|_F^2 = \sum_{i>k} \sigma_i^2$ before checking the theorem statement above.
+
+```python
+# Micro-exercise: compute SVD, build rank-1 approximation, verify Eckart-Young error bound
+import numpy as np
+
+A = np.array([[2, 4], [1, 3]], dtype=float)
+U, s, Vt = np.linalg.svd(A)
+print(f"Singular values: σ1={s[0]:.4f}, σ2={s[1]:.4f}")
+
+# Rank-1 approximation
+A1 = s[0] * np.outer(U[:, 0], Vt[0])
+
+# Eckart-Young: ‖A - A1‖_F should equal σ2
+error_fro = np.linalg.norm(A - A1, "fro")
+error_spec = np.linalg.norm(A - A1, ord=2)
+print(f"‖A − A1‖_F = {error_fro:.4f}  (Eckart-Young predicts σ2 = {s[1]:.4f})")
+print(f"‖A − A1‖₂  = {error_spec:.4f}  (should also equal σ2 = {s[1]:.4f})")
+
+energy = s[0]**2 / (s[0]**2 + s[1]**2)
+print(f"Energy captured by rank-1: {energy:.1%}")  # see worked example above — should be ~99%
+```
+
+### Section recap — Singular value decomposition
+
+- Every matrix decomposes as $A = U\Sigma V^\top$: right-rotate (align input), axis-aligned scale (singular values), left-rotate (align output) — this exists for any shape, rectangular or square.
+- **Eckart-Young:** the best rank-$k$ approximation in Frobenius and spectral norm is always $A_k = U_k\Sigma_k V_k^\top$; the approximation error equals the discarded singular values.
+- The pseudoinverse $A^+ = V\Sigma^+ U^\top$ generalizes matrix inversion to non-square and rank-deficient cases, delivering the minimum-norm least-squares solution by inverting only the nonzero singular values.
+- When singular values drop off sharply (natural images, language model activations), the leading singular vectors capture most of the information — the empirical basis for image compression, LSA, and LoRA.
 
 ---
 
