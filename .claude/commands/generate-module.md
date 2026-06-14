@@ -1,5 +1,10 @@
 Generate full doctoral-level content for a single module. Use when Phase B workflow hasn't run yet or needs to be re-run for one module.
 
+> **theory.md generation note:** This command generates theory.md in one pass. For modules
+> with dense theory (>6 major concepts), prefer `/generate-theory-chunked $ARGUMENTS` instead
+> — it extracts the topic list first, generates each section independently, runs a consistency
+> pass, and stitches. This reduces hallucination risk and allows incremental review.
+
 Module: $ARGUMENTS
 
 > CONTENT SEPARATION RULE (fork-friendliness):
