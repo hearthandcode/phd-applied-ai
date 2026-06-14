@@ -212,6 +212,73 @@ working-memory-load      — session event where working memory demand was the p
 
 ---
 
+## Passive capture during AI sessions
+
+When working with Claude Code, session log entries should be added *proactively* for any
+discussion block that meets the capture criteria below — without waiting for a "let's log"
+prompt. This is the default mode during active sessions.
+
+### What triggers a passive capture entry
+
+Claude will add a rolling log entry when a discussion involves any of the following:
+
+- **Motivational reflections** — the subject shares feelings about the work, their
+  confidence, their sense of progress, or their relationship to the platform vision
+- **Behavioral pattern observations** — avoidance, task restructuring, cognitive state
+  changes, resistance and recovery, attention or energy patterns
+- **Design decisions grounded in personal experience** — when a platform or curriculum
+  design choice is motivated by a lived experience (economic, neurological, educational)
+- **Identity or values statements** — articulations of principle, mission, or personal
+  stake in the work
+- **Research methodology discussions** — discussions that clarify or refine the
+  research approach, epistemology, or data collection strategy
+- **Strategic pivots or threshold moments** — first contact with external validators,
+  funding pursuit, significant scope changes, key decisions about what to build next
+
+### What does NOT trigger passive capture
+
+- Pure technical problem-solving with no personal/motivational dimension
+- Routine administrative tasks (updating kanban, committing files)
+- Content generation for curriculum that doesn't involve personal reflection
+- Debugging and implementation work
+
+### Redaction rules for passive capture
+
+All passive capture entries follow the Step 3b public disclosure check automatically.
+Quick reference — generalize or omit entirely:
+
+| Category | Do NOT log | OK to log |
+|---|---|---|
+| Financial | Specific amounts, income sources, benefit names, debt amounts | "Subject operates under economic constraints" / "access to tools involves meaningful budget trade-offs" |
+| Medical | Medication names, dosages, treatment history, clinician names | "Subject has ADHD + bipolar diagnosis" (already public) / behavioral observations |
+| Legal/benefits | Benefit program names, case status, legal proceedings | Not needed — omit rather than generalize |
+| Third parties | Names, relationships, situations involving other people | Omit or describe relationship in general terms only |
+| Architecture | Platform implementation specifics, system design, code architecture | Not for public record — H&C architecture is proprietary |
+
+When uncertain: omit and note that the discussion occurred without detail. The research value
+is in the psychological and cognitive data, not in financial or legal specifics.
+
+### Format for passive capture entries
+
+Use the standard rolling entry format with `[~EDT]` timestamp placeholder (the hook will
+replace with actual time):
+
+```markdown
+### [~EDT] [Brief descriptive title]
+
+**Block type:** [Autoethnographic / motivational / strategic / design / methodology]
+**Trigger:** [What prompted this entry — subject reflection / design decision / etc.]
+
+[Clinical or observational narrative. Third-person for behavioral observations,
+first-person preserved for direct quotes. RQ5 tags applied at end.]
+
+**RQ5 relevance:** [High / Medium / Low + one sentence on why]
+
+---
+```
+
+---
+
 ## Solo logging (without AI interview)
 
 If you're logging without an AI assistant:
