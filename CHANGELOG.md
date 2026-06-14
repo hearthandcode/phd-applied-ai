@@ -6,6 +6,34 @@ Format adapted from [Keep a Changelog](https://keepachangelog.com).
 
 ---
 
+## 2026-06-14 — Central Hypothesis Derived; THESIS.md Restructured
+
+### Added
+- `THESIS.md` — **Central hypothesis** section (new, above Abstract): augmented intelligence
+  as bidirectional cognitive extension enabling previously inaccessible doctoral outcomes for
+  neurodiverse learners. Derived through Socratic introspective dialogue on 2026-06-14.
+  Grounded in Extended Mind Thesis (Clark & Chalmers, 1998).
+- `THESIS.md` — **Key concepts and terms** section populated with four foundational
+  definitions: augmented intelligence, conception-to-execution interface, task-initiation
+  difficulty, neurodiverse learner profile. All derived from RQ5 research subject's lived
+  experience and Socratic hypothesis derivation session.
+- `sessions/2026/06/2026-06-14.md` — rolling entries capturing: researcher outreach
+  victory (David Wiley email sent), legitimacy anxiety reflection, personal narrative
+  (K-12 success → institutional collapse → late diagnosis → AI-mediated recovery),
+  Extended Mind Thesis connection, working hypothesis formation, finalized hypothesis.
+
+### Changed
+- `THESIS.md` — Thesis contribution #3 revised to reflect the central hypothesis directly:
+  augmented intelligence enables outcomes institutional structures failed to produce,
+  specifically through resolving the task-initiation and conception-to-execution interface.
+- `THESIS.md` — Abstract placeholder updated to note it should open by restating the
+  central hypothesis.
+- `THESIS.md` — Title flagged for review post-M63 to ensure alignment with hypothesis.
+- `THESIS.md` — frontmatter updated: `updated: 2026-06-14`, added `augmented-intelligence`
+  tag.
+
+---
+
 ## 2026-06-13 — Fork-Friendliness, Tooling, Session Infrastructure
 
 **Commits:** 53b37ce, c1e6000, 91012dd, 3f49ec5
