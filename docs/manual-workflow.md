@@ -151,7 +151,28 @@ This is the ONLY place for H&C-specific content. Write:
   RQ5: neurodiverse learner trajectory data
 - 2–4 paragraphs, specific and actionable
 
-Return output clearly labeled: ## theory.md, ## reading-list additions, ## project/README.md deliverable, ## project/hc-connection.md
+LEARNER-CENTERED DESIGN RULES (apply to both foundations.md and theory.md):
+- PRE-READING MAP: Every file opens with an ordered 8–12 item list of what the reader will
+  encounter in that file, in order. Primes working memory. Not a table of contents — an active
+  preview written as full phrases.
+- MEMORY TIERS (required section in foundations.md): Sort all content into three explicit tiers:
+  CARRY (5–7 items — the minimum conceptual hooks to internalize; write as phrases not formulas),
+  RECONSTRUCT (5–10 items — can derive from first principles with time; key theorem skeletons,
+  derivation logic), LOOK UP (8–12 items — exact formulas, API calls, proof details; reader
+  should NOT memorize these, just know where to find them).
+- CHECKPOINTS (3–5 inline per file): Mid-file pause markers that say "Checkpoint: if this is
+  sitting right, you can say [X] without looking. If not, re-read [Y]." These are ADHD save
+  points — complete ideas at which the reader can stop and return.
+- MICRO-EXERCISES (5–10 in foundations.md, 2–3 in theory.md): Inline 5–15 min tasks immediately
+  after the concept they test. Format: "> **Try this:** [task]. [Expected result/check]."
+- "EXPLAIN OUT LOUD" PROMPTS (2–3 per foundations.md): Ask reader to explain the last concept
+  without looking, as if to a friend. Activates recall over re-reading.
+- SECTION RECAPS: Every ## section ends with 2–3 bullets "What we just established."
+- CROSS-MODAL QUAD: Every major concept in foundations.md needs all four: METAPHOR (narrative/
+  analogy), GEOMETRY (spatial description or ASCII diagram), SYMBOL (formal definition),
+  EXERCISE (micro-task). Don't privilege any one modality as the "real" explanation.
+
+Return output clearly labeled: ## foundations.md, ## theory.md, ## reading-list additions, ## project/README.md deliverable, ## project/hc-connection.md
 ```
 
 ### Step 3: Copy output into the module files

@@ -18,6 +18,27 @@ you already know, defining every symbol, and unpacking every axiom with intuitio
 
 ---
 
+## What you'll encounter in this file (pre-reading map)
+
+Read this list before starting. It primes your working memory for what's coming so nothing
+feels like it arrived without warning.
+
+1. **What you already know** — anchoring to arithmetic rules you use every day
+2. **Symbol reference card** — every symbol used in theory.md defined in plain English before you see it there
+3. **Fields** — what the "number system" underlying everything is; 11 axioms with "what breaks without it"
+4. **Vector spaces** — what the "universe of objects" is; 8 axioms unpacked; non-examples; neural networks as vectors
+5. **The four fundamental subspaces** — column space (what A outputs), null space (what A erases), row space (what A uses), left null space (what A can't reach); all with geometric pictures and operational meanings
+6. **Dot product and normalization** — the arithmetic before the abstraction; why normalization matters in ML
+7. **How to derive the normal equations** — step-by-step with narration at each step
+8. **Concept dependency map** — the full chain from fields → SVD → LoRA/PCA
+9. **ML connections table** — where each structure appears in practice
+10. **Memory tiers** — what to CARRY in your head, what to RECONSTRUCT from first principles, what to LOOK UP
+
+You don't have to read this all at once. Checkpoints are marked throughout — each one is a
+complete stopping point. Come back for the next section when you're ready.
+
+---
+
 ## What you already know (the starting point)
 
 You already do linear algebra every time you do basic arithmetic. When you compute
@@ -119,6 +140,18 @@ For a set $\mathbb{F}$ with addition $(+)$ and multiplication $(\cdot)$:
 
 **Memorability hook:** A field is a number system where you can always add, subtract, multiply, and divide (except by zero), and the results make algebraic sense. Real numbers are the canonical field.
 
+> **Try this (micro-exercise 1):** Is the set of all *even* integers a field? Check the multiplicative inverse axiom: does every non-zero even integer have a multiplicative inverse that is also an even integer? (Hint: what is $1/2$?) Write down which axiom fails and why. This is the "non-example" exercise — identifying what breaks tells you exactly what the axiom is protecting.
+
+---
+
+> **Checkpoint 1** — Fields
+> 
+> *This is a complete idea. Good stopping point.*
+> 
+> If it's sitting right, you can answer without looking: "What's the difference between ℝ and ℤ in terms of field axioms?" and "What does the distributivity axiom protect?"
+> 
+> If it's not clear: re-read the "What breaks without it" column in the field axioms table, focusing on the additive inverse and multiplicative inverse rows.
+
 ---
 
 ## What is a vector space? (The universe we work in)
@@ -166,6 +199,22 @@ Let $V$ be a vector space with vectors $u, v, w \in V$ (meaning: $u$, $v$, and $
 
 **Memorability hook:** A vector space is any universe where you can add objects and scale them by numbers, and those operations behave exactly like ordinary arithmetic. The objects can be arrows, matrices, functions, or neural network weights — the rules are the same.
 
+> **Try this (micro-exercise 2):** Verify that vectors with positive entries do NOT form a vector space. Take $v = (1, 2) \in \mathbb{R}^2$. Does $(-1) \cdot v$ stay in the "positive entries" set? Write down the exact axiom that fails.
+
+> **Try this (micro-exercise 3):** The neural network parameter space for a 2-layer net with weights $W_1 \in \mathbb{R}^{3 \times 2}$ and $W_2 \in \mathbb{R}^{1 \times 3}$ has how many dimensions? (Count: $3 \times 2 + 1 \times 3 = ?$ parameters total.) This is the dimension of the vector space "all networks with this architecture."
+
+> **Explain it out loud (prompt 1):** Before reading on — explain in your own words, as if to someone who just walked in: *"What is a vector space, and how is it different from just a set of vectors?"* The key distinction is in the operations and the axioms they follow. If you can say this without looking, you understand vector spaces.
+
+---
+
+> **Checkpoint 2** — Vector spaces
+> 
+> *This is a complete idea. Good stopping point.*
+> 
+> If it's sitting right, you can say: "A vector space is a set of objects plus addition and scaling operations that follow 8 rules. The same 8 rules govern ℝⁿ, matrices, functions, and neural network weight spaces."
+> 
+> If it's not clear: re-read the table of 8 axioms focusing on the "What breaks without it" column. Then re-read the neural network weight space example — this is the most concretely relevant one.
+
 ---
 
 ## The four fundamental subspaces (what a matrix actually does)
@@ -191,11 +240,28 @@ a *subset* of one of the spaces and a *structure* that captures something the ma
 
 **Operational reading (THE key intuition):** "$b \in \mathcal{C}(A)$" means **"the machine can produce $b$."** The equation $Ax = b$ has a solution if and only if $b$ is in the column space — because a solution $x$ is an input that produces exactly $b$. If $b$ is outside the column space, no input ever produces $b$ exactly, and we can only minimize the distance to $b$ (least squares).
 
+**Geometric picture (ASCII):**
+```
+Output world ℝ²
+│
+│        ← C(A): the line y = 2x (everything A can produce)
+│       /
+│      /   ← b=(3,5) is NOT on this line → no solution to Ax=(3,5)
+│     /
+│    / ← b=(2,4) IS on this line → Ax=(2,4) has a solution
+│   /
+│  /
+│ /
+└─────────────────────────────────
+```
+
 **Worked example:** Let $A = \begin{pmatrix} 1 & 2 \\ 2 & 4 \end{pmatrix}$. The two columns are $(1,2)$ and $(2,4)$. Notice $(2,4) = 2 \cdot (1,2)$ — they point in the same direction. So all linear combinations of the columns lie on the same line: $\mathcal{C}(A) = \{c \cdot (1,2) : c \in \mathbb{R}\}$, a 1D subspace (a line) inside $\mathbb{R}^2$.
 
 Can we solve $Ax = (3,5)$? We need $(3,5)$ to be on the line $\{c \cdot (1,2)\}$. Since $(3,5) \ne c \cdot (1,2)$ for any $c$, the answer is no. The machine cannot output $(3,5)$.
 
 Can we solve $Ax = (2,4)$? Yes: $(2,4) = 2 \cdot (1,2)$ — it's on the line. One solution is $x = (1, 0)$ (use only the first column once), another is $x = (0, \frac{1}{2})$ (use half the second column), and infinitely many others. This brings us to the null space.
+
+> **Try this (micro-exercise 4):** For $A = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}$ (the identity matrix), what is $\mathcal{C}(A)$? What is $\mathcal{N}(A)$? (Hint: what can the identity matrix output? What does it map to zero?) Compare to the rank-1 example above — what's different about the column space?
 
 ---
 
@@ -249,6 +315,18 @@ Rank-nullity in one sentence: the dimensions in each world sum to the world's si
 - Output world: $r + (m-r) = m$ ✓
 
 **Memorability hook:** Column space = what A can output. Null space = what A erases. Their dimensions always sum to the input dimension. The solution to $Ax = b$ exists iff $b$ is reachable; it's unique iff nothing is erased.
+
+> **Explain it out loud (prompt 2):** Without looking — explain to a friend: *"What does it mean for a system Ax = b to have (a) no solution, (b) exactly one solution, (c) infinitely many solutions?"* Each case corresponds to a relationship between b and the column space, and between the null space and {0}. The answer should mention column space and null space.
+
+---
+
+> **Checkpoint 3** — The four fundamental subspaces
+> 
+> *This is a major complete idea. Definitely a good stopping point.*
+> 
+> If it's sitting right, you can say: "The column space is what A can output. The null space is what A erases. $Ax = b$ has a solution iff $b$ is in the column space; it's unique iff the null space is trivial. Rank-nullity says rank + nullity = n."
+> 
+> If it's not clear: re-read the "Operational reading" paragraph for the column space and null space. Then re-trace the worked example for $A = \begin{pmatrix} 1 & 2 \\ 2 & 4 \end{pmatrix}$ — why are there infinitely many solutions to $Ax = (2,4)$?
 
 ---
 
@@ -321,6 +399,12 @@ Check: $\|\hat{u}\| = \sqrt{0.36 + 0.64 + 0} = \sqrt{1} = 1$ ✓
 
 **Why normalization matters in ML:** Word embeddings are often normalized to unit length before computing similarity — because we care about the *direction* of meaning, not the magnitude. Normalizing makes $\cos\theta = u \cdot v$ exactly (since $\|u\| = \|v\| = 1$), so the dot product directly gives the cosine similarity.
 
+> **Try this (micro-exercise 5):** Compute the dot product of $u = (1, 2, 3)$ and $v = (4, 0, 1)$. Then compute $\|u\|$ and $\|v\|$ and find $\cos\theta$. Is the angle between them acute (dot product positive) or obtuse (negative)?
+> 
+> Expected: $u \cdot v = 4 + 0 + 3 = 7 > 0$, so they point in roughly the same direction. $\|u\| = \sqrt{14} \approx 3.74$, $\|v\| = \sqrt{17} \approx 4.12$. $\cos\theta \approx 7/15.4 \approx 0.45$.
+
+> **Try this (micro-exercise 6):** Normalize $u = (3, 4)$. What is $\|\hat{u}\|$? (It should be exactly 1.) In a word embedding model, why would you normalize token embeddings before computing attention scores?
+
 ---
 
 ## How to derive the normal equations (step-by-step)
@@ -355,6 +439,20 @@ These are the **normal equations**. If $A$ has full column rank (no null space),
 
 **Memorability hook:** Normal equations come from "set the gradient to zero." What's the gradient of squared error? $2A^\top(Ax - b)$. Set to zero: $A^\top A \hat{x} = A^\top b$.
 
+> **Try this (micro-exercise 7):** For the 3-point regression example from theory.md — points $(1,2)$, $(2,4)$, $(3,5)$ — write down $A$ and $y$, compute $A^\top A$ and $A^\top y$ by hand (the multiplications are small enough), and verify you get $\begin{pmatrix}14 & 6 \\ 6 & 3\end{pmatrix}$ and $\begin{pmatrix}25 \\ 11\end{pmatrix}$. This verifies that you understand matrix multiplication and transpose at the level needed for the rest of the curriculum.
+
+> **Explain it out loud (prompt 3):** Without looking — tell a friend: *"Why does least squares always have a solution, even when Ax = b has no exact solution? What geometric object is $\hat{x}$ finding?"* The answer should mention projection, column space, and the normal equations.
+
+---
+
+> **Checkpoint 4** — Dot product, normalization, and normal equations
+> 
+> *Complete section. Good stopping point.*
+> 
+> If it's sitting right, you can say: "The dot product measures directional agreement — positive means same direction, zero means perpendicular, negative means opposite. The normal equations $A^\top A \hat{x} = A^\top b$ find the best approximate solution by projecting $b$ onto the column space of $A$."
+> 
+> If it's not clear: re-read the derivation walk for normal equations, focusing on Step 4 — why "set the gradient to zero" gives you the optimality condition.
+
 ---
 
 ## Connections to ML — where you'll see each structure
@@ -371,3 +469,70 @@ These are the **normal equations**. If $A$ has full column rank (no null space),
 | Condition number | Numerical stability of training; ill-conditioned Hessians cause gradient oscillation; motivation for preconditioning and adaptive optimizers |
 | Least squares | Regression heads; linear probing; any "fit a linear function to data" setup |
 | Rank | How many "effective dimensions" a weight matrix uses; full rank = no information destroyed; low rank = compression |
+
+---
+
+## Memory tiers — what to carry, what to reconstruct, what to look up
+
+This is the single most important section for managing cognitive load. Most people try to memorize everything, which is impossible and creates overload. Here's what you actually need.
+
+---
+
+### CARRY — internalize these (5–7 items only)
+
+These are conceptual hooks. If you internalize nothing else from M01, internalize these. Write them on a sticky note if it helps. They are *not* formulas — they are ideas.
+
+1. **Column space = what A can output. Null space = what A erases.** Every question about $Ax = b$ reduces to these two.
+2. **Rank + nullity = input dimension.** Conservation law. Nothing is created; what's not output is erased.
+3. **Eigenvectors: the directions a matrix can't rotate, only stretch.** Find those directions; find the eigenvalues.
+4. **SVD: every matrix = rotate input → stretch → rotate output.** Singular values are the stretch factors.
+5. **Dot product near zero = nearly perpendicular = unrelated. Large positive = strongly aligned. Negative = opposite.** This is what attention scores are computing.
+6. **High condition number = fragile system.** Small input perturbation → large output change. Numerically dangerous.
+7. **Least squares is always projection.** When there's no exact solution, $\hat{x}$ projects $b$ onto the column space.
+
+---
+
+### RECONSTRUCT — understand and can re-derive with time
+
+These you should be able to sketch out from first principles given a whiteboard and 10–20 minutes. You don't need them memorized, but you need to understand the *structure* of each.
+
+1. The 8 vector space axioms — not memorized, but you know the pattern: closure, identity, inverse, distributivity
+2. Why $Ax = b$ has a solution iff $b \in \mathcal{C}(A)$ — from the definition of matrix-vector multiplication
+3. Why uniqueness requires $\mathcal{N}(A) = \{0\}$ — from the fact that null-space vectors add "free" solution components
+4. The normal equations derivation — set gradient of $\|Ax - b\|^2$ to zero → $A^\top A \hat{x} = A^\top b$
+5. Why symmetric matrices have real eigenvalues — the key step is showing $q^\top Aq \in \mathbb{R}$ for real $q$
+6. The rank-nullity proof sketch — extend a basis for the kernel to a full basis; the non-kernel part maps injectively to the image
+7. Why SVD exists — $A^\top A$ is always symmetric positive semidefinite, so it has a real eigendecomposition; take square roots
+8. Why large condition number means numerical instability — ratio of largest to smallest singular value; tiny perturbation in the smallest direction gets amplified by the ratio
+
+---
+
+### LOOK UP — keep a reference handy (do not memorize these)
+
+Everything below lives in theory.md, in your notes, or in numpy documentation. Looking it up when you need it is exactly the right behavior — spending energy memorizing it is exactly the wrong behavior.
+
+- Exact pseudoinverse formula: $A^+ = V\Sigma^+ U^\top$
+- Exact projection matrix formula: $P = A(A^\top A)^{-1} A^\top$
+- Exact Gram-Schmidt recurrence: $q_j = (a_j - \sum_{i<j} \langle a_j, q_i\rangle q_i) / \|\cdot\|$
+- The characteristic polynomial derivation for $n \times n$ matrices
+- Full proof of the Eckart-Young theorem
+- Matrix exponential series definition: $e^{tA} = \sum_{k=0}^\infty t^k A^k / k!$
+- Exact condition number formula: $\kappa(A) = \sigma_1 / \sigma_r$
+- NumPy API: `np.linalg.svd`, `np.linalg.eig`, `np.linalg.lstsq`, `np.linalg.solve`, `np.linalg.cond`
+- The specific axiom numbering (there are 8 vector space axioms, but you don't need to know which is "Axiom 4")
+- Proof details of the spectral theorem (the inductive step)
+- The exact LU decomposition algorithm with pivoting
+
+---
+
+> **Checkpoint 5 — Final**
+> 
+> *You've covered the full foundations of M01. This is the end of this file.*
+> 
+> Before moving to theory.md: can you answer these three questions without looking?
+> 
+> 1. "What does it mean for $Ax = b$ to have infinitely many solutions — in terms of the null space?"
+> 2. "What are the three things the SVD decomposes every matrix into?"
+> 3. "Name one thing from the LOOK UP list and explain why you don't need to memorize it."
+> 
+> If you can answer all three, you're ready for theory.md. If not, find the section that covers the question you couldn't answer and re-read just that section.

@@ -20,6 +20,55 @@ This file exists for learners who need to build the module's concepts from scrat
 absorb them from a formal definition downward. It is the reference implementation of every
 pedagogical rule listed below. Required sections:
 
+LEARNER-CENTERED DESIGN RULES (apply universally — every module, every file):
+These rules are designed for neurodivergent learners (ADHD, working memory constraints,
+variable focus, multi-modal processing) but improve the material for all learner types.
+They are not optional additions — they are part of the minimum quality bar.
+
+  PRE-READING MAP: Every file begins with an ordered list (8–12 items) of exactly what
+  the reader will encounter, in order. Not a table of contents — an active preview that
+  primes working memory. E.g., "1. What a field is and its 11 arithmetic rules / 2. What
+  a vector space is and why the rules matter / 3. Three non-standard vector spaces...".
+
+  MEMORY TIERS (required in foundations.md, one dedicated section near the end):
+  Explicitly sort all module content into three tiers:
+  - CARRY (5–7 items only): The minimum the reader must internalize. Conceptual hooks,
+    recognition patterns, when-to-use triggers. If you internalize nothing else, internalize
+    these. Write them as short phrases — intuitions, not formulas.
+  - RECONSTRUCT (5–10 items): Understand the structure, know the skeleton — can derive
+    from first principles given time and a whiteboard. These include the key theorem proofs
+    (sketch level), the logic of major derivations, and "why this formula has this shape."
+  - LOOK UP (everything else): Formulas, API calls, proof details, implementation specifics.
+    Have a reference handy and don't spend energy memorizing. List 8–12 specific items that
+    belong here so the reader knows explicitly what NOT to memorize.
+
+  CHECKPOINTS (3–5 per file, inline): Explicit pause markers mid-file — not chapter breaks,
+  but short callouts saying: "Checkpoint: this is a complete idea. If it's sitting right,
+  you can say [X] in your own words. If not, re-read [Y paragraph/section]." These are
+  save points for cognitive load. The reader can stop at a checkpoint and return later.
+
+  MICRO-EXERCISES (5–10 in foundations.md, 2–3 in theory.md): Embedded small tasks
+  (5–15 min each) that verify understanding in the moment, not just one big project.
+  Format: > **Try this:** [specific task]. [Expected result or check]. These are
+  kinesthetic anchors — doing calcifies understanding. Do NOT cluster them at the end.
+  Distribute throughout, immediately after the concept they test.
+
+  "EXPLAIN IT OUT LOUD" PROMPTS (2–3 per foundations.md): Explicit pauses asking the
+  reader to explain the last concept without looking, as if talking to a friend. These
+  activate recall rather than re-reading, which is more durable for memory formation.
+
+  SECTION RECAPS (end of every ## section): 2–3 bullet "What we just established" before
+  moving to the next section. Allows working memory to consolidate before new load.
+
+  CROSS-MODAL QUAD: Every major concept in foundations.md must be represented in all four
+  modes, not just one. Pattern:
+  - METAPHOR: a narrative or everyday analogy (linguistic/verbal channel)
+  - GEOMETRY: what it looks like spatially; use ASCII art when helpful (visual/spatial)
+  - SYMBOL: the formal definition (symbolic/logical)
+  - EXERCISE: a micro-task to do with it (kinesthetic/project-based)
+  A learner who only processes well in one modality should still fully grasp the concept.
+  Do not assume the symbolic representation is the "real" one and the others are decoration.
+
 - **What you already know** (2–3 paragraphs): anchor to everyday intuition the learner already
   has. E.g., for linear algebra: "You already add numbers and scale them. Linear algebra is
   what happens when you do that to *anything* — arrows, functions, neural network weights."
@@ -38,6 +87,7 @@ pedagogical rule listed below. Required sections:
 - **Concept dependency map**: a textual graph showing how the module's concepts build on each
   other, e.g. "Fields → Vector spaces → Subspaces → Linear independence → Dimension →
   Rank-nullity → Eigendecomposition → SVD". Each arrow means "you need this to define the next."
+- **Memory tiers section** (CARRY / RECONSTRUCT / LOOK UP — see learner-centered rules above)
 - **Memorability hooks**: for each major definition/theorem, one sentence that lets the
   reader reconstruct the concept from scratch. E.g., "Eigenvector hook: the directions a
   matrix can't rotate — only stretch."
@@ -47,6 +97,7 @@ pedagogical rule listed below. Required sections:
   learner will encounter this in ML. E.g., "Vector spaces: a neural network layer Wx+b
   lives in a vector space — W is a linear map, x is a vector, the operations follow all
   8 axioms you just saw."
+- 5–10 micro-exercises, 2–3 checkpoints, 2–3 "explain it out loud" prompts (see above)
 - GENERIC: no H&C-specific content here. Fork-friendly.
 
 **theory.md body** (after the existing front matter):
