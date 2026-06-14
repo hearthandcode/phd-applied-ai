@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "phd-applied-ai/learner-profile/v1",
+  "title": "Learner Profile Schema",
+  "description": "Parameterizes curriculum generation for a specific learner. Values in this schema are passed directly into generation prompts. LLMs interpret the values semantically — numeric scales and named levels both work; combinations are best. Fork this file and replace values to calibrate for a different learner.",
+
+  "learner": {
+    "id": "L001",
+    "name": "Scott Rallya",
+    "notes": "Self-directed doctoral curriculum; ADHD and bipolar; returning to formal study after hiatus; strong intuition and pattern-recognition, weaker in sustained formal derivation chains; code-native workflow."
+  },
+
+  "cognitive_profile": {
+    "working_memory_load_sensitivity": "high",
+    "_comment_working_memory": "high = reduce symbol density, increase scaffolding; low = can handle dense formalism",
+
+    "preferred_entry_modality": ["project-based", "visual-spatial", "narrative"],
+    "_comment_modality": "Order matters — first is strongest preference. Options: narrative, visual-spatial, symbolic, project-based, auditory",
+
+    "formalism_density": {
+      "level": "moderate",
+      "score": 0.4,
+      "_comment": "0.0 = pure metaphor/intuition, 1.0 = pure symbolic. 0.4 means ~40% formalism density. Theory.md will still be rigorous, but generation agents lean toward more bridges and examples per symbol block."
+    },
+
+    "example_density": {
+      "level": "high",
+      "worked_examples_per_major_section": 2,
+      "_comment": "high = multiple worked examples per section, with ML-grounded numbers. low = one per section or fewer."
+    },
+
+    "bridge_density": {
+      "level": "high",
+      "bridges_per_definition": 1,
+      "_comment": "Number of conceptual bridge paragraphs before each formal definition. high = always 1, sometimes 2 for especially dense sections."
+    },
+
+    "checkpoint_frequency": {
+      "level": "high",
+      "checkpoints_per_file": 5,
+      "_comment": "high = ~5 checkpoints per foundations.md. low = 1-2 per file."
+    },
+
+    "exercise_format": "computational",
+    "_comment_exercise": "computational = Python/NumPy/SymPy code blocks required. paper = pen-and-pencil derivations. both = offer both. Never use paper-only for this learner profile."
+  },
+
+  "memory_tier_calibration": {
+    "carry_max_items": 7,
+    "reconstruct_max_items": 10,
+    "lookup_min_items": 8,
+    "_comment": "CARRY is the hard cap on must-memorize items. Exceeding it signals the generation agent to consolidate or promote items to RECONSTRUCT/LOOKUP."
+  },
+
+  "reading_level": "doctoral",
+  "_comment_reading": "doctoral = MIT 18.06 / graduate seminar depth. undergraduate = introductory. practitioner = applied, minimal theory.",
+
+  "prior_knowledge": {
+    "linear_algebra": "scattered-intermediate",
+    "calculus": "intermediate",
+    "probability": "scattered-intermediate",
+    "programming": "expert",
+    "ml_practitioner": "intermediate",
+    "_comment": "scattered-intermediate = has pieces but no unified framework. expert = can implement from scratch. Values: none, beginner, scattered-intermediate, intermediate, advanced, expert."
+  },
+
+  "generation_config": {
+    "foundations_file_required": true,
+    "pre_reading_map_required": true,
+    "memory_tiers_required": true,
+    "explain_out_loud_prompts": true,
+    "section_recaps": true,
+    "cross_modal_quad": true,
+    "ascii_diagrams_where_applicable": true,
+    "symbol_inline_definitions": true,
+    "operational_subspace_descriptions": true,
+    "dependency_callouts": true,
+    "memorability_hooks": true
+  },
+
+  "ml_grounding_weight": 0.8,
+  "_comment_ml": "0.0 = pure abstract math, 1.0 = every concept immediately grounded in ML example. 0.8 means strong ML grounding throughout.",
+
+  "pacing": {
+    "par_hours_multiplier": 1.2,
+    "_comment": "1.0 = standard par. >1.0 = allow more time per module. Accounts for deeper engagement and re-reading."
+  },
+
+  "_usage_note": "Embed this object in generation prompts as: LEARNER PROFILE: [paste JSON]. The generation agent should treat numeric scores as calibration signals and named levels as semantic instructions. Variables can be overridden per-module in theory.md frontmatter under a learner_overrides key."
+}
