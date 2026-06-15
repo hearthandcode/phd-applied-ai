@@ -3,12 +3,12 @@ Check where current study progress intersects the five research questions. Shows
 Arguments (optional): $ARGUMENTS
 (Format: "RQ3" for one specific question, or empty for all five)
 
-The five research questions (from THESIS.md):
-- RQ1: What architectural properties enable effective adaptive learning at scale?
-- RQ2: How can AI systems scaffold doctoral-level self-directed learning for non-traditional learners?
-- RQ3: What pedagogical frameworks best support AI-mediated interdisciplinary curriculum?
-- RQ4: How do neurodivergent learners navigate variable-energy engagement with AI tutoring systems?
-- RQ5: What ethical and alignment constraints must govern an AI system that adapts to individual learner psychology?
+The five research questions (from THESIS.md — authoritative, updated 2026-06-15):
+- RQ1: Does AI scaffolding, calibrated to an individual learner's cognitive and personality profile, enable doctoral-level outcomes that traditional institutional education failed to produce for the same learner?
+- RQ2: What scaffolding configurations — including pedagogical frameworks, personality and affect modeling (virtue/vice calibration), and adaptive pacing — are most effective for this specific neurodiverse learner?
+- RQ3: How should an adaptive learning platform be designed to implement these configurations for similar learner populations?
+- RQ4: What curriculum design principles emerge from longitudinal evidence of AI-mediated self-directed doctoral study?
+- RQ5 (autoethnographic): How do a learner's personal characteristics — ADHD, bipolar disorder, cyclical energy, variable recall, and task-initiation difficulty — shape their trajectory through AI-mediated doctoral-level study, and what design principles follow from five years of that data?
 
 Instructions:
 1. Read THESIS.md for the full RQ definitions and proposed methodology.

@@ -6,6 +6,33 @@ Format adapted from [Keep a Changelog](https://keepachangelog.com).
 
 ---
 
+## 2026-06-15 — Research Question Refinement (v3, finalized)
+
+### Changed
+- `THESIS.md` — research questions revised from Version C (5 broad academic questions
+  spanning competency modeling, pedagogy comparison, virtue/vice frameworks, governance/ethics,
+  and autoethnography) to Version B (5 tightly scoped questions anchored to the central
+  hypothesis and answerable by one researcher studying their own learning trajectory).
+  Version C questions requiring platform deployment data and IRB processes are documented
+  as future research directions in THESIS.md §Research questions.
+- `CLAUDE.md` — thesis research questions section updated to match THESIS.md v3
+- `.claude/commands/rq-checkpoint.md` — RQ list updated (was Version A, oldest framing)
+- `tools/hermes/profile/user-context-template.md` (hub) — RQ list updated to v3
+
+### Rationale
+Three generations of RQ framing existed across the repo (Version A in rq-checkpoint.md,
+Version B in user-context.md, Version C in THESIS.md). The virtue/vice personality
+calibration framework — the most novel contribution in Version C — is retained as the
+theoretical mechanism underlying RQ2, not a standalone question. Governance/ethics at
+scale is deferred: it requires a live platform, user data, and IRB review outside the
+scope of this self-directed study.
+
+### RQ numbering history (for session log interpretation)
+Session log RQ tags from before 2026-06-15 use prior numbering schemes. Treat as
+historical record. Do not retag existing entries.
+
+---
+
 ## 2026-06-14 — M01 Content, Learner-Centered Design Rules, Session Log Restructure, New Skills
 
 ### Added

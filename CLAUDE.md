@@ -46,18 +46,21 @@ See the "Current status" and "Next actions" sections below.
 **Title:** *Adaptive AI-Native Learning Systems: Architecture, Pedagogy, and Ethics of a
 Next-Generation Educational Platform*
 
-**Research questions:**
-1. How can adaptive AI systems model individual learner competency trajectories in real
-   time, and what instructional design principles govern their effectiveness?
-2. What pedagogical frameworks are most effective when mediated by generative AI tutors,
-   and how do they compare to traditional human-mediated instruction?
-3. Can computational models of personality, affect, and values (virtue/vice frameworks)
-   improve motivation and learning outcomes in AI-native educational environments?
-4. What governance, ethics, and fairness constraints are necessary for AI systems that
-   assess and adapt to individual learners at scale?
-5. How do a learner's personal characteristics — ADHD, bipolar disorder, cyclical energy,
-   variable recall, task-initiation difficulty — shape their trajectory through AI-mediated
-   doctoral-level study, and what design principles follow from 5+ years of that data?
+**Research questions (authoritative version in THESIS.md — last updated 2026-06-15):**
+1. RQ1: Does AI scaffolding, calibrated to an individual learner's cognitive and personality
+   profile, enable doctoral-level outcomes that traditional institutional education failed
+   to produce for the same learner?
+2. RQ2: What scaffolding configurations — including pedagogical frameworks, personality and
+   affect modeling (virtue/vice calibration), and adaptive pacing — are most effective for
+   this specific neurodiverse learner?
+3. RQ3: How should an adaptive learning platform be designed to implement these
+   configurations for similar learner populations?
+4. RQ4: What curriculum design principles emerge from longitudinal evidence of AI-mediated
+   self-directed doctoral study?
+5. RQ5: How do a learner's personal characteristics — ADHD, bipolar disorder, cyclical
+   energy, variable recall, task-initiation difficulty — shape their trajectory through
+   AI-mediated doctoral-level study, and what design principles follow from 5+ years of
+   that data? (autoethnographic)
 
 RQ5 is an autoethnographic research thread. Scott is researcher and primary subject.
 Dataset: session-level audit logs (energy, focus, mood, hours) accumulated over the full
