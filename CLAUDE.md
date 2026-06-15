@@ -138,12 +138,15 @@ This is research data for RQ5, not incidental disclosure.
 > Only open a phd-applied-ai Claude session directly for deep, focused study blocks where you
 > want the phd repo to be the cwd (e.g. for `/generate-module`, `/blog-draft`, `/oral-exam`).
 
-Invoke from a Claude Code session in this directory. Skills available in `.claude/commands/`:
+Full command reference with trigger guide: **`docs/commands.md`**
+
+Invoke from a Claude Code session in this directory. Type `/` to see all available commands.
 
 **Study & learning:**
 | Skill | Usage | What it does |
 |---|---|---|
-| `/study-session` | `/study-session M07` | Structured Socratic study session for a module |
+| `/learn` | `/learn M01` or `/learn M01 energy:low checkpoint:2` | Interactive teaching session — teaches actively, runs exercises, adapts to energy level |
+| `/study-session` | `/study-session M07` | Structured Socratic study session (explore/review mode) |
 | `/theory-qa` | `/theory-qa M07 question` | Deep Q&A on module theory |
 | `/oral-exam` | `/oral-exam M07` | All-committee oral examination |
 | `/reading-list` | `/reading-list M07` | Curated reading order for a module |
@@ -157,6 +160,8 @@ Invoke from a Claude Code session in this directory. Skills available in `.claud
 **Logging & tracking:**
 | Skill | Usage | What it does |
 |---|---|---|
+| `/learning-log` | `/learning-log M01` | Log a learning interaction record (post `/learn` session) |
+| `/study-idea` | `/study-idea curriculum title — idea` | Capture mid-session idea without breaking flow |
 | `/audit-entry` | `/audit-entry M07 2.5 1` | Log a study session to audit.md |
 | `/module-review` | `/module-review M07` | Self-assessment rubric walkthrough |
 | `/phase-status` | `/phase-status` | Progress report across all phases |
@@ -170,11 +175,26 @@ Invoke from a Claude Code session in this directory. Skills available in `.claud
 |---|---|---|
 | `/generate-module` | `/generate-module M07` | Generate doctoral content for one module |
 | `/generate-phase` | `/generate-phase B` | Generate all modules in a phase (manual Workflow) |
+| `/generate-theory-chunked` | `/generate-theory-chunked M01 fields` | Generate one theory section at a time |
 | `/blog-draft` | `/blog-draft M07` | Draft Substack post from a completed module |
 | `/social-post` | `/social-post M07` | All-platform social copy after a module |
 
 **Model-agnostic:** All skills work via Claude Code. Prompts can be copy-pasted into any model.
 Manual mode (no Claude Code): see `docs/manual-workflow.md`.
+
+### Assistant behavior — proactive command suggestions
+
+When an event occurs that maps to a command, suggest the command explicitly rather than
+handling it inline. Examples:
+
+- Subject shares a side idea → suggest `/study-idea [domain] [title] — [brief]`
+- Learning session ends → suggest `/learning-log M01`
+- A curriculum design decision is made → note it should go in CHANGELOG; suggest `/audit-entry`
+- A psychological state observation surfaces → note it belongs in the session log; suggest the format
+- End of session → remind about `/audit-entry` + session log entry before closing
+
+This keeps the AI session from becoming a substitute for structured data capture and ensures
+the research pipeline stays intact across sessions.
 
 ---
 

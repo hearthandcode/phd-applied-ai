@@ -6,6 +6,50 @@ Format adapted from [Keep a Changelog](https://keepachangelog.com).
 
 ---
 
+## 2026-06-14 — M01 Content, Learner-Centered Design Rules, Session Log Restructure, New Skills
+
+### Added
+- `modules/M01-linear-algebra/foundations.md` — ground-floor primer created: axiom-by-axiom
+  field and vector space tables (with "what breaks without it" column), triple description format
+  (formal + geometric + operational) for all four fundamental subspaces, symbol reference card
+  (28 symbols), 7 Python/NumPy micro-exercises, memory tiers (CARRY / RECONSTRUCT / LOOK UP),
+  3 "explain it out loud" prompts, pre-reading map, cross-modal quad applied to every concept.
+- `modules/M01-linear-algebra/theory.md` — 8 concrete worked examples added (one per major
+  section): rank-nullity projection layer, attention dot products, overdetermined least squares,
+  eigenvalue characteristic polynomial, PCA variance retention, SVD rank-1 approximation,
+  Eckart-Young compression, near-singular condition number. Pattern: intuition → formal →
+  worked example with specific numbers → ML significance.
+- `.claude/commands/learn.md` — interactive learning session skill: presents concept, assigns
+  micro-exercise, responds to answer, tracks engagement signals, advances checkpoints.
+- `.claude/commands/learning-log.md` — learning interaction record skill: logs pedagogical
+  data (questions asked, exercises, competency self-assessment) to `modules/MXX-*/interactions/`.
+- `.claude/commands/study-idea.md` — mid-session idea capture: appends to `ideas/[domain].md`
+  and returns immediately without breaking session flow.
+- `ideas/` directory — four-domain ideas ledger (research, curriculum, platform, connections)
+  with 5 entries from 2026-06-14 session.
+- `docs/pedagogical-foundations.md` — research citations document: Cognitive Load Theory,
+  Dual-Coding, Multimedia Learning, Desirable Difficulties, UDL, ADHD executive function
+  literature supporting the learner-centered design rules.
+- `docs/commands.md` — command reference: all 21 commands with descriptions, triggers,
+  and when-to-use guidance.
+
+### Changed
+- `docs/generate-module.md`, `docs/generate-phase.md`, `docs/manual-workflow.md` — added
+  CONCRETE WORKED EXAMPLE RULE: every abstract formal statement must be followed by a
+  concrete numerical worked example with specific numbers. ALL EXERCISES MUST BE
+  COMPUTATIONAL (Python/NumPy, no paper derivation). Added all 6 learner-centered design
+  rules (PRE-READING MAP, MEMORY TIERS, CHECKPOINTS, MICRO-EXERCISES, EXPLAIN IT OUT LOUD,
+  CROSS-MODAL QUAD).
+- `docs/session-log-process.md` — restructured: added data routing table (what goes where),
+  enforced 10-line maximum for passive capture entries, removed "clinical note" and "design
+  implication" as entry sub-sections (fold into body or route to correct file).
+- `sessions/2026/06/2026-06-14.md` — distilled to new format: verbose clinical entries
+  trimmed to 10-line maximum, Pedagogical Principles and Design Correlation sections removed
+  from session log (content routed to `docs/pedagogical-foundations.md` and hub respectively).
+- `CLAUDE.md` — added "Suggest commands proactively" convention to session behavior rules.
+
+---
+
 ## 2026-06-14 — Central Hypothesis Derived; THESIS.md Restructured
 
 ### Added

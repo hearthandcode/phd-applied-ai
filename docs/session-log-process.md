@@ -6,15 +6,34 @@ How session logs are created, described, verified, and stored in this curriculum
 
 ## Purpose
 
-Session logs serve two functions simultaneously:
+Session logs capture **RQ5 psychological and behavioral data only** — motivational states,
+cognitive observations, identity reflections, and engagement patterns. They are not work logs,
+curriculum design records, or learning interaction records.
 
-1. **Curriculum tracking** — what was studied, for how long, at what competency level.
-2. **RQ5 data collection** — longitudinal psychological and cognitive data on a neurodiverse
-   learner navigating AI-mediated doctoral study. Energy, mood, focus, and cognitive load
-   over 5+ years constitute the dataset for Research Question 5.
+Accuracy and brevity both matter. A session log is only as useful as it is honest and
+consistently maintained.
 
-Because these logs are both a personal research record and a public longitudinal dataset,
-accuracy and verification matter. A session log is only as useful as it is honest.
+---
+
+## Data routing — what goes where
+
+Before writing anything, route it to the correct file:
+
+| Data type | File | Format |
+|---|---|---|
+| Motivational reflections, behavioral observations, identity statements | `sessions/YYYY/MM/YYYY-MM-DD.md` | Session log (this process) |
+| Energy, mood, focus, cognitive load for the session | YAML frontmatter of the session log | Structured fields |
+| Learning session interactions (questions asked, concepts, exercises) | `modules/MXX-*/interactions/YYYY-MM-DD.md` | Learning log |
+| Curriculum design decisions (what changed and why) | `CHANGELOG.md` | Changelog entry |
+| Platform design principles surfaced during study | `ideas/platform.md` via `/study-idea` | Ideas log |
+| Research methodology insights | `ideas/research.md` via `/study-idea` | Ideas log |
+| Mid-session tangents and connections | `ideas/[domain].md` via `/study-idea` | Ideas log |
+| Hub-level architectural decisions | `hub/workspace/decisions.md` | Decision log |
+| Thread and task tracking | `profile/threads.md` + `ops/kanban.md` | Thread/task system |
+
+The session log should never reproduce content that belongs in one of the other files above.
+A session log entry that describes a curriculum design change should be one sentence pointing
+to the CHANGELOG, not a 20-line explanation of the change.
 
 ---
 
@@ -260,22 +279,31 @@ is in the psychological and cognitive data, not in financial or legal specifics.
 
 ### Format for passive capture entries
 
-Use the standard rolling entry format with `[~EDT]` timestamp placeholder (the hook will
-replace with actual time):
+Entries must be concise. **Maximum 10 lines per entry.** The `[~EDT]` timestamp placeholder
+is replaced by the commit hook with actual time.
 
 ```markdown
-### [~EDT] [Brief descriptive title]
+### [~EDT] [Title — 5–8 words]
 
-**Block type:** [Autoethnographic / motivational / strategic / design / methodology]
-**Trigger:** [What prompted this entry — subject reflection / design decision / etc.]
+**Type:** motivational | behavioral | identity | learning-engagement | meta
+**RQ:** RQ1 | RQ2 | RQ3 | RQ4 | RQ5 | cross-cutting
+**Tags:** tag · tag
 
-[Clinical or observational narrative. Third-person for behavioral observations,
-first-person preserved for direct quotes. RQ5 tags applied at end.]
-
-**RQ5 relevance:** [High / Medium / Low + one sentence on why]
+[3–5 sentences. What happened, what it signals, why it matters for the longitudinal record.
+Write in third-person for behavioral observations; preserve first-person for direct quotes.]
 
 ---
 ```
+
+**What does NOT go in the entry body:**
+- "Clinical note:" sections — fold the observation into the 3–5 sentence body
+- "Design implication:" sections — route to `ideas/platform.md` or `workspace/decisions.md`
+- "Platform design implication:" — same; this is a public research record, not an architecture log
+- Summaries of curriculum changes — one sentence + pointer to CHANGELOG is sufficient
+- Learning interaction details — those belong in `modules/MXX-*/interactions/`
+
+If an entry needs more than 10 lines, that is a signal to split it: capture the RQ5
+observation in the session log and route the analysis or decision to its correct file.
 
 ---
 
