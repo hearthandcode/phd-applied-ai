@@ -51,21 +51,23 @@ The abstract should open by restating the central hypothesis above.]*
 
 ## Research questions
 
-**RQ1 — Adaptive competency modeling**
-How can adaptive AI systems model individual learner competency trajectories in real time,
-and what instructional design principles govern their effectiveness?
+**RQ1 — AI scaffolding and doctoral outcomes**
+Does AI scaffolding, calibrated to an individual learner's cognitive and personality
+profile, enable doctoral-level outcomes that traditional institutional education failed
+to produce for the same learner?
 
-**RQ2 — Pedagogy and generative AI**
-What pedagogical frameworks are most effective when mediated by generative AI tutors, and
-how do they compare to traditional human-mediated instruction?
+**RQ2 — Effective scaffolding configurations**
+What scaffolding configurations — including pedagogical frameworks, personality and affect
+modeling (virtue/vice calibration), and adaptive pacing — are most effective for this
+specific neurodiverse learner?
 
-**RQ3 — Virtue, vice, and learner motivation**
-Can computational models of personality, affect, and values — specifically virtue/vice
-frameworks — improve motivation and learning outcomes in AI-native educational environments?
+**RQ3 — Adaptive platform design**
+How should an adaptive learning platform be designed to implement these configurations
+for similar learner populations?
 
-**RQ4 — Governance and ethics at scale**
-What governance, ethics, and fairness constraints are necessary for AI systems that assess
-and adapt to individual learners at scale?
+**RQ4 — Curriculum design principles**
+What curriculum design principles emerge from longitudinal evidence of AI-mediated
+self-directed doctoral study?
 
 **RQ5 — Neurodiversity and AI-mediated learning (autoethnographic)**
 How do a learner's personal characteristics — ADHD, bipolar disorder, cyclical energy,
@@ -76,6 +78,13 @@ doctoral-level study, and what design principles follow from five years of that 
 subject. Claims are framed as generative hypotheses for future research, not generalizable
 theory from N=1. Appropriate methods: structured self-report, thematic analysis of audit
 logs, design principles grounded in lived experience.
+
+*Scope note (2026-06-15):* Broader questions — adaptive competency modeling as a systems
+problem, pedagogical framework comparison studies, and AI governance/ethics at scale — are
+documented as future research directions. They require platform deployment data and IRB
+processes beyond the scope of this self-directed study. The virtue/vice personality
+calibration framework is retained as the theoretical mechanism underlying RQ2, not a
+standalone research question.
 
 ---
 
