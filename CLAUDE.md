@@ -160,6 +160,7 @@ Invoke from a Claude Code session in this directory. Type `/` to see all availab
 **Logging & tracking:**
 | Skill | Usage | What it does |
 |---|---|---|
+| `/journal` | `/journal [free text]` | Append to research journal — chains of reasoning, breakthroughs, struggles, how ideas connected |
 | `/learning-log` | `/learning-log M01` | Log a learning interaction record (post `/learn` session) |
 | `/study-idea` | `/study-idea curriculum title — idea` | Capture mid-session idea without breaking flow |
 | `/audit-entry` | `/audit-entry M07 2.5 1` | Log a study session to audit.md |
@@ -182,19 +183,24 @@ Invoke from a Claude Code session in this directory. Type `/` to see all availab
 **Model-agnostic:** All skills work via Claude Code. Prompts can be copy-pasted into any model.
 Manual mode (no Claude Code): see `docs/manual-workflow.md`.
 
-### Assistant behavior — proactive command suggestions
+### Assistant behavior — proactive logging dispatch
 
-When an event occurs that maps to a command, suggest the command explicitly rather than
-handling it inline. Examples:
+Scott speaks freely. Route content to the correct destination automatically — don't wait for
+a slash command. Execute the action, then confirm in one line.
 
-- Subject shares a side idea → suggest `/study-idea [domain] [title] — [brief]`
-- Learning session ends → suggest `/learning-log M01`
-- A curriculum design decision is made → note it should go in CHANGELOG; suggest `/audit-entry`
-- A psychological state observation surfaces → note it belongs in the session log; suggest the format
-- End of session → remind about `/audit-entry` + session log entry before closing
+| Content pattern | Action | Destination |
+|---|---|---|
+| Motivational reflection, behavioral observation, psychological state | Append passive capture entry (silently) | `sessions/YYYY/MM/YYYY-MM-DD.md` |
+| Chain of reasoning, breakthrough, struggle, how ideas connected | Append journal entry (`/journal`); confirm one line | `docs/research-journal.md` |
+| Discrete idea, insight, or cross-domain connection | Append idea (`/study-idea`); confirm one line | `ideas/[domain].md` |
+| Platform design insight or decision | Append to `ideas/platform.md`; flag for hub decisions.md | phd + hub |
+| Evidence for a research question (RQ1–5) | Append to `ideas/research.md` | `ideas/research.md` |
+| Curriculum design change | Write to `CHANGELOG.md` if unambiguous | `CHANGELOG.md` |
+| Study session just completed | Offer `/learning-log M##` + `/audit-entry M## [hrs] [competency]` | — |
 
-This keeps the AI session from becoming a substitute for structured data capture and ensures
-the research pipeline stays intact across sessions.
+Auto-execute silently for session log. Confirm one line for journal, ideas, CHANGELOG.
+Offer (don't auto-execute) for learning-log and audit-entry — hours and competency require Scott's input.
+Never auto-dispatch architectural decisions or content with financial/legal/medical detail.
 
 ---
 

@@ -23,13 +23,13 @@ entries as studying progresses.
 
 | Module | Title | Par (hrs) | Actual (hrs) | Competency | Status |
 |---|---|---|---|---|---|
-| M01 | Linear Algebra for ML | 45 | 0 | 0 | not started |
+| M01 | Linear Algebra for ML | 45 | 1.3 | 1 | in-progress |
 | M02 | Multivariate Calculus and Optimization | 45 | 0 | 0 | not started |
 | M03 | Probability Theory and Bayesian Inference | 50 | 0 | 0 | not started |
 | M04 | Statistics and Statistical Learning | 45 | 0 | 0 | not started |
 | M05 | Information Theory | 40 | 0 | 0 | not started |
 | M06 | Graph Theory and Discrete Mathematics | 40 | 0 | 0 | not started |
-| **Phase total** | | 265 | 0 | — | |
+| **Phase total** | | 265 | 1.3 | — | |
 
 ---
 
