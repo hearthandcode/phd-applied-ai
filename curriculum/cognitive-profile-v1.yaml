@@ -32,6 +32,48 @@ cognitive_profile_v1:
                                               #   Increment each time values are refined against
                                               #   observed interaction data.
 
+  # ── Cognitive Profile Dimensions ──────────────────────────────────────────
+  # Interaction-facing profile that steers Virgil's behavior.
+  # Each dimension on 0.0-1.0 scale. Full calibration system with anchor
+  # descriptors and measurement techniques at tools/hermes/cognitive-profile-calibration.md.
+  #
+  # These values are the CURRENT calibrated state. Steering rules derived from
+  # them are injected into SOUL.md §Active profile steering rules.
+  #
+  dimensions:
+    # Formalism Density (0.0=pure intuition, 1.0=pure formal notation)
+    # Controls how much symbolic/mathematical notation to use in explanations.
+    # At 0.4: conceptual bridge first, then notation. Max 4 symbols. Define each on first use.
+    formalism_density: 0.4
+
+    # Working Memory Load Sensitivity (0.0=handles dense formalism easily, 1.0=needs scaffolding)
+    # Controls explanation chunking, concept count, and recap frequency.
+    working_memory_load: 0.80
+
+    # Divergent Thinking (0.0=focused/convergent, 1.0=broad/exploratory)
+    # Controls cross-domain connection frequency.
+    divergent_thinking: 0.90
+
+    # Convergent Thinking (0.0=struggles to synthesize, 1.0=strong synthesis)
+    # Controls how aggressively to drive toward closure.
+    convergent_thinking: 0.50
+
+    # Momentum Preference (0.0=self-initiating, 1.0=needs external momentum)
+    # Controls response structure — next actions, permission slips, session pacing.
+    momentum_preference: 0.80
+
+    # Delegation Ratio (0.0=micromanages, 1.0=intent-only)
+    # Controls level of detail in task specification.
+    delegation_ratio: 0.70
+
+    # Correction Sensitivity (0.0=rarely corrects, 1.0=frequently corrects)
+    # Controls how each correction is processed.
+    correction_sensitivity: 0.50
+
+    # Neuroticism Sensitivity (0.0=emotionally stable, 1.0=highly reactive)
+    # Controls self-doubt protocol activation and validation depth.
+    neuroticism_sensitivity: 0.70
+
   # ── Big Five Personality Dimensions ───────────────────────────────────────
   # All values on 0.0–1.0 scale. Baseline estimates derived from about.md
   # narrative, session transcripts, and interaction patterns with AI.
