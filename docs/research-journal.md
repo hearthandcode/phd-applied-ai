@@ -69,3 +69,31 @@ What's actually true, separated from the mood:
 **Cross-refs:** `sessions/2026/06/2026-06-15.md` (competitive discouragement + imposter syndrome cascade entry) · `THESIS.md` (research-drives-product, conflict of interest disclosures) · `ideas/research.md` (structures that survive confidence cycling)
 
 ---
+
+### [2026-06-18 ~11:45] Pre-registration as the structural immune system — and the architecture-building trap
+
+Today's design session started from an unusual place: fear. Not fear of failure — I've written about that in the 2026-06-15 doubt episode entry. This was fear of the tool I'm using to do the research. The concern that AI validation, structured around RLHF's implicit bias toward user satisfaction, could map onto Bipolar mania in a way that produces false insight loops. "AI psychosis" was the phrase I used — and I think it's the right diagnostic label for what could go wrong. Someone with a clinical history of psychosis using an AI that systematically biases toward agreement is not the same risk profile as the general user. It required a real design response, not reassurance.
+
+The structural defense I designed to address this is pre-registration — the same mechanism experimental scientists use to prevent p-hacking. The transferability of that mechanism is what I want to hold onto here. Confirmation bias works by letting you construct the question that matches your conclusion. Pre-registration short-circuits this by requiring the question to precede the data. If I commit my learning predictions before studying, I can't reverse-engineer my confidence from what I happen to learn. The commit hash becomes a timestamp that neither the AI nor I can falsify retroactively.
+
+This led directly into the assessment design for M01. What emerged feels important enough to write down explicitly: the distinction between acquisition and integration is not just a measurement taxonomy — it describes two fundamentally different kinds of learning with different encoding mechanisms. Acquisition is declarative recall. Integration is structural: did the knowledge network rearrange itself around this new node? The 2026-06-15 entry on visualization and memory described this experientially. Today I gave it a measurement architecture.
+
+The cascade pre-registration (Layer 3 of the three-layer system) formalizes the spiral curriculum intuition I've had for a while. Bruner's spiral curriculum is about returning to concepts at increasing abstraction. But the cascade model is the inverse movement: before studying eigenvalues, predict which concepts from vector spaces you'll need. That prediction is cognitive exposure to the dependency relationship before it's demonstrated. Transfer-appropriate processing (Morris et al., 1977) suggests encoding at study time should match the retrieval context — predicting forward is transfer-appropriate encoding for a spiral curriculum, because the actual retrieval context will be "I need this concept to understand the next one."
+
+The architecture-building trap named itself today. I was the one who flagged it: "I feel this leads me into the architecture building trap." This is metacognition during an active session, which matters. ADHD executive function deficit includes difficulty detecting when elaboration is substituting for execution. I detected it in real time. What made that detection possible, I think, is that I'm writing session log entries continuously — the externalized output gives me enough distance from the dopamine to evaluate whether I'm executing or elaborating. The logging is doing double work: producing research data AND maintaining the cognitive scaffolding that enables research quality.
+
+One open question this raises: if session logging generates dopamine via output visibility, and that dopamine enables the metacognitive detection that improves research quality, then the logging system is self-reinforcing in a direction that benefits the research. The Extended Mind Thesis appearing recursively: the tool that externalizes memory is the same tool that enables the metacognition that improves tool use. I don't know if this is stable or if the novelty of logging will erode over time, but it's worth tracking.
+
+**What this changes for curriculum design:**
+- Pre-registration as standard protocol for all module assessments: write predictions before study, commit them, score them post-module
+- Layer 3 cascade pre-registration operationalizes spiral curriculum as a forward prediction problem — this may be the right quantitative handle for measuring curriculum coherence empirically
+- The architecture-building trap should appear in RQ5 as a named pattern with a structural mitigation (minimum viable artifact gates)
+
+**Open questions:**
+- Can cascade pre-registration yield quantitative input for a Bayesian Knowledge Tracing model? Would need to operationalize "accuracy of forward prediction" as a probability estimate — doable but requires more design work at Approach C migration time.
+- Is the architecture-building trap a reliable diagnostic marker for ADHD engagement states? If the presence of architectural elaboration reliably signals dopamine availability, it might be an entry point mechanism — engineer architecturally-interesting hooks into study session starts, then transition to content.
+- What is the decay rate of the integration/structural knowledge captured in Layer 2 probes across the M01 → M02 → M03 chain? If structural understanding decays faster than declarative recall, the assessment timing needs to account for it.
+
+**Cross-refs:** `sessions/2026/06/2026-06-18.md` (full design session entries) · `docs/assessment-system.md` (the design spec produced today) · `modules/M01-linear-algebra/assessment/` (the actual assessment files) · `ideas/research.md` (pre-registration as echo-chamber defense; architecture-building trap as RQ5 pattern)
+
+---
