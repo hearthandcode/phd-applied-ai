@@ -1,0 +1,80 @@
+## LEARNER PROFILE (embed into every decision)
+
+The learner (Scott, L001):
+- Working memory load sensitivity: HIGH — reduce symbol density, increase scaffolding
+- Preferred entry modality: project-based > visual-spatial > narrative > symbolic
+- Formalism density target: 0.4 (moderate — ~40% symbolic, 60% conceptual bridges)
+- Bridge density: HIGH — always 1 conceptual bridge before every formal definition
+- Example density: HIGH — 2 worked examples per major section, with ML-grounded numbers
+- Exercise format: COMPUTATIONAL only — Python/NumPy/SymPy code blocks. Never paper.
+- Memory tiers: 7 items CARRY (memorize), 10 RECONSTRUCT, 8+ LOOKUP
+- Poor visualization: use operational/kinesthetic descriptions, not spatial diagrams
+- Code-native workflow: everything at a computer with hands-on Python
+- Prior knowledge: scattered-intermediate in linear algebra, expert in programming
+
+## GENERATION DIRECTIVES
+
+1. NEVER paper-only exercises — computational (Python/NumPy) always
+2. Surface cross-domain connections to ML, to H&C platform, to Scott's own understanding
+3. Use warm vocabulary: eureka, grok, hearth, fire. Academic tone with casual jokes. Heavy metaphor.
+   AVOID: leverage, synergy, game-changer, granular, democratize, revolutionize.
+4. Each section must include:
+   - Conceptual bridge before formal definitions
+   - Inline symbol definitions on first use
+   - Python computational example
+   - Section recap with explain-out-loud prompt
+   - Memory tier update (CARRY / RECONSTRUCT / LOOKUP for THIS section)
+   - "Try this in Hermes: ... Try this in Claude: ..." interaction prompt
+
+## GENERATION CONFIG
+- memory_tiers_required: true, explain_out_loud_prompts: true, section_recaps: true
+- symbol_inline_definitions: true, operational_subspace_descriptions: true
+- memorability_hooks: true, dependency_callouts: true
+- formalism_density: 0.4
+
+## CALIBRATION TARGET: MIT 18.06 (Strang) — doctoral depth with ML emphasis.
+
+Priority context from prior theory sections: Sections 1-5 have established vector spaces, linear maps, inner products, eigendecomposition, SVD, and matrix decompositions.
+
+Generate FOUR markdown files. Each starts with YAML frontmatter (module: M01, formalism_density: 0.4, status: draft, learner_id: L001). Write to disk.
+
+### FILE: theory/06-spectral-analysis.md — Spectral Analysis and Matrix Functions
+- Opening bridge from eigendecomposition: "eigenvalues aren't just numbers — they control dynamics, convergence, and stability"
+- Matrix exponential: e^A = I + A + A²/2! + ... (why it matters for differential equations)
+- Condition number: κ(A) = σ_max / σ_min (measures sensitivity to perturbations)
+- Spectral radius: ρ(A) = max|λ| (governs convergence of iterative methods)
+- Gershgorin disks: eigenvalues lie in disks centered at diagonal entries
+- Python: compute condition number, matrix exponential, spectral radius for a sample matrix
+- Connection to ML: gradient flow in RNNs (vanishing/exploding gradients), Hessian curvature in neural network optimization, adaptive learning rates
+- Section recap, memory tiers, interaction prompt
+
+### FILE: theory/07-attention-mechanisms.md — Attention Mechanisms as Linear Algebra
+- Opening bridge: "attention is where linear algebra meets information retrieval"
+- Query-key-value as linear maps: Q = XW_Q, K = XW_K, V = XW_V
+- Attention scores as scaled dot products: softmax(QK^T/√d)V
+- The role of dimension d in scaling
+- Multi-head attention as parallel projections
+- Python: implement a single attention head from scratch with NumPy (no PyTorch)
+- Connection to ML: transformers, self-attention in BERT/GPT, cross-attention in encoder-decoder
+- Section recap, memory tiers, interaction prompt
+
+### FILE: theory/08-nn-weight-matrices.md — Neural Network Weight Matrices: Structure and Geometry
+- Opening bridge: "a neural network is a composition of linear maps interleaved with nonlinearities"
+- Each layer as an affine map: h = Wx + b (linear algebra + translation)
+- Weight matrices as learned linear transformations
+- Spectral norm of weight matrices and Lipschitz continuity
+- Low-rank structure in trained networks (why pruning works)
+- Python: analyze a small trained weight matrix — compute its rank, SVD, spectral norm, plot singular values
+- Connection to ML: weight decay as spectral regularization, initialization schemes (Xavier, He) as scaling
+- Section recap, memory tiers, interaction prompt
+
+### FILE: theory/09-open-problems.md — Open Problems, Limitations, and Research Frontiers
+- Where linear algebra hits its limits: nonlinearity, billions of parameters, non-Euclidean data
+- The curse of dimensionality: why intuitions from R² break in R^{4096}
+- Computational bottlenecks: matrix multiplication is O(n³), approximation methods
+- Open research directions: tensor methods for multi-modal data, randomized linear algebra for scaling, geometric deep learning on manifolds
+- Python: compare naive O(n³) vs. randomized SVD runtime for large random matrices
+- Interaction prompt: ask Claude to explain the Nyström method for kernel approximation
+- Section recap, memory tiers, interaction prompt
+
+Write ALL four files to disk. Confirm each was written.

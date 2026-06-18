@@ -1,0 +1,136 @@
+## LEARNER PROFILE (embed into every decision)
+
+The learner (Scott, L001):
+- Working memory load sensitivity: HIGH — reduce symbol density, increase scaffolding
+- Preferred entry modality: project-based > visual-spatial > narrative > symbolic
+- Formalism density target: 0.4 (moderate — ~40% symbolic, 60% conceptual bridges)
+- Bridge density: HIGH — always 1 conceptual bridge before every formal definition
+- Example density: HIGH — 2 worked examples per major section, with ML-grounded numbers
+- Exercise format: COMPUTATIONAL only — Python/NumPy/SymPy code blocks. Never paper.
+- Memory tiers: 7 items CARRY (memorize), 10 RECONSTRUCT, 8+ LOOKUP
+- Poor visualization: use operational/kinesthetic descriptions, not spatial diagrams
+- Code-native workflow: everything at a computer with hands-on Python
+- Prior knowledge: scattered-intermediate in linear algebra, expert in programming
+
+## GENERATION DIRECTIVES (apply to writing style)
+
+1. Surface cross-domain connections proactively (to ML, to H&C platform, to Scott's own understanding)
+2. Open-ended framing for exploration; directive framing for execution
+3. NEVER paper-only exercises — computational (Python/NumPy) always
+4. Preserve stream-of-consciousness structure — branching, self-correcting, associative
+5. Use warm vocabulary: eureka, grok, vibe, hearth, circle, fire. Academic tone with casual jokes. Heavy metaphor and analogy. AVOID: leverage, synergy, game-changer, granular, democratize, revolutionize.
+6. Emphasize strengths and cognitive gifts over obstacles
+7. Include personal anecdotes and reflection prompts
+8. Each section must include:
+   - Conceptual bridge before formal definitions
+   - Inline symbol definitions on first use
+   - Python computational example
+   - Section recap with explain-out-loud prompt
+   - Memory tier update (CARRY / RECONSTRUCT / LOOKUP for THIS section)
+   - "Try this in Hermes: ... Try this in Claude: ..." interaction prompt
+
+## GENERATION CONFIG FLAGS
+- pre_reading_map_required: true
+- memory_tiers_required: true
+- explain_out_loud_prompts: true
+- section_recaps: true
+- cross_modal_quad: true
+- ascii_diagrams_where_applicable: true
+- symbol_inline_definitions: true
+- operational_subspace_descriptions: true
+- dependency_callouts: true
+- memorability_hooks: true
+
+## ALREADY GENERATED — PRIOR CONTEXT
+
+The foundations primer (01-primer.md) and Section 1 (01-vector-spaces.md) are already complete.
+
+## PRIOR CONTEXT (Section 1 established vector spaces, linear maps, rank-nullity)
+1|---
+2|module: M01
+3|title: "Linear Algebra for ML"
+4|artifact: theory-section
+5|section: "01 — Vector Spaces and Linear Maps"
+6|calibration: "MIT 18.06 (Strang), Lectures 1–10"
+7|formalism_density: 0.4
+8|status: draft
+9|learner_id: L001
+10|prereq: "foundations/01-primer.md"
+11|---
+12|
+13|# Section 1 — Vector Spaces and Linear Maps
+14|
+15|## Opening — picking up the kindling
+16|
+17|In the primer we lit a small fire: a **vector space** is a universe where you
+18|can add and scale, and those two moves never throw you out of the universe. That
+19|"never throw you out" property — *closure* — is the only magic word you need to
+20|carry in. Everything in this section is a consequence of taking that one idea
+21|seriously and asking the obvious follow-up questions: *How do I name points in
+22|such a universe? What are the functions that respect its rules? And what is
+23|conserved when I push the whole universe through one of those functions?*
+24|
+25|We'll answer those three questions in order, and the answers are: **basis**,
+26|**linear maps**, and the **rank–nullity theorem**. By the end you'll see that a
+27|matrix — the spreadsheet you already know — is just a linear map in work clothes.
+28|
+29|---
+30|
+31|## 1. Abstract vector spaces
+32|
+33|**Bridge.** You met `ℝⁿ` already: lists of `n` numbers, like `[0.3, −1.2, 5.0]`.
+34|But here's the move that makes a mathematician (and an ML engineer) powerful:
+35|the *list* was never the point. The point was the **rules** — add, scale, stay
+36|in the box. Anything obeying those rules is a vector space, even if its
+37|"vectors" are functions, or images, or 768-dimensional embeddings. We abstract
+38|away the container and keep the behavior.
+39|
+40|**Bridge, second pass.** Why bother abstracting? Because a theorem proved about
+41|"any vector space" instantly applies to *all* of them — pixel images, weight
+42|tensors, polynomial functions, audio signals. You prove once, you reap
+43|everywhere. That's the leverage of abstraction (the go
+
+## CALIBRATION TARGET: MIT 18.06 (Strang) — doctoral depth with ML emphasis.
+
+Generate FOUR markdown files for M01 Linear Algebra. Each file starts with YAML frontmatter (module: M01, formalism_density: 0.4, status: draft, learner_id: L001). Write them to disk as I specify:
+
+### FILE: theory/02-inner-products.md — Inner Products, Norms, and Geometry
+- Opening bridge from vector spaces: "we had a universe and a map, now we need distance and angle"
+- Definition of inner product (operational: "it's a function that takes two vectors and returns a number that tells you how much they align")
+- Norm, distance, orthogonality
+- Cauchy-Schwarz inequality (with intuition, not just a formula)
+- Projection onto a subspace (with Python: orthogonal projection with NumPy)
+- Least squares as projection (the normal equations)
+- Connection to ML: attention scores as weighted inner products, cosine similarity for embeddings
+- Section recap, memory tier update, interaction prompt
+
+### FILE: theory/03-eigendecomposition.md — Eigendecomposition
+- Opening bridge: "some directions don't just get scaled — they get rotated into new dimensions. Eigendecomposition finds the ones that stay pure."
+- Eigenvalue equation: Av = λv (operational meaning)
+- Characteristic polynomial, algebraic/geometric multiplicity
+- Diagonalization: A = PDP⁻¹
+- Symmetric matrices have real eigenvalues and orthogonal eigenvectors
+- Python: compute eigenvectors for a covariance-like matrix, verify A = PDP⁻¹
+- Connection to ML: PCA is eigendecomposition of covariance matrix, RNN gradient stability, spectral normalization
+- Section recap, memory tier update, interaction prompt
+
+### FILE: theory/04-singular-value-decomposition.md — Singular Value Decomposition
+- Opening bridge: "eigendecomposition only works for square matrices. SVD works for everything."
+- The SVD theorem: A = UΣVᵀ — every matrix is rotate→scale→rotate
+- Geometric interpretation (three distinct operations, not just symbols)
+- Connection to eigendecomposition: U columns are eigenvectors of AAᵀ, V columns of AᵀA
+- Low-rank approximation via truncated SVD
+- Python: SVD on an image-like matrix, reconstruct with k singular values, observe information loss
+- Connection to ML: LoRA (low-rank adaptation), matrix factorization for recommendations, pseudoinverse via SVD
+- Section recap, memory tier update, interaction prompt
+
+### FILE: theory/05-matrix-decompositions.md — Matrix Decompositions (QR, LU, Cholesky)
+- Opening bridge: "factoring a matrix into pieces with nice properties"
+- LU decomposition: A = LU (Gaussian elimination as factorization)
+- QR decomposition: A = QR (gram-schmidt as factorization)
+- Cholesky decomposition: A = LLᵀ (for positive definite matrices — square root of a matrix)
+- Python: QR for least squares, Cholesky for sampling from multivariate Gaussian
+- Connection to ML: Cholesky used in Gaussian processes, QR for numerically stable linear regression
+- Section recap, memory tier update, interaction prompt
+
+Write ALL four files to disk. Confirm each was written.

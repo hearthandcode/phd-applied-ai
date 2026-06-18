@@ -1,0 +1,225 @@
+You are a rigorous academic quality reviewer. Apply the following verification rubric to every section of M01 (Linear Algebra for ML).
+
+## VERIFICATION RUBRIC
+
+1|# Hermes Curriculum Verification Rubric — v1
+2|
+3|**Synthesized from established open standards:**
+4|- [LORI 1.5](https://edutechwiki.unige.ch/en/Learning_Object_Review_Instrument) — Nesbit, Belfer & Leacock (2004). *Learning Object Review Instrument.* 9 dimensions, empirically validated.
+5|- [Achieve OER Rubrics](https://www.achieve.org/files/AchieveOERRubrics.pdf) — Achieve (2011). *Rubrics for Evaluating Open Education Resources.* 8 criteria, publicly funded, US standards-aligned.
+6|- [OERTrust Framework](https://www.researchgate.net/publication/323882739_Quality_Assurance_for_Open_Educational_Resources_The_OERTrust_Framework) — Mayrberger, Zawacki-Richter & Müskens (2018). *Quality Assurance for OER.* Pedagogical + technical dimensions.
+7|
+8|**Adapted for:** AI-generated, self-directed doctoral curriculum with cognitive profile parameterization (L001).
+9|
+10|---
+11|
+12|## Scoring
+13|
+14|Each dimension: **0 (absent)** → **3 (meets standard)** → **5 (exemplary)**
+15|
+16|A section must score ≥ 3 on ALL dimensions to pass verification. Any dimension scoring ≤ 2 generates an automatic FLAG requiring human review.
+17|
+18|---
+19|
+20|## Dimension 1: Content Quality (LORI §1 · Achieve §2)
+21|
+22|*Veracity, accuracy, balanced presentation of ideas, appropriate level of detail.*
+23|
+24|| Score | Criteria |
+25||-------|----------|
+26|| 5 | All claims are correct and verifiable. Mathematical theorems are stated with precise conditions. No hallucinations. Level of detail matches doctoral depth (MIT 18.06 calibration). |
+27|| 3 | Claims are generally correct. Minor imprecision in edge cases. Level of detail is appropriate but may occasionally oversimplify. |
+28|| 1 | Factual errors present. Hallucinated citations. Detail level inappropriate for doctoral study. |
+29|
+30|**Verification prompt for Haiku:**
+31|> "Check every theorem, definition, and claim in this section against established mathematical/CS knowledge. Flag anything that is incorrect, imprecise, or hallucinated. Be especially strict on citation of named theorems."
+32|
+33|---
+34|
+35|## Dimension 2: Learning Goal Alignment (LORI §2 · Achieve §1)
+36|
+37|*Alignment among learning goals, activities, assessments, and learner characteristics.*
+38|
+39|| Score | Criteria |
+40||-------|----------|
+41|| 5 | Every exercise, recap, and assessment directly supports stated learning goals. Goals are specific, measurable, and calibrated to the module's phase. |
+42|| 3 | Most exercises align with goals. Some activities may be tangentially related. Goals are stated but could be more specific. |
+43|| 1 | Poor alignment between goals and content. Exercises test different material than what was taught. |
+44|
+45|**Verification prompt for Haiku:**
+46|> "Does every exercise and activity in this section directly test material the section actually taught? Are the stated learning goals specific enough to measure mastery?"
+47|
+48|---
+49|
+50|## Dimension 3: Cognitive Load Calibration (LORI §3 · Adapted)
+51|
+52|*Appropriate scaffolding for the learner's working memory profile (L001: high sensitivity). Formalism density target: 0.4.*
+53|
+54|| Score | Criteria |
+55||-------|----------|
+56|| 5 | Conceptual bridges precede every formal definition (≥1 bridge/definition). Formalism density is approximately 40% symbolic, 60% intuition. Python exercises are the primary assessment modality. |
+57|| 3 | Some bridges present but not systematic. Formalism density may drift to 50-60%. |
+58|| 1 | Dense symbolic exposition with minimal scaffolding. Paper-only exercises. No working memory accommodations. |
+59|
+60|**Verification prompt for Haiku:**
+61|> "Count the conceptual bridge paragraphs before formal definitions. Is there at least one bridge per definition? What percentage of the section is symbolic notation vs. prose intuition? Are exercises computational (Python)?"
+62|
+63|---
+64|
+65|## Dimension 4: Memory Tier Design (LORI §3 · Adapted)
+66|
+67|*Seven CARRY items, ten RECONSTRUCT items, remainder as LOOKUP. Tiered retrieval practice.*
+68|
+69|| Score | Criteria |
+70||-------|----------|
+71|| 5 | Exactly 7 CARRY items (the most essential). 7-10 RECONSTRUCT items (derivable). LOOKUP items are clearly reference material. Tiers are pedagogically sound — learner truly needs to internalize CARRY items. |
+72|| 3 | Tiers present but counts may be off (8-9 CARRY, unrelated RECONSTRUCT). Most tier assignments are reasonable. |
+73|| 1 | No memory tiers. All content treated as equally important. No guidance on what to internalize vs. reference. |
+74|
+75|**Verification prompt for Haiku:**
+76|> "Are there exactly 7 CARRY items? Are these truly the 7 most essential concepts the learner must memorize forever? Do the RECONSTRUCT items make sense as derivable rather than memorized?"
+77|
+78|---
+79|
+80|## Dimension 5: Interaction Design & Motivation (LORI §4 · §6 · Achieve §3)
+81|
+82|*Ability to motivate the learner. Explain-out-loud prompts, cross-modal questions, and interaction prompts for both Hermes and Claude. Ease of navigation.*
+83|
+84|| Score | Criteria |
+85||-------|----------|
+86|| 5 | Every section ends with "Try this in Hermes" AND "Try this in Claude" prompts. Explain-out-loud prompts appear mid-section. Navigation between sections is clear via the unified TOC. |
+87|| 3 | Interaction prompts present but may be generic. Some sections missing prompts. Navigation is functional but could be clearer. |
+88|| 1 | No interaction prompts. Passive reading only. No navigation guidance. |
+89|
+90|**Verification prompt for Haiku:**
+91|> "Does every section have both a 'Try this in Hermes' and 'Try this in Claude' interaction prompt? Are there explain-out-loud prompts mid-section? Can the learner navigate between sections easily?"
+92|
+93|---
+94|
+95|## Dimension 6: Assessment Quality (Achieve §4 · QM §3)
+96|
+97|*Quality of assessment. Pretest/posttest alignment. Mastery-based progression indicators.*
+98|
+99|| Score | Criteria |
+100||-------|----------|
+101|| 5 | Section-level assessment items directly test CARRY and RECONSTRUCT items. Module-level pretest and posttest exist. Clear mastery thresholds. |
+102|| 3 | Some assessment items present but may not align with CARRY/RECONSTRUCT tiers. Module-level assessment exists but lacks thresholds. |
+103|| 1 | No assessment items. No way to verify learner mastery. |
+104|
+105|**Verification prompt for Haiku:**
+106|> "Does this section have a way for the learner to verify they've mastered the material? Do exercises match the CARRY and RECONSTRUCT items stated?"
+107|
+108|---
+109|
+110|## Dimension 7: Cross-Module Consistency (Achieve §1 · Extended)
+111|
+112|*Definitions, notation, and theorems are consistent across sections and with adjacent modules. Forward references are accurate.*
+113|
+114|| Score | Criteria |
+115||-------|----------|
+116|| 5 | Notation is uniform across all 17 sections of M01. Forward references to M02-M23 are accurate and specific. No contradictory definitions. |
+117|| 3 | Most notation is consistent. Minor inconsistencies across sections. Forward references are vague but not wrong. |
+118|| 1 | Notation changes between sections. Forward references are inaccurate or hallucinated. |
+119|
+120|**Verification prompt for Haiku:**
+121|> "Check notation consistency across all sections. Does `A` mean the same thing in sections 1 and 6? Are forward references to M02 (Calculus) and M23 (Transformers) accurate?"
+122|
+123|---
+124|
+125|## Dimension 8: Code Correctness (Extended · Computational Requirement)
+126|
+127|*All Python/NumPy code blocks compile and produce correct output. No synthetic results.*
+128|
+129|| Score | Criteria |
+130||-------|----------|
+131|| 5 | All code blocks are syntactically valid. Comments explain what each block demonstrates. Outputs are correct for the stated problem. |
+132|| 3 | Most code blocks are correct. Minor issues (e.g., undefined variable, wrong import). Comments may be sparse. |
+133|| 1 | Code has syntax errors. Outputs are hallucinated (no actual run). Code doesn't demonstrate what it claims. |
+134|
+135|**Verification prompt for Haiku:**
+136|> "Review every Python code block. Is the syntax valid? Would it run without errors? Does the code actually demonstrate the mathematical concept it claims to show?"
+137|
+138|---
+139|
+140|## Dimension 9: Accessibility (LORI §7 · Achieve §8 · QM §8)
+141|
+142|*Support for the learner's specific accessibility needs. ADHD-friendly formatting (short sections, clear headings, concrete next actions).*
+143|
+144|| Score | Criteria |
+145||-------|----------|
+146|| 5 | Short sections (< 400 lines). Clear hierarchical headings. Every section ends with a concrete next action. No spatial-diagram dependencies (operational descriptions instead). |
+147|| 3 | Moderate section lengths. Headings present but could be clearer. Some spatial language used. |
+148|| 1 | Long, undifferentiated walls of text. Heavy spatial/visual dependency. No concrete closure. |
+149|
+150|**Verification prompt for Haiku:**
+151|> "Is this section short enough to be read in one sitting (< 400 lines)? Are headings clear and hierarchical? Does the section avoid relying on spatial diagrams? Does it end with a concrete next action?"
+152|
+153|---
+154|
+155|## Dimension 10: Open Research Framing (Achieve §7 · Extended)
+156|
+157|*Open problems and research frontiers are correctly framed. Known unknowns are distinguished from settled science.*
+158|
+159|| Score | Criteria |
+160||-------|----------|
+161|| 5 | Open problems are clearly labeled as "active research" or "unsolved." Speculation is flagged as such. References to "current research" cite actual directions. |
+162|| 3 | Most open problems are correctly framed. Occasional overconfidence about unsettled questions. |
+163|| 1 | Open questions presented as settled science. Speculation presented as fact. Hallucinated "current research" directions. |
+164|
+165|**Verification prompt for Haiku:**
+166|> "Are any claims about 'open problems' or 'active research' actually settled science? Is speculation clearly flagged? Could a reader distinguish what's known from what's debated?"
+167|
+168|---
+169|
+170|## Automation
+171|
+172|This rubric is applied by Haiku via Claude Code CLI:
+173|
+174|```bash
+175|claude -p "$(cat verification-prompt.txt)" --model haiku --output-format json --max-turns 30
+176|```
+177|
+178|The prompt embeds all 10 dimensions with the specific verification questions listed above. The output is a structured JSON report with per-section PASS/FLAG/FAIL and a confidence score (0.0-1.0) for each dimension.
+179|
+180|---
+181|
+182|## References
+183|
+184|- Nesbit, J. C., Belfer, K., & Leacock, T. (2004). *Learning Object Review Instrument (LORI 1.5)*. E-Learning Research Group, Simon Fraser University.
+185|- Achieve (2011). *Rubrics for Evaluating Open Education Resource (OER) Objects.* Washington, DC: Achieve.org.
+186|- Mayrberger, K., Zawacki-Richter, O., & Müskens, W. (2018). *Quality Assurance for Open Educational Resources: The OERTrust Framework.* In: Handbook of Open, Distance and Digital Education. Springer.
+187|- Quality Matters (2023). *Higher Education Rubric, Seventh Edition.* MarylandOnline. [Proprietary — referenced for architecture, not reproduced]
+
+## INSTRUCTIONS
+
+For EACH of the 17 sections below:
+
+1. Read the file
+2. Score it on ALL 10 dimensions (1-5)
+3. Record PASS/FLAG/FAIL (PASS = all dimensions ≥ 3, FLAG = one dimension ≤ 2, FAIL = multiple dimensions ≤ 2)
+4. List specific issues found
+
+Be strict. PhD-level standards. A score of 3 means "meets standard" — not exceptional, but adequate.
+
+## Sections to Verify
+
+foundations/01-primer.md
+foundations/02-fields-number-systems.md
+foundations/03-vector-spaces-deep.md
+foundations/04-linear-independence-basis.md
+foundations/05-four-subspaces.md
+foundations/06-dot-product-geometry.md
+theory/01-vector-spaces.md
+theory/02-inner-products.md
+theory/03-eigendecomposition.md
+theory/04-singular-value-decomposition.md
+theory/05-matrix-decompositions.md
+theory/06-spectral-analysis.md
+theory/07-attention-mechanisms.md
+theory/08-nn-weight-matrices.md
+theory/09-open-problems.md
+theory/10-connections.md
+theory/11-summary.md
+
+Return a structured JSON report in this exact format:
+{"sections": {"foundations/01-primer.md": {"verdict": "PASS|FLAG|FAIL", "scores": {"Content Quality": 5, "Learning Goal Alignment": 4, ...}, "issues": [], "confidence": 0.0-1.0}, ...}, "summary": {"pass": N, "flag": N, "fail": N, "total": N}, "overall_assessment": "..."}

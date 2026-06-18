@@ -1,0 +1,95 @@
+## LEARNER PROFILE (embed into every decision)
+
+The learner (Scott, L001):
+- Working memory load sensitivity: HIGH — reduce symbol density, increase scaffolding
+- Preferred entry modality: project-based > visual-spatial > narrative > symbolic
+- Formalism density target: 0.4 (moderate — ~40% symbolic, 60% conceptual bridges)
+- Bridge density: HIGH — always 1 conceptual bridge before every formal definition
+- Example density: HIGH — 2 worked examples per major section, with ML-grounded numbers
+- Exercise format: COMPUTATIONAL only — Python/NumPy/SymPy code blocks. Never paper.
+- Memory tiers: 7 items CARRY (memorize), 10 RECONSTRUCT, 8+ LOOKUP
+- Poor visualization: use operational/kinesthetic descriptions, not spatial diagrams
+- Code-native workflow: everything at a computer with hands-on Python
+- Prior knowledge: scattered-intermediate in linear algebra, expert in programming
+
+## GENERATION DIRECTIVES
+
+1. NEVER paper-only exercises — computational (Python/NumPy) always
+2. Surface cross-domain connections to ML, to H&C platform, to Scott's own understanding
+3. Use warm vocabulary: eureka, grok, hearth, fire. Academic tone with casual jokes. Heavy metaphor.
+   AVOID: leverage, synergy, game-changer, granular, democratize, revolutionize.
+4. Each section must include:
+   - Conceptual bridge before formal definitions
+   - Inline symbol definitions on first use
+   - Python computational example
+   - Section recap with explain-out-loud prompt
+   - Memory tier update (CARRY / RECONSTRUCT / LOOKUP for THIS section)
+   - "Try this in Hermes: ... Try this in Claude: ..." interaction prompt
+
+## GENERATION CONFIG
+- memory_tiers_required: true, explain_out_loud_prompts: true, section_recaps: true
+- symbol_inline_definitions: true, operational_subspace_descriptions: true
+- memorability_hooks: true, dependency_callouts: true
+- formalism_density: 0.4
+
+## CALIBRATION TARGET: MIT 18.06 (Strang) — doctoral depth with ML emphasis.
+
+The foundations primer (01-primer.md) is already complete — it covers the pre-reading map, symbol reference, and the core intuition of vector spaces. These sections build on it.
+
+Generate FIVE foundation files and TWO theory files.
+
+### FILE: foundations/02-fields-number-systems.md — Fields: The Ground Beneath Vector Spaces
+- Opening: "a vector space needs numbers to scale by. Those numbers come from a field."
+- What is a field? (operational: a universe where add, subtract, multiply, divide all work)
+- R, C, Q as examples. Why Z fails (no division).
+- Rationale: ML lives in R, but complex numbers appear in Fourier/spectral methods
+- Python: demonstrate field axioms on real vs. integer operations
+- Connection to ML: why neural network weights are real numbers, but quantum ML uses complex
+
+### FILE: foundations/03-vector-spaces-deep.md — Vector Spaces from First Principles
+- Building from the field up: V over F
+- The eight axioms as "these rules let us do algebra without coordinates"
+- Subspaces as self-contained neighborhoods
+- Linear combinations: the fundamental operation
+- Python: implement vector space operations as a simple class
+
+### FILE: foundations/04-linear-independence-basis.md — Independence, Basis, Dimension
+- Independence as non-redundancy: "no direction is a shortcut through the others"
+- Span + independence = basis
+- Dimension as the size of the alphabet
+- Change of basis: representing the same vector in different coordinate systems
+- Python: check independence with rank, visualize basis change
+
+### FILE: foundations/05-four-subspaces.md — The Four Fundamental Subspaces
+- Column space C(A): what the map can reach
+- Null space N(A): what the map destroys
+- Row space C(A^T): the other view
+- Left null space N(A^T): the dual destruction
+- The fundamental theorem: dim C(A) = dim C(A^T), dimensions add to n
+- Python: compute bases for all four subspaces of a matrix
+
+### FILE: foundations/06-dot-product-geometry.md — Dot Product, Norm, and Projection
+- Dot product as the measurement tool: "how much do these vectors align?"
+- From dot product to norm (length) to distance (metric)
+- Orthogonality as zero alignment
+- Projection onto a line and a plane
+- Python: projection operator from scratch, least squares in 2D
+
+### FILE: theory/10-connections.md — Connections to Adjacent Modules
+- Bridge to M02 (Calculus): Jacobian as matrix of partial derivatives, gradient as linear approximation
+- Bridge to M03 (Probability): covariance matrix as eigendecomposition, Gaussian as exponential of quadratic form
+- Bridge to M04 (Statistics): linear regression as projection, PCA as SVD
+- Bridge to M21 (Neural Networks): backpropagation as chain rule on linear maps
+- Bridge to M23 (Transformers): the entire architecture is linear algebra + softmax
+- Python: show the shared mathematical skeleton across modules
+- Interaction prompt: "Trace the linear algebra through a transformer's forward pass"
+
+### FILE: theory/11-summary.md — Module Summary
+- The seven intuitions: vector space → inner product → eigen → SVD → decompositions → spectral → ML applications
+- What to carry (memorize forever): rank, dimension, eigendecomposition, SVD
+- What to reconstruct: all derivations start from Av=λv and A=UΣV^T
+- What to lookup: specific decomposition algorithms, API references
+- Learning progression checklist: which sections to revisit
+- Final reflection prompt
+
+Write ALL seven files to disk. Confirm each was written.

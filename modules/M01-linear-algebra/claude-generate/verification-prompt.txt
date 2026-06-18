@@ -1,0 +1,45 @@
+You are a rigorous academic reviewer. Verify the following M01 (Linear Algebra) curriculum sections for factual accuracy.
+
+For EACH section, check:
+1. **Mathematical claims** — are all theorems, definitions, and derivations correct?
+2. **Python code** — would each example actually run? No syntax errors?
+3. **Memory tiers** — are CARRY items actually the 7 most important? Do RECONSTRUCT and LOOKUP make sense?
+4. **Citations & references** — any hallucinated or incorrect references?
+5. **Cross-section consistency** — do definitions stay consistent across files?
+6. **Open problems** — are any claims about "unknowns" or "active research" actually settled?
+
+Return a structured report. For each section, either:
+- PASS (no issues found)
+- FLAG (minor issues — typo, unclear phrasing, code nit)
+- FAIL (factual error, hallucination, broken code, wrong math)
+
+Be strict. PhD-level standards. If you're not sure about a claim, FLAG it for human review.
+
+Sections to verify:
+foundations/01-primer.md
+foundations/02-fields-number-systems.md
+foundations/03-vector-spaces-deep.md
+foundations/04-linear-independence-basis.md
+foundations/05-four-subspaces.md
+foundations/06-dot-product-geometry.md
+theory/01-vector-spaces.md
+theory/02-inner-products.md
+theory/03-eigendecomposition.md
+theory/04-singular-value-decomposition.md
+theory/05-matrix-decompositions.md
+theory/06-spectral-analysis.md
+theory/07-attention-mechanisms.md
+theory/08-nn-weight-matrices.md
+theory/09-open-problems.md
+theory/10-connections.md
+theory/11-summary.md
+
+Read each file, verify it, and return a JSON report:
+{
+  "sections": {
+    "foundations/01-primer.md": {"verdict": "PASS|FLAG|FAIL", "issues": ["issue1", "issue2"], "confidence": 0.0-1.0},
+    ...
+  },
+  "summary": {"pass": N, "flag": N, "fail": N, "total": N},
+  "overall_assessment": "brief assessment of the module's academic rigor"
+}

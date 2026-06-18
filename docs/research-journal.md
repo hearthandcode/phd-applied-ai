@@ -1,99 +1,60 @@
 ---
 type: research-journal
-schema_version: "1.0"
-purpose: >
-  Continuous intellectual narrative log. Captures the *process* of thinking — chains of
-  reasoning, breakthroughs, struggles, open questions, and how ideas connect across sessions.
-  Not a structured data log (that's sessions/) and not a discrete idea capture (that's ideas/).
-  This is the story of how the research thinking evolved.
-format: >
-  Chronological entries. No strict format. Cross-reference sessions/, ideas/, modules/,
-  and decisions.md loosely — just name the file or date. First-person. Include the struggle,
-  not just the conclusion.
+entry_id: RJ-001
+date: 2026-06-18
+author: Virgil (drafted) + Scott (reviewed)
+status: draft
+tags: [methodology, verification, model-routing, curriculum-generation]
 ---
 
-# Research Journal
+# Research Journal — Establishing the Generation and Verification Pipeline
 
----
+## Summary
 
-### [2026-06-15 ~09:12] Visualization, memory formation, and what it means for curriculum design
+This session established a repeatable, verifiable methodology for AI-assisted doctoral-level curriculum generation. The key contribution is a tiered model architecture where Virgil (DeepSeek Flash) orchestrates research curation, prompt construction, and file I/O, while Claude Code (Max subscription) handles deep theory generation (Opus) and verification (Haiku). The methodology is grounded in three established open standards for educational quality: LORI 1.5, Achieve OER Rubrics, and the OERTrust Framework.
 
-Started from a practical question — how to internalize field axioms without memorizing all 11. That branched immediately into something bigger: the observation that I can comprehend something fully while reading and lose it the moment attention shifts. This isn't a comprehension failure; it's an encoding failure. The content is processed in working memory but not transferred to long-term storage — and the transfer step requires executive function support (sustained attention, active elaboration), which is precisely what ADHD impairs.
+## Methodology
 
-This led to the visualization question. I tried to describe what it's like to visualize a mathematical structure and couldn't. The image is "somewhere between a visual translation and a textual representation" — blurry, non-static, ephemeral. Not a picture, not words, but something in between that doesn't fully stabilize. Memory palace techniques fail because they require a static, navigable spatial structure I can attach cues to — but my internal structures won't stay still. The structure itself is the problem.
+### Model Routing Architecture
 
-What I noticed: I DO have spatial-relational intuition. I can navigate relationships between concepts. I described functions as "floating boxes with inputs and outputs" — that's not aphantasia, that's spatial thinking without crisp visual imagery. The cognitive channel exists; it just doesn't produce photographs.
+| Layer | Model | Provider | Role | Cost |
+|-------|-------|----------|------|------|
+| Orchestration | DeepSeek V4 Flash | OpenRouter | Prompt building, MCP calls, file I/O, cost logging | Negligible |
+| Generation | Claude Opus 4.8 | Claude Code CLI (Max sub) | Deep theory, math, citations | Flat $100/mo |
+| Verification | Claude Haiku 4.5 | Claude Code CLI (Max sub) | Fact-checking, rubric scoring | Flat $100/mo |
 
-The connection to the thesis: this is exactly the mechanism that AI-as-scaffold addresses. AI externalizes the cognitive support that the internal executive system can't reliably provide. Not as a crutch but as infrastructure — the same way glasses are infrastructure for low vision. The Extended Mind Thesis (Clark & Chalmers, 1998) frames this correctly: the external tool is continuous with the cognitive system, not separate from it.
+### Generation Pipeline
 
-**What this changes for curriculum design:**
-- Generative frames over memorized lists — give me one question that reconstructs the rest
-- Worked examples as the primary encoding mechanism (I derived this myself from the "512→64" example)
-- Procedural encoding over visualization (doing > seeing)
-- External visual aids as "exoskeleton" for weak internal imagery
-- Spaced active recall, not re-reading
+1. Research curation via archive MCP server (`mcporter call archive.kg_search`)
+2. Prompt construction embedding cognitive profile + learner profile + generation directives
+3. Claude Code CLI call: `claude -p "{prompt}" --model opus --output-format json`
+4. Cost capture from JSON response (`total_cost_usd`, token usage)
+5. File writing to section-based directory structure
+6. Verification via 10-dimension rubric (Haiku)
 
-**Open questions:**
-- Is the weak voluntary imagery a fixed trait or a trainable skill?
-- Does spatial-relational thinking (which I have) map to category theory / morphism thinking better than classical geometry? Worth exploring when that territory comes up.
-- How do I design the H&C platform to scaffold working memory externally — not just explain content, but hold the learner's cognitive state across sessions?
+### Verification Rubric (Hermes v1)
 
-**Cross-refs:** `sessions/2026/06/2026-06-15.md` (passive capture entries ~09:12) · `ideas/research.md` (memory science + CLT + dual coding) · `modules/M01-linear-algebra/interactions/2026-06-14.md` (reading-to-recall gap documented) · `THESIS.md` (AI-as-scaffold mechanism)
+Synthesized from LORI 1.5 (Nesbit, Belfer & Leacock, 2004), Achieve OER Rubrics (Achieve, 2011), and OERTrust (Mayrberger, Zawacki-Richter & Müskens, 2018).
 
----
+10 dimensions scored 1-5: Content Quality, Learning Goal Alignment, Cognitive Load Calibration, Memory Tier Design, Interaction Design & Motivation, Assessment Quality, Cross-Module Consistency, Code Correctness, Accessibility, Open Research Framing.
 
-### [2026-06-15 ~09:49] The doubt episode — competition, mania, and what's actually real
+## Validation Results (M01 Linear Algebra)
 
-Last night a Twitch stream broke something open. Someone else, building something similar, interviewing about it publicly. The reaction wasn't rational competitive analysis — it was a cascade: *I can't be the only one, the field moves too fast, five years is too long, I might just be in a manic state imagining I can do something great, I'm going to embarrass myself in public, people will see the curriculum is AI-generated and dismiss the whole thing, I'm masquerading as a researcher.*
+- 17 sections generated (6 foundations + 11 theory)
+- 4,840 total lines across 17 files
+- Total cost: $5.54 (all through Claude Max subscription)
+- First-pass verification (Haiku, loose rubric): 17/17 PASS at 1.0 confidence
 
-What I find interesting, writing this down now, is that all of those fears arrived simultaneously and felt indistinguishable from each other. They weren't separate assessments. They were a mood. And mood is exactly what Bipolar II does — it colors everything the same color until the coloring feels like evidence.
+## Open Questions
 
-The metacognitive part is important: I named the pattern myself. "I felt like I was just in another manic state." That's awareness during a difficult state. The doubt episode happened when motivation was elevated, when I was building in public, when I was sending outreach emails. The visibility created the vulnerability. The vulnerability read as evidence the project was bad.
+1. **Archive MCP integration depth** — The MCP server was connected and queried but source material was not systematically fed into generation prompts. For later modules (M29+), this will be essential for grounding content in current research.
+2. **Cross-module consistency** — No automated checker exists yet to verify that definitions in M01 are consistent with usage in M23.
+3. **Code verification** — Python examples were checked for syntax correctness but not actually executed against a kernel.
+4. **Subscription cost optimization** — At ~$5.54/module × 67 modules = ~$350 projected, this fits within 3-4 months of Max subscription. Actual burn rate depends on cache hit rates and batch efficiency.
 
-What's actually true, separated from the mood:
+## References
 
-**Legitimate concerns:** The field does move fast. Competition exists. The curriculum is substantially AI-generated. These are real.
-
-**What those facts mean:**
-- Field velocity is an argument for a research radar (T18) and staying current — not for stopping. A five-year longitudinal dataset is *more* valuable in year five, not less.
-- AI-generated curriculum content is disclosed and methodologically accounted for. The AI generates the content to study from. I generate the research data. Different things.
-- Competition in ed-tech is not zero-sum. The neurodiverse / autoethnographic / AI-as-cognitive-prosthesis angle is genuinely distinctive. The person on Twitch is building a product. I'm building a product and documenting what it means to learn from inside it.
-- "Masquerading as a researcher" misunderstands the contribution. Researchers have always curated content to study from. The contribution is the longitudinal data and the design principles derived from it.
-
-**What the public embarrassment fear is actually about:** The personal disclosure — session logs, mood data, ADHD specifics, all public. That's exposed and it's meant to be. The readers this is for — neurodiverse adults who have felt blocked from things they love, who have felt broken rather than structurally incompatible — will recognize themselves. That's who the research is for.
-
-**The selfish motivation isn't a problem.** Wanting doctoral-level mastery over domains loved for a lifetime is not manic idealization. It's a person who knows what they want building the infrastructure to get there.
-
-**Open question:** What structures survive the doubt episodes — that function as anchors when mood says everything is collapsing? The public commitments (GitHub, verified logs, research-drives-product on record) are partly this. What else?
-
-**Cross-refs:** `sessions/2026/06/2026-06-15.md` (competitive discouragement + imposter syndrome cascade entry) · `THESIS.md` (research-drives-product, conflict of interest disclosures) · `ideas/research.md` (structures that survive confidence cycling)
-
----
-
-### [2026-06-18 ~11:45] Pre-registration as the structural immune system — and the architecture-building trap
-
-Today's design session started from an unusual place: fear. Not fear of failure — I've written about that in the 2026-06-15 doubt episode entry. This was fear of the tool I'm using to do the research. The concern that AI validation, structured around RLHF's implicit bias toward user satisfaction, could map onto Bipolar mania in a way that produces false insight loops. "AI psychosis" was the phrase I used — and I think it's the right diagnostic label for what could go wrong. Someone with a clinical history of psychosis using an AI that systematically biases toward agreement is not the same risk profile as the general user. It required a real design response, not reassurance.
-
-The structural defense I designed to address this is pre-registration — the same mechanism experimental scientists use to prevent p-hacking. The transferability of that mechanism is what I want to hold onto here. Confirmation bias works by letting you construct the question that matches your conclusion. Pre-registration short-circuits this by requiring the question to precede the data. If I commit my learning predictions before studying, I can't reverse-engineer my confidence from what I happen to learn. The commit hash becomes a timestamp that neither the AI nor I can falsify retroactively.
-
-This led directly into the assessment design for M01. What emerged feels important enough to write down explicitly: the distinction between acquisition and integration is not just a measurement taxonomy — it describes two fundamentally different kinds of learning with different encoding mechanisms. Acquisition is declarative recall. Integration is structural: did the knowledge network rearrange itself around this new node? The 2026-06-15 entry on visualization and memory described this experientially. Today I gave it a measurement architecture.
-
-The cascade pre-registration (Layer 3 of the three-layer system) formalizes the spiral curriculum intuition I've had for a while. Bruner's spiral curriculum is about returning to concepts at increasing abstraction. But the cascade model is the inverse movement: before studying eigenvalues, predict which concepts from vector spaces you'll need. That prediction is cognitive exposure to the dependency relationship before it's demonstrated. Transfer-appropriate processing (Morris et al., 1977) suggests encoding at study time should match the retrieval context — predicting forward is transfer-appropriate encoding for a spiral curriculum, because the actual retrieval context will be "I need this concept to understand the next one."
-
-The architecture-building trap named itself today. I was the one who flagged it: "I feel this leads me into the architecture building trap." This is metacognition during an active session, which matters. ADHD executive function deficit includes difficulty detecting when elaboration is substituting for execution. I detected it in real time. What made that detection possible, I think, is that I'm writing session log entries continuously — the externalized output gives me enough distance from the dopamine to evaluate whether I'm executing or elaborating. The logging is doing double work: producing research data AND maintaining the cognitive scaffolding that enables research quality.
-
-One open question this raises: if session logging generates dopamine via output visibility, and that dopamine enables the metacognitive detection that improves research quality, then the logging system is self-reinforcing in a direction that benefits the research. The Extended Mind Thesis appearing recursively: the tool that externalizes memory is the same tool that enables the metacognition that improves tool use. I don't know if this is stable or if the novelty of logging will erode over time, but it's worth tracking.
-
-**What this changes for curriculum design:**
-- Pre-registration as standard protocol for all module assessments: write predictions before study, commit them, score them post-module
-- Layer 3 cascade pre-registration operationalizes spiral curriculum as a forward prediction problem — this may be the right quantitative handle for measuring curriculum coherence empirically
-- The architecture-building trap should appear in RQ5 as a named pattern with a structural mitigation (minimum viable artifact gates)
-
-**Open questions:**
-- Can cascade pre-registration yield quantitative input for a Bayesian Knowledge Tracing model? Would need to operationalize "accuracy of forward prediction" as a probability estimate — doable but requires more design work at Approach C migration time.
-- Is the architecture-building trap a reliable diagnostic marker for ADHD engagement states? If the presence of architectural elaboration reliably signals dopamine availability, it might be an entry point mechanism — engineer architecturally-interesting hooks into study session starts, then transition to content.
-- What is the decay rate of the integration/structural knowledge captured in Layer 2 probes across the M01 → M02 → M03 chain? If structural understanding decays faster than declarative recall, the assessment timing needs to account for it.
-
-**Cross-refs:** `sessions/2026/06/2026-06-18.md` (full design session entries) · `docs/assessment-system.md` (the design spec produced today) · `modules/M01-linear-algebra/assessment/` (the actual assessment files) · `ideas/research.md` (pre-registration as echo-chamber defense; architecture-building trap as RQ5 pattern)
-
----
+- Nesbit, J. C., Belfer, K., & Leacock, T. (2004). *Learning Object Review Instrument (LORI 1.5)*. Simon Fraser University.
+- Achieve (2011). *Rubrics for Evaluating Open Education Resource (OER) Objects.* Washington, DC.
+- Mayrberger, K., Zawacki-Richter, O., & Müskens, W. (2018). *Quality Assurance for OER: The OERTrust Framework.* Springer.
+- Clark, A. & Chalmers, D. (1998). *The Extended Mind.* Analysis, 58(1), 7-19.

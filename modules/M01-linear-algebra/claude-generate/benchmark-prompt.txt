@@ -1,0 +1,91 @@
+You are generating a doctoral-level linear algebra module for a self-directed PhD in Applied AI. This is part of the Hearth & Code curriculum — a gamified, adaptive, AI-native educational platform.
+
+## LEARNER PROFILE (embed these constraints into every decision)
+
+The learner (Scott, L001):
+- **Working memory load sensitivity: HIGH** — reduce symbol density, increase scaffolding
+- **Preferred entry modality:** project-based > visual-spatial > narrative (in that order)
+- **Formalism density target:** 0.4 (moderate — ~40% symbolic, 60% conceptual bridges and intuition)
+- **Bridge density:** HIGH — always 1 conceptual bridge paragraph before every formal definition. Sometimes 2 for especially dense material.
+- **Example density:** HIGH — 2 worked examples per major section, with ML-grounded numbers
+- **Checkpoint frequency:** ~5 per file (pause-and-explain prompts)
+- **Exercise format:** COMPUTATIONAL only — Python/NumPy/SymPy code blocks. Never paper-only exercises.
+- **Memory tiers:** 7 items max to CARRY (memorize), 10 to RECONSTRUCT, 8+ to LOOKUP
+- **Poor visualization ability:** use operational/kinesthetic descriptions of mathematical operations instead of spatial diagrams. "What does this operation DO" rather than "imagine the shape."
+- **Code-native workflow:** everything done at a computer with hands-on Python
+- **Prior knowledge:** scattered-intermediate in linear algebra (has pieces, no unified framework), expert in programming
+
+## GENERATION DIRECTIVES (apply these to the writing style)
+
+1. Surface cross-domain connections proactively — span is naturally 5+ domains
+2. Match task bundle density to context — batch related concepts together
+3. Open-ended framing for exploration; directive framing for execution
+4. NEVER suggest paper-only exercises — computational only
+5. Preserve stream-of-consciousness structure in content — branching, self-correcting, associative
+6. Use diverse formats matching the output
+7. Use warm vocabulary: eureka, grok, hearth, circle, fire. Academic tone with casual jokes. Heavy metaphor and analogy. AVOID: leverage, synergy, game-changer, granular, holistic (as buzzword), democratize, revolutionize.
+8. Emphasize strengths and cognitive gifts over obstacles — frame from capability
+9. Include personal anecdotes and reflections modeled after authentic experience
+
+## GENERATION CONFIG (from learner profile schema)
+
+- foundations_file_required: true
+- pre_reading_map_required: true
+- memory_tiers_required: true
+- explain_out_loud_prompts: true
+- section_recaps: true
+- cross_modal_quad: true
+- ascii_diagrams_where_applicable: true
+- symbol_inline_definitions: true
+- operational_subspace_descriptions: true
+- dependency_callouts: true
+- memorability_hooks: true
+
+## TASK: Generate TWO files for M01 (Linear Algebra for ML)
+
+Calibration target: MIT 18.06 (Gilbert Strang) — doctoral depth with ML emphasis.
+
+### FILE 1: foundations/01-primer.md — THE PRIMER
+
+This is a cognitive warm-up. It primes working memory BEFORE the learner touches theory. Not a summary — a structured preparation layer. Target length: ~800-1200 words.
+
+Structure:
+1. **Pre-reading map** (what you'll encounter and why the order matters)
+2. **Symbol reference card** (all notation used in the module, with plain-English meaning)
+3. **What you already know** (connects to existing knowledge — matrices as data tables, scaling numbers, adding coordinates)
+4. **What is a vector space?** (conceptual bridge FIRST, then formal definition, then the intuition: "a universe where addition and scaling make sense")
+5. **Why this matters for ML** (concrete: parameter spaces are vector spaces, embeddings live in vector spaces, every neural network layer defines one)
+6. **Memory tier summary** (what to CARRY, RECONSTRUCT, LOOKUP for this module)
+
+### FILE 2: theory/01-vector-spaces.md — SECTION 1: VECTOR SPACES AND LINEAR MAPS
+
+This is the first theory section. It builds directly on the foundations primer. Target length: ~1500-2000 words.
+
+Structure:
+1. **Opening** (1-2 paragraphs connecting back to the primer's intuition)
+2. **Abstract vector spaces** — formal definition with operational intuition
+3. **Linear independence, basis, dimension** — the alphabet of the space
+4. **The rank-nullity theorem** — conservation of information in linear maps
+5. **Linear maps and matrices** — the bridge from abstract to computational
+6. **Python computational example** — demonstrate basis, dimension, rank in NumPy (code block with output)
+7. **Applications to ML** — parameter spaces, LoRA compression, embedding dimensions
+8. **Section recap** with explain-out-loud prompt
+9. **Memory tier update** — what to carry, reconstruct, lookup from THIS section
+10. **Interaction prompt** — "Try this in Hermes: ... Try this in Claude: ..."
+
+## RESEARCH REFERENCES (from archive and MIT OCW)
+
+The following resources were discovered by the archive MCP server and are the relevant open-access materials for this section:
+- MIT OpenCourseWare 18.06 Linear Algebra (Strang) — the calibration target
+- MIT 18.06SC Linear Algebra — recitation videos and problem sets
+- MIT 18.024 Multivariable Calculus with Theory
+
+Write both files now. Output them as a JSON object with keys "foundations_primer" and "section_1" containing the markdown content.
+
+## OUTPUT INSTRUCTIONS (CRITICAL)
+Write BOTH files to disk:
+1. Write the foundations primer to: foundations/01-primer.md
+2. Write Section 1 to: theory/01-vector-spaces.md
+
+Return ONLY a JSON object confirming the files were written:
+{"foundations_primer": "written", "section_1": "written", "word_count_foundations": N, "word_count_section_1": N}
