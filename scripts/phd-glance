@@ -1,0 +1,66 @@
+#!/usr/bin/env bash
+# phd-glance - Quick curriculum status dashboard
+# Usage: phd-glance [--json|--refresh|--help]
+
+set -euo pipefail
+
+PHD_ROOT="/workspace/phd"
+SYNC_SCRIPT="$PHD_ROOT/scripts/sync-layer.py"
+GLANCE_SCRIPT="$PHD_ROOT/scripts/generate-glance.py"
+GLANCE_OUTPUT="$PHD_ROOT/curriculum-at-a-glance.md"
+
+usage() {
+    cat <<EOF
+phd-glance - PhD Curriculum at a Glance
+
+Usage: phd-glance [OPTION]
+
+Options:
+  (no args)    Show curriculum-at-a-glance.md (generates if missing/stale)
+  --json       Output raw JSON from sync-layer.py
+  --refresh    Force regenerate curriculum-at-a-glance.md
+  --help       Show this help
+
+Examples:
+  phd-glance              # View dashboard
+  phd-glance --json       # Machine-readable output
+  phd-glance --refresh    # Force update
+EOF
+}
+
+# Check if output is stale (older than any source file)
+is_stale() {
+    [[ ! -f "$GLANCE_OUTPUT" ]] && return 0
+    local source_newer
+    source_newer=$(find "$PHD_ROOT" -name "*.md" -newer "$GLANCE_OUTPUT" 2>/dev/null | head -1)
+    [[ -n "$source_newer" ]] && return 0
+    return 1
+}
+
+case "${1:-}" in
+    --help|-h)
+        usage
+        exit 0
+        ;;
+    --json)
+        python3 "$SYNC_SCRIPT"
+        exit 0
+        ;;
+    --refresh)
+        python3 "$GLANCE_SCRIPT"
+        cat "$GLANCE_OUTPUT"
+        exit 0
+        ;;
+    "")
+        if is_stale; then
+            python3 "$GLANCE_SCRIPT" >/dev/null
+        fi
+        cat "$GLANCE_OUTPUT"
+        exit 0
+        ;;
+    *)
+        echo "Unknown option: $1" >&2
+        usage >&2
+        exit 1
+        ;;
+esac

@@ -44,3 +44,6 @@ Thumbs.db
 
 # Personal notes that aren't meant for the public repo
 private/
+
+# Generated output from automation scripts
+output/
