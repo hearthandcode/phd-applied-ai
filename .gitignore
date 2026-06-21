@@ -47,3 +47,4 @@ private/
 
 # Generated output from automation scripts
 output/
+scripts/github-social-graph.py
