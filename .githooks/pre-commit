@@ -1,0 +1,60 @@
+#!/usr/bin/env bash
+# Pre-commit hook: data integrity + timestamp stamping
+#
+# 1. Blocks commits that modify verified session logs or audit entries
+#    without a signed addendum flag. (Data integrity — do not bypass.)
+# 2. Stamps [~EDT] placeholders in staged session log files with real time.
+
+set -e
+
+# ─── Part 1: Data Integrity ──────────────────────────────────────────
+FAIL=0
+for file in $(git diff --cached --name-only); do
+  case "$file" in
+    sessions/*)
+      if git show HEAD:"$file" 2>/dev/null | grep -q "^verified: true"; then
+        if git show :"$file" 2>/dev/null | grep -q "^verified: true"; then
+          if ! git show :"$file" 2>/dev/null | grep -q "^addendum: true"; then
+            echo "❌ BLOCKED: $file is a verified session log. Requires signed addendum."
+            FAIL=1
+          fi
+        fi
+      fi ;;
+    modules/*/audit.md)
+      if git show HEAD:"$file" 2>/dev/null | grep -q "^verified: true"; then
+        echo "❌ BLOCKED: $file contains a verified audit entry."
+        FAIL=1
+      fi ;;
+    THESIS.md|METHODOLOGY.md)
+      : ;; # No hook restriction — SOUL.md Tier A rules govern Virgil; author commits freely
+  esac
+done
+[ "$FAIL" -eq 1 ] && exit 1
+
+# ─── Part 2: Timestamp Stamping ───────────────────────────────────────
+# Stamp [~EDT] placeholders in session log files with current HH:MM TZ.
+MODIFIED_SESSION_FILES=()
+
+for file in $(git diff --cached --name-only --diff-filter=ACMR); do
+  case "$file" in
+    sessions/*)
+      if [ -f "$file" ]; then
+        if grep -q '\[~EDT\]' "$file" 2>/dev/null; then
+          HHMM=$(date "+%H:%M")
+          TZ=$(date "+%Z")
+          sed -i "s/\[~EDT\]/[${HHMM} ${TZ}]/g" "$file"
+          MODIFIED_SESSION_FILES+=("$file")
+        fi
+      fi ;;
+  esac
+done
+
+if [ ${#MODIFIED_SESSION_FILES[@]} -gt 0 ]; then
+  git add "${MODIFIED_SESSION_FILES[@]}"
+  echo "[pre-commit] Stamped [~EDT] placeholders in ${#MODIFIED_SESSION_FILES[@]} session log(s):"
+  for f in "${MODIFIED_SESSION_FILES[@]}"; do
+    echo "  - $f"
+  done
+fi
+
+exit 0
