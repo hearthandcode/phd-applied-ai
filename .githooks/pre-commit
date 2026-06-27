@@ -1,6 +1,6 @@
 #!/bin/sh
 # Pre-commit hook: scan for potential PII before allowing a commit
-# Installed at .git/hooks/pre-commit — runs on every `git commit`
+# Installed at .git/hooks/pre-commit: runs on every `git commit`
 
 # Patterns that should NEVER appear in committed session logs or research files
 PATTERNS="ssdi|social.security|dosage|prescribed"
@@ -25,7 +25,7 @@ changed_files=$(git diff --cached --name-only --diff-filter=ACM | \
     grep -E '\.(md|txt|csv|json|yaml|yml)$' || true)
 
 if [ -z "$changed_files" ]; then
-    echo "  No text files staged — PII scan skipped."
+    echo "  No text files staged: PII scan skipped."
     exit 0
 fi
 
@@ -34,7 +34,7 @@ for f in $changed_files; do
     # Build the file content with safe-field lines blanked out so the PII pattern
     # scan does not over-match on legitimate schema field names. SAFE_FIELDS
     # includes `medication_notes` (frontmatter placeholder for medication state
-    # tracking — the value, not the field name, is what matters and is usually
+    # tracking: the value, not the field name, is what matters and is usually
     # `not-recorded` / `n/a` / empty). The original content is restored after
     # the scan by piping the masked content through grep.
     safe_masked=$(sed -E "s/^(${SAFE_FIELDS}):.*/SAFE_FIELD_REDACTED:/" "$f")
