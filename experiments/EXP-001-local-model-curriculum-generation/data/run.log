@@ -1,0 +1,6 @@
+=== found-01-primer | mode=single | single=deepseek-r1:14b | 12:08:17 ===
+[found-01-primer] SINGLE deepseek-r1:14b @ http://100.91.68.54:11434 ...
+[found-01-primer] single deepseek-r1:14b done: 284.3s, 2555 tok, 9.6 tok/s
+=== found-01-primer complete 12:13:01 ===
+=== found-01-primer | mode=both | single=phi4-reasoning:plus | 12:13:35 ===
+[found-01-primer] SINGLE phi4-reasoning:plus @ http://100.91.68.54:11434 ...
