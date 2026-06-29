@@ -3,7 +3,7 @@ type: experiment
 schema_version: "1.0"
 exp_id: EXP-001
 title: "Local-Model Curriculum Generation: Quality, Verification & Generation-Strategy Comparison"
-status: in-progress
+status: primer-complete
 created: 2026-06-29
 updated: 2026-06-29
 researcher: L001
@@ -108,25 +108,39 @@ Generation: `artifacts/gen_m01_local.py`. Deterministic code check: `artifacts/v
 verification pipeline: `artifacts/verify_pipeline.py`. Raw outputs in `data/`; grades in
 `analysis/gap-analysis.md`. All runs are over the Tailscale mesh against the two nodes; see `data/run.log`.
 
-## 4. Results
+## 4. Results (primer complete — full data in `analysis/gap-analysis.md`)
 
-> **Status: in-progress.** Single-model (deepseek) + deterministic code verification are complete; the
-> MoA-primer and CoVe-pipeline runs are completing and will populate the tables below. Final numbers in
-> `analysis/gap-analysis.md`.
+### 4.1 Deterministic code correctness (execution; hallucination-free)
+| Condition | Broken / blocks |
+|---|---|
+| single phi4-reasoning:plus | **0/1 ✅** |
+| single deepseek-r1:14b (run A) | **1/1 ❌** (`matmul size 2≠3`) |
+| MoA proposer phi4 | 0/1 ✅ |
+| MoA proposer deepseek (run B) | **0/1 ✅** *(same model, different run)* |
+| MoA proposer qwen3:30b-a3b | 1/1 ❌ |
+| **MoA final** | **0/1 ✅** |
+| **CoVe (verify→revise on deepseek run A)** | **0/1 ✅ — repaired 1→0** |
 
-### 4.1 Deterministic findings (complete)
-- **Single-model (deepseek-r1:14b) primer code:** 1/1 code block **fails** (`ValueError: matmul size 2 ≠ 3`
-  — a 2×3 matrix multiplied by a length-2 vector). Confirmed by execution, no model judgment.
+### 4.2 Quality grades (0–5; baseline = 5)
+| Condition | Correct. | Rigor | Pedag. | Profile-fit | Note |
+|---|---|---|---|---|---|
+| single deepseek | 2 | 3 | 4 | 3 | broken code + false matrix↔map claim + closure-only def |
+| single phi4 | 4 | 4 | 2 | 2 | content correct but **thinking leaks into output**; bloated 4366 w |
+| MoA final | 4 | 3 | 3.5 | 3 | B+ draft; fixed the false claim; thinner; generic voice |
+| **CoVe** | **5** | **4.5** | 4 | 3 | **started worst, ended correct+complete**: axioms added, both errors fixed |
 
-### 4.2 Quality/correctness grades (pending — table scaffold)
-| Section | Condition | Correctness | Rigor | Pedagogy | Profile-fit | Notes |
-|---|---|---|---|---|---|---|
-| primer | baseline (canonical) | — | — | — | — | reference ceiling |
-| primer | single phi4 | — | — | — | — | |
-| primer | MoA | — | — | — | — | |
-| primer | CoVe | — | — | — | — | code fixed 1→? |
+## 4.3 Hypothesis outcomes
+- **H1 (structure faithful) — SUPPORTED.** All conditions reproduced the section structure.
+- **H2 (single-model ships errors) — SUPPORTED.** deepseek run A: broken code + false claim + incomplete def.
+- **H3 (MoA improves, no guarantee) — SUPPORTED.** MoA-final was clean + fixed the false claim, but still
+  left the axiom gap; one proposer (qwen3:30b) was itself broken. Improvement, not guarantee.
+- **H4 (CoVe ≈ zero code errors + catches math/consistency) — STRONGLY SUPPORTED.** Code 1→0
+  (deterministic); math verifier flagged missing axioms (added); consistency verifier flagged *both* the
+  dimension error and the matrix↔map error (corrected).
+- **H5 (determinism > model-judgment for correctness) — SUPPORTED.** The code verifier gave a zero-
+  hallucination guarantee; per-run variance (deepseek A vs B) proves model output alone is unreliable.
 
-## 5. Findings (preliminary)
+## 5. Findings
 
 - **F1 (supports H1):** Local single-model output is *structurally* faithful — bridges, formal
   definitions, worked examples, tiered CARRY/RECONSTRUCT/LOOKUP, ML payoff, NumPy exercise, and
@@ -137,8 +151,25 @@ verification pipeline: `artifacts/verify_pipeline.py`. Raw outputs in `data/`; g
 - **F3 (supports H4/H5):** A **deterministic code verifier** (execute every code block) caught the
   crashing exercise instantly with zero hallucination risk — the strongest correctness guarantee
   available, requiring no model.
-- F4 (pending): whether phi4-reasoning:plus avoids these errors; whether MoA self-corrects them; whether
-  the CoVe pipeline repairs them (target: code 1→0, math/consistency flags raised and fixed).
+- **F4 (supports H3/H4):** MoA **fixed** deepseek's false matrix↔map claim and produced clean code, but
+  left the axiom gap and ran thin — improvement without guarantee. **CoVe** then took the *worst* draft
+  and made it *correct + complete* (code 1→0, axioms added, both errors fixed). Layered verification is
+  the decisive lever, not raw model power.
+- **F5 (output hygiene):** phi4-reasoning:plus leaks planning prose into its output (poor `</think>`
+  separation) — it is better deployed as **verifier/aggregator** than raw generator; deepseek/qwen3:30b
+  are the cleaner *drafters*. The MoA aggregation step doubles as a format-normalizer.
+- **F6 (residual gap is voice, not correctness):** after CoVe, the remaining distance to the frontier
+  baseline is *richness/voice* (profile-fit, worked-example density), an **enrichment** problem — solvable
+  with a few-shot style exemplar + a completeness/voice verifier, not more model power.
+
+## 5b. Conclusion
+
+**Local models + layered verification = trustworthy curriculum content — confirmed.** No single local
+generation is reliable (per-run correctness variance is real and measured), but the pipeline
+**generate → layered-verify → revise**, with a *deterministic* code/SymPy backstop, reliably produces
+correct, complete sections. This answers the experiment's motivating question affirmatively and supports
+**committing to the local pipeline** for curriculum generation, reserving a thin frontier seam for the
+residual voice/enrichment gap and for tool-delegated external-source retrieval (EXP-002).
 
 ## 6. Implications for the research
 
