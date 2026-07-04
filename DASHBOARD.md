@@ -2,7 +2,7 @@
 type: curriculum-dashboard
 schema_version: "1.0"
 created: 2026-06-18
-updated: 2026-06-18
+updated: 2026-07-04
 learner_id: L001
 tags: [dashboard, curriculum, obsidian-dataview]
 ---
@@ -18,6 +18,36 @@ This dashboard uses [Obsidian Dataview](https://blacksmithgu.github.io/obsidian-
 You need the Dataview plugin installed and JavaScript queries enabled.
 
 To update: when you complete a section, update the `status` field in that section's frontmatter.
+
+---
+
+## Thesis refocus status: 2026-07-04
+
+The active redesign thread shifts this repo from an education-platform thesis toward:
+
+> **AI as a cognitive platform / cognitive prosthesis for neurodivergent adults, grounded in Extended Mind, documented through N=1 autoethnography.**
+
+The Hearth & Code platform remains the applied artifact. It is no longer the primary object of study. The primary object is the coupled human-AI cognitive system: task initiation, working memory, affect regulation, authorship, identity, continuity, and the conception-to-execution gap.
+
+### Read first
+
+| Doc | Why it matters | Status |
+|---|---|---|
+| `docs/redesign-2026-07/thesis-refocus-proposal.md` | Main thesis pivot: Extended Mind, cognitive scaffolding, platform as artifact | needs review |
+| `docs/redesign-2026-07/research-questions-proposal.md` | Proposed nRQ1 to nRQ5 and migration ripple | needs review |
+| `docs/redesign-2026-07/curriculum-structure-proposal.md` | Keeps the technical spine, adds cognitive science, philosophy, and disability studies tracks | needs review |
+
+### Current repo state found 2026-07-04
+
+- Branch is current with `origin/main`.
+- The three redesign proposal files above have local modifications with Scott's answers to open questions.
+- New July session logs exist locally and are untracked: `sessions/2026/07/2026-07-02.md`, `2026-07-03.md`, `2026-07-04.md`.
+
+### Next concrete action
+
+Decide whether nRQ1 and nRQ2 stay separate or merge, then create a canonical `curriculum/research-questions.yaml` and a forward `docs/redesign-2026-07/rq-crosswalk.md` before editing `THESIS.md`.
+
+Do not edit `THESIS.md` until Scott explicitly approves the redline.
 
 ---
 

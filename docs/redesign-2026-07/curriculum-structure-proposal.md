@@ -165,16 +165,21 @@ Modules M02–M45/M48/M51/M53/M56/M57/M60 and all of M62–M67: **kept, unchange
 ## 6. Open decisions requiring Scott's judgment
 
 1. **New-module numbering:** `N01–N07` (clear "new") vs. `M68–M74` (continues the series)?
+	1. Is there a way to determine the impact of changing module names? For example, M01 stays (M for math), but use track prefixes for the other modules and group them into discrete chunks? Or should we keep just the series as it is, M68-M74, and go from there?
+
 2. **How many new modules to actually generate vs. hold as scaffolded stubs.** Recommend
-   generating **N01 (Extended Mind)** and **N03 (Cognitive Neuroscience of EF)** first — they
-   are the theoretical core and the mechanism core; the rest can stay scaffolded until studied.
+   generating **N01 (Extended Mind)** and **N03 (Cognitive Neuroscience of EF)**
+	1. Lets not generate anything, but lets keep track of the order modules should be generated. I'd like to try and delegate that task to Hermes to generate the modules.
 3. **Demote or delete M50/M54?** Proposal demotes (keeps content, removes RQ-core status).
    Deleting would ripple into SCORECARD/overview totals.
+	1. Demote
 4. **Track vs. phase vocabulary:** replace "Phase 0–5" with "Track I–VI" everywhere, or keep
    phases as the *sequencing* mechanism and add tracks as a cross-cutting *tag*? (Recommend the
    latter — less ripple, phases still drive prerequisites.)
+	1. Keep phases as sequencing, and tracks as cross-cutting tag.
 5. **Reading-list depth:** the new Track II/IV modules are humanities-heavy; confirm the
    `reading_level: doctoral` calibration and archive-coverage expectations for non-CS material.
+	1. Yes, please. We should strive for a doctoral reading level, but remember, I'd like to develop that skill with the help of AI. If I had to read a dense paper on my own, I'd struggle to stay engaged. I need a framing for dense and complex topics that keeps sustained engagement with it. But we should adjust archive-coverage expectations and look to fill in as many of the missing gaps and expand our existing domains further.
 
 **Next:** Decide §6.1 (numbering) and §6.2 (which new modules to generate first); then a
 follow-up session can scaffold N01 and N03 using `/phd-generate` — no existing module is touched.

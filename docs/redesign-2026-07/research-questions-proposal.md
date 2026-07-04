@@ -156,11 +156,15 @@ entirely? (See curriculum proposal §5.)
 
 1. Adopt nRQ1–nRQ5 as written, or fewer (e.g., merge nRQ1+nRQ2 into one constitution-and-
    mechanism question, yielding 4 RQs)?
+	1. What do you think is better and more manageable? I feel 5 is fine, but if we might get a better cohesive piece with just 4, we can merge nRQ1 + nRQ2.
 2. `rq5_tags` → `rq_tags` hard rename vs. deprecated-alias window (§3.2)?
+	1. Lets do deplrecated-alias window if you feel that is safer.
 3. Build the single canonical `research-questions.yaml` source now, or keep hand-maintained
    copies (§3.3)?
+	1. Lets build the single canonical research-questions.yaml. In fact, that is a good data point. We should move as much of our stable and unchanging data to YAML files and use a mechanism to reference them where appropriate. Is there a way, for example, that we can write the THESIS so it is built from all our data sources or compiled from the data sources? Like run all that through an LLM model to generate a authoritative THESIS.md to work off of from the stuff in the data? I feel the curriculum structure, for example, should be managed data with as many metadata tags we can attach to it to define the shape and structure of that module's curriculum, and maybe tools to enable an LLM model to read it and generate content from?
 4. Crosswalk analytics at read time (§3.1) — acceptable, or do you want a separate
    `sessions/rq-crosswalk.md` reference file committed?
+	1. I don't think I understand this one, can you elaborate in a reply to me? What does rq-crosswalk.md do exactly?
 
 **Next:** Decide §5.1 (RQ count) first — everything else (dicts, commands, crosswalk) follows
 from the final RQ list. Nothing edits `THESIS.md` until that number is fixed.

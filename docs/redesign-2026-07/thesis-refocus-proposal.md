@@ -167,15 +167,19 @@ tracks to master each (see `curriculum-structure-proposal.md`).
    established "extended mind / cognitive scaffolding / cognitive extension" vocabulary?
    (Recommendation: retire it as the *headline* term, keep it as a one-line synonym for
    accessibility.)
+	1. Retiring it as a headline term seems the right fit, and keep it as a one-line synonym for accessibility.
 2. **Title wording** — the proposed title is long. Confirm the main title / subtitle split,
    and whether "possible autism" appears in the title, thesis body only, or PERSONA.md only.
+	1. I think possible autism in PERSONA.md only. If we can shorten and strengthen the title a bit, it did read as kind of long.
 3. **How hard to commit to the *constitution* (strong) reading** vs. the safer *complementarity*
    reading (Sutton/Menary — the extended system need not mirror internal process). A strong
    constitution claim is bolder and more attackable; complementarity is more defensible.
    This choice shapes nRQ1's framing.
+	1. This is a tough one, what do you suggest given what I'm trying to propose? I'd be willing to argue a strong constitution claim if its inline with what we are actually trying to model and propose in the study and relationship with the agents.
 4. **Disciplinary self-location** — is this still administered/branded as an "Applied AI/ML"
    PhD with a philosophy-of-mind core, or re-branded as cognitive science / philosophy of
    mind applied? (Affects README, committee composition, venue targeting.)
+	1. Another one I'm not sure, is there an intersection between Cognitive Science and Applied AI that might be applicable for this type of discipline, one that models cognition and ai as two distinct but capable modes of cognitive output?
 
 ---
 
