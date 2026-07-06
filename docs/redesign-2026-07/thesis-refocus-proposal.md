@@ -37,18 +37,18 @@ the entire thesis, not a chapter within it.
 
 ### 2.1 Title
 
-| | Text |
-|---|---|
-| **OLD** | *Adaptive AI-Native Learning Systems: Architecture, Pedagogy, and Ethics of a Next-Generation Educational Platform* |
+|         | Text                                                                                                                                                                            |
+| ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **OLD** | *Adaptive AI-Native Learning Systems: Architecture, Pedagogy, and Ethics of a Next-Generation Educational Platform*                                                             |
 | **NEW** | *The Extended Mind, Implemented: AI as Cognitive Scaffolding for Neurodivergent Adults — An Autoethnographic Study of Cognition, Identity, and the Conception-to-Execution Gap* |
 
 *(Shorter working title for talks/README: **"AI as Cognitive Scaffolding: The Extended Mind, Implemented."**)*
 
 ### 2.2 Central hypothesis
 
-| | Text |
-|---|---|
-| **OLD** | "Augmented intelligence — AI operating as a bidirectional cognitive extension, calibrated to a learner's individual personality and cognitive profile — enables learning outcomes that traditional institutional models of education failed to produce. For neurodiverse learners … it enables doctoral-level engagement that was previously structurally inaccessible." |
+|         | Text                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **OLD** | "Augmented intelligence — AI operating as a bidirectional cognitive extension, calibrated to a learner's individual personality and cognitive profile — enables learning outcomes that traditional institutional models of education failed to produce. For neurodiverse learners … it enables doctoral-level engagement that was previously structurally inaccessible."                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | **NEW** | "When an AI system is configured as a persistent, trusted, individually-calibrated cognitive partner, it functions as a **literal implementation of the Extended Mind thesis** (Clark & Chalmers, 1998): its representations and processes become genuine constituents of the subject's cognitive system rather than external aids to it. For a neurodivergent adult whose executive function is unevenly available and whose *cognition is inseparable from identity*, this extended cognitive system externalizes executive function, closes the conception-to-execution gap, and thereby makes doctoral-level intellectual work possible that unscaffolded cognition and conventional institutions did not produce. These claims are advanced as **generative hypotheses from an N=1 autoethnography**, not as generalizable findings." |
 
 **What changed and why it matters:**
