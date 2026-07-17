@@ -6,6 +6,20 @@ Format adapted from [Keep a Changelog](https://keepachangelog.com).
 
 ---
 
+## 2026-07-17 — Governed Knowledge-Work Redesign Proposal
+
+### Added
+- `docs/redesign-2026-07/2026-07-17_research-program-direction-changelog.md` — a forward-looking proposal that reframes the program around governed AI-augmented knowledge work, provenance, review, recovery, and a cognitive workbench. It records explicit non-actions for thesis text, raw records, modules, and runtime configuration.
+- `docs/redesign-2026-07/2026-07-17_curriculum-architecture-v2-83-modules.md` — a source-grounded candidate architecture preserving M01-M67 and proposing M68-M83. It sets seven flexible study windows, distinct tracks, cross-cutting lenses, and a module-generation gate.
+- `docs/redesign-2026-07/2026-07-17_session-record-continuity-proposal.md` — a review-gated session-record method proposal that separates observable events, subject report, draft records, and derived analysis.
+- `docs/redesign-2026-07/2026-07-17_agent-assisted-capture-contract.md` — an implementation-neutral pending-capture contract with explicit prohibition of inferred self-report, automatic public writes, automatic verification, and default memory injection.
+
+### Notes
+- These are proposals. They do not revise `THESIS.md`, `METHODOLOGY.md`, existing modules, session records, scorecards, audit rows, or runtime configuration.
+- The curriculum count is a candidate architecture, not authorization to generate modules or treat its sequence windows as a valid prerequisite schedule. The existing Phase 4 prerequisite cycle remains a separate repair task.
+
+---
+
 ## 2026-06-15 — Research Question Refinement (v3, finalized)
 
 ### Changed
